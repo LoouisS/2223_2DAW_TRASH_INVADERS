@@ -38,8 +38,9 @@ export class Vista3 extends Vista {
 
     inicializarEventosTeclado() {
         window.addEventListener('keydown', (event) => this.teclaPresionada(event));
+        window.addEventListener('keyup', () => this.teclaLiberada());
     }
-
+    
     teclaPresionada(event) {
         console.log('Tecla presionada:', event.key);
         if (!event.repeat) {
@@ -57,11 +58,28 @@ export class Vista3 extends Vista {
                     this.direccionX = 1;
                     break;
                 default:
+                    // Ignorar otras teclas
                     break;
             }
-            this.moverImagen();
+    
+            // Utilizamos setInterval para mover continuamente mientras la tecla está presionada
+            if (!this.intervalId) {
+                this.intervalId = setInterval(() => this.moverImagen(), 16); // 60 fps
+            }
         }
     }
+    
+    teclaLiberada() {
+        // Detenemos el intervalo al soltar la tecla
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+    
+        // Detener el movimiento al soltar la tecla
+        this.direccionX = 0;
+        this.direccionY = 0;
+        this.moverImagen();
+    }
+    
 
     moverImagen() {
         console.log('Moviendo la imagen...');

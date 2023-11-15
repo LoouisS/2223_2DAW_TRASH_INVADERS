@@ -48,7 +48,6 @@ class Controlador{
         this.ocultarVistas()
         this.vistas.get(vista).mostrar(true)
         this.vistaActual = vista // Actualiza la vista actual
-        this.actualizarInterfaz() // Llama a la función para manejar la lógica de la interfaz
     }
 
     ocultarVistas(){
@@ -56,7 +55,21 @@ class Controlador{
             vista.mostrar(false)
     }
 
-    
+    cargarLoginEnVista1() {
+        const divVista1 = document.getElementById('divVista1');
+
+        // Obtener el contenido de login.html
+        fetch('../diseño/login.html')
+            .then(response => response.text())
+            .then(loginContent => {
+                // Agregar el contenido de login.html a divVista1
+                divVista1.innerHTML = loginContent;
+            })
+            .catch(error => console.error('Error al cargar login.html:', error));
+    }
+
+
+
     setVidas(vidas) {
         this.modelo.guardar("vidas",vidas)
     }
@@ -66,4 +79,7 @@ class Controlador{
 }
 
 // Cuando se carga la página, se crea una instancia del controlador
-window.onload = () => { new Controlador() }
+window.onload = () => {
+    const controlador = new Controlador();
+    controlador.cargarLoginEnVista1();
+};

@@ -15,5 +15,7 @@ export class Vista1 extends Vista{
     this.controlador.setVidas(this.iVidas.value)
     this.controlador.verVista(Vista.VISTA2)
    }
+
+   
 }
 
