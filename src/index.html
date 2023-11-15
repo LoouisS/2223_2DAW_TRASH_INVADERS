@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="Guillermo,David,Antonio" />
-        <title>Pantalla Inicio</title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-    </head>
-    <body>
-        <div id="vista1" class="vista" style="display:none;">
-            <h2>Vista 1</h2>
-            <p>Este es el contenido de la primera vista.</p>
-        </div>
+<html lang=es>
+	<head>
+		<meta charset=utf-8 />
+		<meta name=viewport content='width=device-width, initial-scale=1' />
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/estilos.css">
+		<title>Trash Invaders</title>
+	</head>
+	<body>
+		<div id=divVista1>
+			<h2>Soy la vista 1</h2>
+			<!--Metere el Mockup-->
+			<p>Enlace a Vista2</p>
+			<input/>
+		</div>
+		<div id=divVista2>
+			<h2>Soy la vista 2</h2>
+			
+			<a href=#>Enlace que no navega</a>
+			<!--Metere el Mockup-->
+		</div>
+		<div id=divVista3>
+			<h2>Soy la vista 3</h2>
+			<!--Metere el Mockup-->
+		</div>
 
-        
-        <div id="vista2" class="vista" style="display:none;">
-            <h2>Vista 2</h2>
-            <p>Este es el contenido de la segunda vista.</p>
-        </div>
-        
-        <div id="vista3" class="vista" style="display:none;">
-            <h2>Vista 3</h2>
-            <p>Este es el contenido de la tercera vista.</p>    
-        </div>
-        
-
-        <button onclick="mostrarVista('vista1')">Mostrar Vista 1</button>
-        <button onclick="mostrarVista('vista2')">Mostrar Vista 2</button>
-        <button onclick="mostrarVista('vista3')">Mostrar Vista 3</button>
-
-        <script src="./js/controlador.js"></script>
-    </body>
+		<script type=module src=js/controlador.js></script>
+	</body>
 </html>
+
