@@ -18,13 +18,3 @@ body >div {
     cursor:pointer;
     text-decoration:underline;
 }
-
-#imagenVista3 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* Agrega cualquier otro estilo necesario aquí */
-}
-
-
-
