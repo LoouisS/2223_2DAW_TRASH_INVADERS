@@ -80,6 +80,9 @@ export class Vista3 extends Vista {
         this.moverImagen();
     }
     
+    
+    
+    
 
     moverImagen() {
         console.log('Moviendo la imagen...');
