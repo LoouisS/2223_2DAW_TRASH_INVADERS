@@ -55,14 +55,17 @@ class Controlador{
             vista.mostrar(false)
     }
 
+    iniciarMusica() {
+        const musica = document.getElementById('musica');
+        musica.play();
+      }
+
     
-    setVidas(vidas) {
-        this.modelo.guardar("vidas",vidas)
-    }
-    getVidas() {
-       return this.modelo.ver("vidas")
-    }
+
 }
 
 // Cuando se carga la página, se crea una instancia del controlador
-window.onload = () => { new Controlador() }
+window.onload = () => {
+    const controlador = new Controlador();
+    controlador.iniciarMusica();
+  };
