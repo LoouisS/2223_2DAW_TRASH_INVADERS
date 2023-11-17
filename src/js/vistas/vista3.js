@@ -129,7 +129,7 @@ export class Vista3 extends Vista {
         ];
 
         // Establecer un temporizador para cambiar la imagen cada 2 segundos
-        setInterval(() => this.mostrarImagenAleatoria(), 2000);
+        setInterval(() => this.mostrarImagenAleatoria(), 2000); //MODIFICAR DEL ADMIN
     }
 
     mostrarImagenAleatoria() {

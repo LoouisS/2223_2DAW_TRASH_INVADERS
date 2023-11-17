@@ -199,6 +199,15 @@ a {
 
 }
 
+#mensaje-error {
+    position: absolute;
+    background-color: #bdcce0; /* Color de fondo */
+    border: 2px solid #000000; /* Borde del mensaje */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    display: none;
+}
+
 
 
 
