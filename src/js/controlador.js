@@ -48,7 +48,6 @@ class Controlador{
         this.ocultarVistas()
         this.vistas.get(vista).mostrar(true)
         this.vistaActual = vista // Actualiza la vista actual
-        this.actualizarInterfaz() // Llama a la función para manejar la lógica de la interfaz
     }
 
     ocultarVistas(){
@@ -56,14 +55,17 @@ class Controlador{
             vista.mostrar(false)
     }
 
+    iniciarMusica() {
+        const musica = document.getElementById('musica');
+        musica.play();
+      }
+
     
-    setVidas(vidas) {
-        this.modelo.guardar("vidas",vidas)
-    }
-    getVidas() {
-       return this.modelo.ver("vidas")
-    }
+
 }
 
 // Cuando se carga la página, se crea una instancia del controlador
-window.onload = () => { new Controlador() }
+window.onload = () => {
+    const controlador = new Controlador();
+    controlador.iniciarMusica();
+  };

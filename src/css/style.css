@@ -177,6 +177,8 @@ a {
     height: 60%;
 }
 
+
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -190,4 +192,13 @@ a {
     font-size: 30px;
     text-align: center;
 }
+
+#imagenVista3{
+    width : 150px;
+    height : 110px;
+
+}
+
+
+
 
