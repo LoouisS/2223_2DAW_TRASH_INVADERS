@@ -160,3 +160,34 @@ input[type='submit']:hover {
 a {
      text-decoration: none;
 }
+
+/* Pagina del juego principal */
+
+#game-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#game-page > #div1 {
+    height: 40%;
+}
+
+#game-page > #div2 {
+    height: 60%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.item {
+    background-color: #ccc;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
