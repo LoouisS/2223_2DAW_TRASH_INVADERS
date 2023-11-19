@@ -1,8 +1,10 @@
+<!-- Antonio Manuel Figueroa Pinilla -->
+<!-- Inicio y comprobación de las cookies sobre el servidor -->
 <?php
-    // Iniciar o reanudar la sesión
+    //Iniciar o reanudar la sesión
     session_start();
 
-    // Verificar el estado de la sesión
+    //Verificar el estado de la sesión
     $status = session_status();
 
     switch ($status) {
