@@ -1,3 +1,4 @@
+/* Implementado */
 body {
     margin: 0;
     padding: 0;
@@ -5,23 +6,24 @@ body {
 
 /* Pagina del login */
 
+/* Implementado */
 #login-page {
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
-
+/* Implementado */
 #div1, #div2 {
     width: 100%;
     float: left;
     height: 50%;
 }
-
+/* Implementado */
 #div1 {
     background-color: #2b91eb;
     position: relative; 
 }
-
+/* Implementado */
 #contenedor-imagen {
     width: 15%;
     height: auto;
@@ -123,7 +125,6 @@ form {
 
 .form-admin-parameters label, input[type='text'] {
     background-color: white;
-    
     height: 10px;
     text-align: center;
     display: inline-block;  
@@ -132,7 +133,6 @@ form {
 
 .form-admin-parameters input[type='text'] {
     width: 5%;
-    
     border: none;
     padding: 0;
 }
