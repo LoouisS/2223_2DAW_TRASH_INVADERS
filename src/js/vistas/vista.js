@@ -10,8 +10,8 @@ export class Vista {
      */
   static {
     Vista.VISTA1 = Symbol('Inicio')
-    Vista.VISTA2 = Symbol('Juego')
-    Vista.VISTA3 = Symbol('Ranking')
+    Vista.VISTA2 = Symbol('Menu')
+    Vista.VISTA3 = Symbol('Juego')
   }
 
   /**

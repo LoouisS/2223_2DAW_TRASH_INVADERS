@@ -8,32 +8,33 @@
 
 import { Modelo } from './modelos/modelo.js'
 import { Vista } from './vistas/vista.js'
-import { Vista1 } from './vistas/vista1.js'
-import { Vista2 } from './vistas/vista2.js'
-import { Vista3 } from './vistas/vista3.js'
+import { InicioSesion } from './vistas/iniciosesion.js'
+import { MenuPrincipal } from './vistas/menuprincipal.js'
+import { Juego } from './vistas/juego.js'
+
 console.log('Script cargado correctamente')
 
 class Controlador {
   /**
-     * Inicializa los atributos del Controlador.
-     * Coge las referencias del interfaz.
-     */
+    * Inicializa los atributos del Controlador.
+    * Coge las referencias del interfaz.
+    */
 
   // Atributos
   vistaActual = null
   vistas = new Map()
 
-  constructor () {
+  constructor(){
     this.modelo = new Modelo()
 
     const divVista1 = document.getElementById('divVista1')
     const divVista2 = document.getElementById('divVista2')
     const divVista3 = document.getElementById('divVista3')
 
-    // Creo las vistas
-    this.vistas.set(Vista.VISTA1, new Vista1(this, divVista1))
-    this.vistas.set(Vista.VISTA2, new Vista2(this, divVista2))
-    this.vistas.set(Vista.VISTA3, new Vista3(this, divVista3))
+    //Creo las vistas
+    this.vistas.set(Vista.VISTA1, new InicioSesion(this, divVista1))
+    this.vistas.set(Vista.VISTA2, new MenuPrincipal(this, divVista2))
+    this.vistas.set(Vista.VISTA3, new Juego(this, divVista3))
 
     this.verVista(Vista.VISTA1)
 
@@ -41,36 +42,74 @@ class Controlador {
   }
 
   /**
-     * Muestra una vista específica.
-     * @param {Symbol} vista - Símbolo que identifica la vista a mostrar.
-     */
+    * Muestra una vista específica.
+    * @param {Symbol} vista - Símbolo que identifica la vista a mostrar.
+    */
 
-  verVista (vista) {
+  verVista(vista){
     this.ocultarVistas()
     this.vistas.get(vista).mostrar(true)
     this.vistaActual = vista // Actualiza la vista actual
+
+    //Llama a generarElementosGrid si la vista es VISTA3
+    if (vista === Vista.VISTA3) {
+      this.generarElementosGrid();
+    }
   }
 
   /**
-     * Oculta todas las vistas.
-     */
-
-  ocultarVistas () {
+    * Oculta todas las vistas.
+    */
+  ocultarVistas(){
     for (const vista of this.vistas.values()) { vista.mostrar(false) }
   }
 
   /**
-     * Inicia la reproducción de la música.
-     */
+    * Inicia la reproducción de la música.
+    */
+  iniciarMusica(){
+    const musica = document.getElementById('musica');
+    musica.play().catch((error) => {
+      // Manejar errores de reproducción
+      console.error('Error al reproducir música:', error);
+    })
+  }
 
-  iniciarMusica () {
-    const musica = document.getElementById('musica')
-    musica.play()
+  generarElementosGrid(){
+    // Obtén la referencia al contenedor del grid
+    const gridContainer = document.getElementById('div2')
+  
+    // Número de elementos en el grid
+    const numElementos = 56
+  
+    // Genera dinámicamente los elementos del grid
+    for (let i = 1; i <= numElementos; i++) {
+        const gridItem = document.createElement('div');
+        gridItem.classList.add('grid-item')
+        gridItem.textContent = i
+        gridContainer.appendChild(gridItem)
+    }
   }
 }
 
 // Cuando se carga la página, se crea una instancia del controlador
 window.onload = () => {
   const controlador = new Controlador()
-  controlador.iniciarMusica()
 }
+
+// Cuando el contenido HTML ha sido completamente cargado
+document.addEventListener('DOMContentLoaded', () => {
+
+  const controlador = new Controlador()
+  const juego = new Juego()
+
+  // Obtener una referencia al div de la vista del juego
+  const div = document.getElementById('divVista3'); // Reemplaza 'divVista3' con el ID real de tu div en juego.js
+  const rutaImagen = document.getElementById('divVista3');
+
+
+  juego.establecerImagenEnDiv(div, rutaImagen)
+
+  // Asociar la reproducción de música directamente al evento de apertura de la ventana
+  controlador.iniciarMusica()
+});
