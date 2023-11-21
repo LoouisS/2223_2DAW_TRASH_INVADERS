@@ -9,9 +9,9 @@ export class Vista {
      * @enum {Symbol}
      */
   static {
-    Vista.VISTA1 = Symbol('Inicio')
-    Vista.VISTA2 = Symbol('Menu')
-    Vista.VISTA3 = Symbol('Juego')
+    Vista.vistaInicio = Symbol('Inicio')
+    Vista.vistaMenu = Symbol('Menu')
+    Vista.vistaJuego = Symbol('Juego')
   }
 
   /**

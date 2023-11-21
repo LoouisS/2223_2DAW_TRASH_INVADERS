@@ -8,8 +8,12 @@
 
 import { Modelo } from './modelos/modelo.js'
 import { Vista } from './vistas/vista.js'
+//import { Indice } from './vistas/indice.js'
+//import { Registro } from './vistas/registro.js'
 import { InicioSesion } from './vistas/iniciosesion.js'
 import { MenuPrincipal } from './vistas/menuprincipal.js'
+//import { Mejoras } from './vistas/mejoras.js'
+//import { Opciones } from './vistas/opcionesadm.js'
 import { Juego } from './vistas/juego.js'
 
 console.log('Script cargado correctamente')
@@ -27,16 +31,16 @@ class Controlador {
   constructor(){
     this.modelo = new Modelo()
 
-    const divVista1 = document.getElementById('divVista1')
-    const divVista2 = document.getElementById('divVista2')
-    const divVista3 = document.getElementById('divVista3')
+    const divvistaLogin = document.getElementById('divvistaLogin')
+    const divvistaMenu = document.getElementById('divvistaMenu')
+    const divvistaJuego = document.getElementById('divvistaJuego')
 
     //Creo las vistas
-    this.vistas.set(Vista.VISTA1, new InicioSesion(this, divVista1))
-    this.vistas.set(Vista.VISTA2, new MenuPrincipal(this, divVista2))
-    this.vistas.set(Vista.VISTA3, new Juego(this, divVista3))
+    this.vistas.set(Vista.vistaLogin, new InicioSesion(this, divvistaLogin))
+    this.vistas.set(Vista.vistaMenu, new MenuPrincipal(this, divvistaMenu))
+    this.vistas.set(Vista.vistaJuego, new Juego(this, divvistaJuego))
 
-    this.verVista(Vista.VISTA1)
+    this.verVista(Vista.vistaLogin)
 
     console.log(this.vistas)
   }
@@ -52,7 +56,7 @@ class Controlador {
     this.vistaActual = vista // Actualiza la vista actual
 
     //Llama a generarElementosGrid si la vista es VISTA3
-    if (vista === Vista.VISTA3) {
+    if (vista === Vista.vistaJuego) {
       this.generarElementosGrid();
     }
   }

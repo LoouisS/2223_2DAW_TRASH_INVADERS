@@ -1,12 +1,13 @@
+//vistaMenu
 import { Vista } from './vista.js'
-import { Vista3 } from './vista3.js'
+import { Juego } from './juego.js'
 
 /**
  * Clase que representa la segunda vista de la aplicación.
  * @class
  * @extends Vista
  */
-export class Vista2 extends Vista {
+export class MenuPrincipal extends Vista {
   /**
      * Crea una instancia de Vista2.
      * @constructor
