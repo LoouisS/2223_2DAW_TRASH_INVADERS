@@ -16,6 +16,7 @@ export class Juego extends Vista {
   constructor(controlador, base) {
     super(controlador, base);
 
+    this.divs = []; // Almacena los elementos div generados dinámicamente
     this.crearInterfaz();
     this.inicializarEventosTeclado();
     this.inicializarImagenesAleatorias();
@@ -157,23 +158,23 @@ export class Juego extends Vista {
     * @private
     * @returns {void}
     */
-  inicializarImagenesAleatorias() {
-      // Definir una matriz de rutas de imágenes
-      this.imagenes = [
-        'img/gato.png'
-        // Agrega más rutas según sea necesario
-      ];
+  inicializarImagenesAleatorias () {
+    // Definir una matriz de rutas de imágenes
+    this.imagenes = [
+      'img/gato.png'
+      // Agrega más rutas según sea necesario
+    ]
 
-      // Establecer un temporizador para cambiar la imagen cada 2 segundos
-      setInterval(() => this.mostrarImagen)
-    }
+    // Establecer un temporizador para cambiar la imagen cada 2 segundos
+    setInterval(() => this.mostrarImagenAleatoria(), 2000) // MODIFICAR DEL ADMIN
+  }
 
   /**
      * Muestra una imagen aleatoria en un elemento específico.
      * @private
      * @returns {void}
      */
-  mostrarImagenAleatoria () {
+  mostrarImagenAleatoria() {
     // Seleccionar aleatoriamente un div
     const divAleatorio = this.obtenerDivAleatorio()
 

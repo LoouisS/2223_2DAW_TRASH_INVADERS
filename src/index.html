@@ -8,8 +8,47 @@
 		<link rel="stylesheet" href="css/style.css">
 		<title>Trash Invaders</title>
 	</head>
-	<body>	  
-		<div id=divVista1>
+	<body>	
+		<!-- Introducimos la vista inicial (indice) -->
+		<div id="vistaIndice">
+			<main id="landing-page">
+				<div id="div-superior">
+					<div id="contenedor-imagen">
+						<img src="../src/img/logo.jpg" alt="logo-imagen">
+					</div>
+					<div id="contenedor-boton-registro">
+						<button><a href="register.html">Registro</a></button>
+					</div>
+				</div>
+				<div id="div-inferior">
+					<button><a href="login.html">Iniciar sesion</a></button>
+				</div>
+			</main>
+		</div>
+		
+		<!-- Introducimos la vista que corresponde al registro de usuario (register) -->
+		<div id="vistaRegistro">
+			<main id="register-page">
+				<div id="div-superior">
+					<a href="index.html"><h1>REGISTRAR USUARIO</h1></a>
+				</div>
+				<div id="div-inferior">
+					<form>
+						<label for="nombre">Nombre</label>
+						
+						<input type="text" id="nombre" name="nombre">
+						<br>
+						<label for="contraseña">Contraseña</label>
+						<input type="password" id="contraseña" name="contraseña">
+						<br>
+						<input type="submit" value="REGISTRARSE">
+					</form>
+				</div>
+			</main>
+		</div>
+
+		<!-- Introducimos la vista de inicio de sesion (login) -->
+		<div id="vistaLogin">
             <main id="login-page">
                 <div id="div1">
                     <audio id="musica" controls loop>
@@ -32,7 +71,8 @@
             </main>
         </div>
 
-		<div id=divVista2>
+		<!-- Introducimos la vista que corresponde al menú principal -->
+		<div id="vistaMenu">
 			<main id="login-page">
 				<div id="div1">
 					<div id="contenedor-imagen">
@@ -48,12 +88,85 @@
 					</a>
 				</div>				
 			</main>
-
 		</div>
-		<div id=divVista3>
+
+		<!-- Introducimos la vista que corresponde a la ventana de opciones del administrador (opadmin) -->
+		<div id="vistaOpciones">
+			<main id="register-page">
+				<div id="div-superior">
+					<label><h1>Administrador</h1></label>
+				</div>
+				<div id="div-inferior">
+					<form>
+						<label for="vBasura">Velocidad de Basura</label>                   
+						<input type="text" id="vBasura" name="vBasura">
+						<br>
+						<label for="frecuencia">Frecuencia</label>                   
+						<input type="text" id="frecuencia" name="frecuencia">
+						<br>
+						<label for="tMaximo">Tiempo Maximo</label>                   
+						<input type="text" id="tMaximo" name="tMaximo">
+						<br>
+						<label for="aparicion">Porcentajes de Aparicion de Mejoras</label>
+						<input type="text" id="aparicion" name="aparicion">
+						<br>
+						<input type="submit" value="REGISTRARSE">
+						<div id="contenedor-boton-registro">
+							<button><a href="index.html">Volver al indice</a></button>
+						</div>
+						<div id="mejoras">
+							<button><a href="mejoras.html">Mejoras</a></button>
+						</div>
+					</form>
+				</div>
+			</main>
+		</div>
+
+		<!-- Introducimos la vista que corresponde a la ventana de mejoras en para el juego, los power ups (mejoras) -->
+		<div id="vistaMejoras">
+			<main id="register-page">
+				<div id="div-superior">
+					<label><h1>Mejoras</h1></label>
+				</div>
+				<div id="div-inferior">      
+					<table border="1px">
+						<tr>
+							<th>Imagen</th>
+							<th>Descripción</th>
+							<th>Modificar</th>
+							<th>Borrar</th>
+						</tr>
+						<tr>
+							<!-- Celda 1: Imagen -->
+							<td><img src="ruta_de_la_imagen.jpg" alt="Descripción imagen"></td>
+	
+							<!-- Celda 2: Descripción -->
+							<td>Descripción de la fila 1</td>
+	
+							<!-- Celda 3: Botón Modificar -->
+							<td><button><a href="index.html">Modificar</a></button></td>
+	
+							<!-- Celda 4: Botón Borrar -->
+							<td><button><a href="index.html">Borrar</a></button></td>
+						</tr>
+						<tr>
+							<td><img src="ruta_de_la_imagen.jpg" alt="Descripción imagen"></td>
+							<td>Descripción de la fila 2</td>
+							<td><button><a href="index.html">Modificar</a></button></td>
+							<td><button><a href="index.html">Borrar</a></button></td>
+	
+						</tr>
+						<!-- Repite las filas según sea necesario -->
+					</table>
+				</div>
+			</main>
+		</div>
+
+		<!-- Introducimos la vista que corresponde a la ventana de juego -->
+		<div id="vistaJuego">
 			<main id="game-page">
 				<div id="div1">
-				</div>  
+				</div>
 				<div id="div2" class="grid-container">
 					<!-- Aquí es donde se generan los layouts de forma dinámica por medio del DOM -->
 				</div>
