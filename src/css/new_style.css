@@ -22,7 +22,7 @@ body {
 
 button {
     box-sizing: content-box;
-    width: 15%;
+    width: 25%;
     height: 70px;
     display: block;
     margin: 15px auto;
@@ -82,7 +82,9 @@ input {
 main {
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
+    background-color: #ebbe85;
+
 }
 
 /* Estilos div imagen */
@@ -143,17 +145,97 @@ form  {
 table {
     width: 70%;
     background-color: #e3eaed; 
-    border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1.2rem;
     line-height: 50px; 
+    border-collapse: collapse;
+    overflow-y: auto;
 }
 
-td  button{
+td button{
     width: 70%;
     font-size: 1rem;
 }
+
+#bimagenes {
+    width: auto;
+    max-height: 100%; /* Evita que la tabla crezca más allá del 100% del alto del div-inferior */
+    overflow: auto; /* Agrega una barra de desplazamiento si la tabla es más grande que el contenedor */
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#bimagenes img {
+    width: 150px; 
+    height: 150px; 
+}
+
+#tmejoras{
+    top: 10%;
+    margin: auto;
+    position: relative;
+    width: 70%;
+    overflow-y: auto;
+}
+
+#tmejoras img {
+    width: 150px; 
+    height: 150px; 
+}
+
+
+
+/* Pagina del juego principal */
+
+#game-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#game-page > #div1 {
+    height: 40%;
+}
+
+#game-page > #div2 {
+    height: 60%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.item {
+    background-color: #ccc;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+#opadminimagen{
+    width: 100px; 
+    height: 100px; 
+    position:absolute;
+    left: 93%;
+    top: 5%;
+
+}
+
+#mejorasimagen{
+    width: 100px; 
+    height: 100px;
+    position: absolute;
+    top:5%;
+    left: 1px;
+}
+
+
 
 /* Pagina iniciar sesion usuario */
 
