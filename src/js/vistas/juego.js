@@ -167,4 +167,64 @@ export class Juego extends Vista {
       // Establecer un temporizador para cambiar la imagen cada 2 segundos
       setInterval(() => this.mostrarImagen)
     }
+
+  /**
+     * Muestra una imagen aleatoria en un elemento específico.
+     * @private
+     * @returns {void}
+     */
+  mostrarImagenAleatoria () {
+    // Seleccionar aleatoriamente un div
+    const divAleatorio = this.obtenerDivAleatorio()
+
+    // Seleccionar aleatoriamente una ruta de imagen
+    const rutaImagen = this.obtenerRutaImagenAleatoria()
+
+    // Establecer la imagen en el div seleccionado
+    this.establecerImagenEnDiv(divAleatorio, rutaImagen)
   }
+
+  /**
+     * Obtiene un elemento div aleatorio de la página.
+     * @private
+     * @returns {HTMLElement} - Elemento div aleatorio.
+     */
+
+  obtenerDivAleatorio () {
+    // Obtener todos los divs con la clase grid-item
+    const divs = this.base.querySelectorAll('.grid-item')
+
+    // Seleccionar aleatoriamente un div
+    const indiceAleatorio = Math.floor(Math.random() * divs.length)
+    return divs[indiceAleatorio]
+  }
+
+  /**
+     * Obtiene una ruta de imagen aleatoria de la lista de imágenes disponibles.
+     * @private
+     * @returns {string} - Ruta de imagen aleatoria.
+     */
+
+  obtenerRutaImagenAleatoria () {
+    // Seleccionar aleatoriamente una ruta de imagen de la matriz
+    const indiceAleatorio = Math.floor(Math.random() * this.imagenes.length)
+    return this.imagenes[indiceAleatorio]
+  }
+
+  /**
+     * Establece una imagen en un elemento div específico.
+     * @private
+     * @param {HTMLElement} div - Elemento div en el que se establecerá la imagen.
+     * @param {string} rutaImagen - Ruta de la imagen a establecer.
+     * @returns {void}
+     */
+  establecerImagenEnDiv (div, rutaImagen) {
+    // Crear un elemento de imagen
+    const imagen = document.createElement('img')
+    imagen.src = rutaImagen
+
+    // Establecer la imagen en el div
+    div.innerHTML = '' // Limpiar el contenido actual del div
+    div.appendChild(imagen)
+  }
+}

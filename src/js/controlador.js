@@ -96,10 +96,3 @@ class Controlador {
 window.onload = () => {
   const controlador = new Controlador()
 }
-
-// Cuando el contenido HTML ha sido completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-  const controlador = new Controlador()
-  // Asociar la reproducción de música directamente al evento de apertura de la ventana
-  controlador.iniciarMusica()
-});
