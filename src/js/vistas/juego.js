@@ -46,7 +46,7 @@ export class Juego extends Vista {
 
     // Verificar si la base es un elemento válido antes de intentar agregar la imagen
     if (this.base instanceof HTMLElement) {
-      this.base.appendChild(this.imagenVista3);
+      this.base.appendChild(this.imagenVista3)
     } else {
       console.error('La base no es un HTMLElement válido.');
     }
@@ -158,11 +158,13 @@ export class Juego extends Vista {
     * @returns {void}
     */
   inicializarImagenesAleatorias() {
-    // Definir una matriz de rutas de imágenes
-    this.imagenes = [
-      'img/gato.png'
-      // Agrega más rutas según sea necesario
-    ];
+      // Definir una matriz de rutas de imágenes
+      this.imagenes = [
+        'img/gato.png'
+        // Agrega más rutas según sea necesario
+      ];
 
-    // Establecer un temporizador para cambiar la imagen cada 2 segundos
-    setInterval(() => this.mostrarImagen)}}
+      // Establecer un temporizador para cambiar la imagen cada 2 segundos
+      setInterval(() => this.mostrarImagen)
+    }
+  }

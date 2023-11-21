@@ -99,17 +99,7 @@ window.onload = () => {
 
 // Cuando el contenido HTML ha sido completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
-
   const controlador = new Controlador()
-  const juego = new Juego()
-
-  // Obtener una referencia al div de la vista del juego
-  const div = document.getElementById('divVista3'); // Reemplaza 'divVista3' con el ID real de tu div en juego.js
-  const rutaImagen = document.getElementById('divVista3');
-
-
-  juego.establecerImagenEnDiv(div, rutaImagen)
-
   // Asociar la reproducción de música directamente al evento de apertura de la ventana
   controlador.iniciarMusica()
 });
