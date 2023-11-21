@@ -1,9 +1,6 @@
-<!-- Antonio Manuel Figueroa Pinilla -->
-<!-- Archivo de configuración PHP -->
 <?php
-    /* Datos de conexión a la base de datos */
     define("HOST", "2daw.esvirgua.com");
-    define("TRASHINVADERSBD", "user2daw_BD1-05");
-    define("USUARIO", "user2daw_05");
-    define("PSWBD", "^ax;=Sc)X0rJ");
+    define("DATABASE", "user2daw_BD1-18");
+    define("USER", "user2daw_18");
+    define("PASSWORD", "B8ML(10P{v11");
 ?>

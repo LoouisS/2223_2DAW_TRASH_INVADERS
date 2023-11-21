@@ -23,7 +23,9 @@ CREATE TABLE IF NOT EXISTS partida (
 -- Creacion de la tabla imagenes
 CREATE TABLE IF NOT EXISTS imagen(
     idImagen int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    imagen BLOB NOT NULL
+    nombre VARCHAR(120) NOT NULL,
+    imagen BLOB NOT NULL,
+    hash VARCHAR(255) NOT NULL UNIQUE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Creacion de la tabla mejora
@@ -64,5 +66,7 @@ ALTER TABLE usuario_imagen_mejora ADD CONSTRAINT FK_usuario_imagen_mejora_mejora
 
 ALTER TABLE usuario_imagen_mejora ADD CONSTRAINT unique_usuario_mejora UNIQUE (idUsuario, idMejora);
 ALTER TABLE usuario_imagen_mejora ADD CONSTRAINT unique_usuario_imagen UNIQUE (idUsuario, idImagen);
+
+ALTER TABLE imagen ADD CONSTRAINT unique_hash UNIQUE (hash);
 
 COMMIT;
