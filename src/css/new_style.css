@@ -1,25 +1,30 @@
 /* Estilos generales */
 
+/* Reset de márgenes y padding del body */
 body {
     margin: 0;
     padding: 0;
 }
 
+/* Estilo para dividir la pantalla en dos secciones */
 #div-superior, #div-inferior {
     width: 100%;
     height: 50%;
     float: left;
 }
 
+/* Estilos para la sección superior */
 #div-superior {
     background-color: #2b91eb;
     position: relative;
 }
 
+/* Estilos para la sección inferior */
 #div-inferior {
     background-color: #ebbe85;
 }
 
+/* Estilos para los botones */
 button {
     box-sizing: content-box;
     width: 25%;
@@ -33,6 +38,7 @@ button {
     border: none;
 }
 
+/* Estilos para los botones de tipo submit */
 input[type='submit'] {
     background-color: #ffffff; 
     padding: 10px 20px;
@@ -41,14 +47,15 @@ input[type='submit'] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-
 }
 
+/* Estilos para enlaces */
 a {
     text-decoration: none;
     color: black;
 }
 
+/* Estilos para etiquetas de texto */
 label {
     display: inline-block;
     text-align: left;
@@ -62,6 +69,7 @@ label {
     line-height: 50px; 
 }
 
+/* Estilos para campos de entrada de texto */
 input {
     display: inline-block;
     width: 300px;
@@ -75,48 +83,42 @@ input {
     margin-top: 10px;
 }
 
-
-
-/* Pagina principal */
-
+/* Estilos para la página principal */
 main {
     width: 100%;
     height: 100vh;
     overflow-y: auto;
     background-color: #ebbe85;
-
 }
 
-/* Estilos div imagen */
-
+/* Estilos para la sección de imágenes */
 #contenedor-imagen {
-    /* Hacerlo responsive */
-    width: 250px;
-    height: 250px;
+    width: 18%;
+    height: 63%;
     margin: 20px auto;
 }
 
+/* Estilos específicos para la página de login */
 #login-page > #div-superior > #contenedor-imagen {
     width: 150px;
     height: 150px;
 }
 
+/* Estilos generales para las imágenes */
 img {
     width: 100%;
     height: 100%;
     border-radius: 20px;
 }
 
-/* Estilos contenedor  */
-
+/* Estilos para el contenedor de botones de registro */
 #contenedor-boton-registro {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Pagina registrar usuario */
-
+/* Estilos específicos para la página de registro de usuario */
 #register-page > #div-superior, #login-page > #div-superior {
     height: 25%;
 }
@@ -131,17 +133,20 @@ img {
     align-items: center;
 }
 
+/* Estilos para encabezados h1 */
 h1  {
    background-color: white;
     padding: 20px;
 }
 
+/* Estilos para formularios */
 form  {
     width: 50%;
     height: 90%;
     text-align: center;
 }
 
+/* Estilos para tablas */
 table {
     width: 70%;
     background-color: #e3eaed; 
@@ -153,11 +158,13 @@ table {
     overflow-y: auto;
 }
 
+/* Estilos para botones dentro de celdas de tabla */
 td button{
     width: 70%;
     font-size: 1rem;
 }
 
+/* Estilos para el contenedor de imágenes */
 #bimagenes {
     width: auto;
     max-height: 100%; /* Evita que la tabla crezca más allá del 100% del alto del div-inferior */
@@ -167,8 +174,7 @@ td button{
     text-align: center;
 }
 
-
-
+/* Estilos para imágenes dentro de la tabla de mejoras */
 #tmejoras{
     top: 10%;
     margin: auto;
@@ -182,16 +188,14 @@ td button{
     height: 150px; 
 }
 
-
-
-/* Pagina del juego principal */
-
+/* Estilos para la página del juego principal */
 #game-page {
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
+/* Estilos para las secciones div1 y div2 dentro de la página del juego */
 #game-page > #div1 {
     height: 40%;
 }
@@ -200,6 +204,7 @@ td button{
     height: 60%;
 }
 
+/* Estilos para el sistema de cuadrícula en la página del juego */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -207,6 +212,7 @@ td button{
     gap: 10px;
 }
 
+/* Estilos para elementos dentro de la cuadrícula del juego */
 .item {
     background-color: #ccc;
     padding: 20px;
@@ -214,24 +220,23 @@ td button{
     text-align: center;
 }
 
-
+/* Estilos para imágenes específicas en la página del juego */
 #opadminimagen{
     width: 100px; 
     height: 100px; 
     position:absolute;
-    left: 93%;
+    left: 91%;
     top: 5%;
-
 }
 
 #mejorasimagen{
     width: 100px; 
     height: 100px;
-    position: absolute;
+    position: relative;
     top:5%;
-    left: 1px;
 }
 
+/* Estilos para botones específicos en la página del juego */
 #volvermenu{
     height: 4rem;
     width: 7rem;
@@ -248,20 +253,51 @@ td button{
     bottom:11%;
 }
 
-
+/* Estilos para el formulario de subida de archivos */
 #formsubir{
     height: auto;
     width: auto;
 }
 
+/* Estilos para el input de tipo file */
 input[type='file'] {
     background-color: #ffffff; 
     border: none;
     width: 30%;
-
 }
 
 
+@media only screen and (max-width: 1024px) {
+    html{
+        font-size: 0.7em;
+    }
+    #div-superior {
+        width: 100%;
+    }
+    #div-inferior {
+        width: 100%;
+    }
+    #opadminimagen{
+        left: 85%;
+    }
+    #tmejoras img {
+        width: 100px; 
+        height: 100px; 
+    }
+    button {
+        width: 20%;
+        height: 50px;
+    }
+    #contenedor-imagen {
+        width: 10%;
+        height: 13%;
+        margin: 20px auto;
+    }
 
-/* Pagina iniciar sesion usuario */
+    label {
+        width: 100px;
+    } 
+}
+
+
 
