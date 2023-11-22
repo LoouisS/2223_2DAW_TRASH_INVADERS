@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../src/css/new_style.css">
+        <title>Mejoras</title>
+    </head>
+    <body>
+        <main id="register-page">
+            <div id="div-superior">
+                <label><h1>Nueva Mejora</h1></label>
+            </div>
+            <table border="1" id="tmejoras">
+                    <tr>
+                        <!-- Celda 1: Campo para hacer clic y elegir una imagen -->
+                        <td>
+                            <label for="uploadImage">Seleccionar Imagen:</label>
+                            <input type="file" id="uploadImage" accept="image/*">
+                        </td>           
+                        <!-- Celda 2: Desplegable -->
+                        <td>
+                            <select>
+                                <option value="opcion1">Correr mu rapido</option>
+                                <option value="opcion2">Mas punticos</option>
+                                <option value="opcion3">Limpieza automatica</option>
+                            </select>
+                        </td>           
+                        <!-- Celda 3: Campo para número entero -->
+                        <td>
+                            <input type="number" min="1" max="20" placeholder="Ingrese un número">
+                        </td>          
+                        <!-- Celda 4: Campo para porcentaje -->
+                        <td>
+                            <input type="text" placeholder="Ingrese un porcentaje">                  
+                        </td>
+                    </tr>
+            </table>
+
+            <button id="volvermenu" ><a href="menup.html">MENU</a></button>
+            <button id="subir" ><a href="mejoras.html">ACEPTAR</a></button>
+        </main>
+    </body>
+</html>
