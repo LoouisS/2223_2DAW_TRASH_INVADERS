@@ -9,8 +9,17 @@ export class Vista {
      * @enum {Symbol}
      */
   static {
-    Vista.vistaInicio = Symbol('Inicio')
-    Vista.vistaMenu = Symbol('Menu')
+    Vista.vistaIndice = Symbol('Indice')
+    Vista.vistaRegistro = Symbol('Registro de usuario')
+    Vista.vistaInicio = Symbol('Inicio de sesion')
+    Vista.vistaMenuUsuario = Symbol('Menu del usuario')
+    Vista.vistaMenuAdm = Symbol('Menu del administrador')
+    Vista.vistaOpciones = Symbol('Opciones del administrador')
+    Vista.vistaBanco = Symbol('Banco de imagenes')
+    Vista.vistaMejoras = Symbol('Power ups')
+    Vista.vistaNewMejora = Symbol('Nuevos power ups')
+    Vista.vistaModMejora = Symbol('Modificar power ups')
+    Vista.vistaClasificaciones = Symbol('Clasificaciones')
     Vista.vistaJuego = Symbol('Juego')
   }
 

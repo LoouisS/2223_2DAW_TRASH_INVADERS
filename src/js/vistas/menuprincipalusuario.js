@@ -7,7 +7,7 @@ import { Juego } from './juego.js'
  * @class
  * @extends Vista
  */
-export class MenuPrincipal extends Vista {
+export class MenuPrincipalUsuario extends Vista {
   /**
      * Crea una instancia de Vista2.
      * @constructor

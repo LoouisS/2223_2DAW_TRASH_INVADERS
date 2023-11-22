@@ -1,4 +1,5 @@
 //vistaIndice
+import { InicioSesion } from './iniciosesion.js'
 import { Vista } from './vista.js'
 
 export class Indice extends Vista{
@@ -8,16 +9,27 @@ export class Indice extends Vista{
         this.crearInterfaz()
     }
 
-    crearInterfaz () {
-        // Botón JUGAR
-        this.botonJugar = this.base.querySelector('#boton-jugar')
-        this.botonJugar.onclick = this.pulsarBotonJugar.bind(this)
+    crearInterfaz(){
+        // boton-registro
+        this.botonRegistro = this.base.querySelector('#boton-registro')
+        this.botonRegistro.onclick = this.pulsarBotonRegistro.bind(this)
+
+        //boton-inicio
+        this.botonInicio = this.base.querySelector('#boton-inicio')
+        this.botonInicio.onclick = this.pulsarBotonInicio.bind(this)
     }
 
-    pulsarBotonJugar () {
-        // Manejar el evento del botón JUGAR
-        // console.log('Botón JUGAR pulsado');
-        // Cambiar a la Vista3
-        this.controlador.verVista(Juego.divvistaJuego) // Cambiado a Vista3.VISTA3
+    pulsarBotonRegistro(){
+        // Manejar el evento del botón "Registro"
+        // console.log('Botón registro ha sido pulsado');
+        // Cambiar a la vistaRegistro
+        this.controlador.verVista(Registro.divvistaRegistro) // Cambiando la vista a la correspondiente al registro
+    }
+
+    pulsarBotonRegistro(){
+        // Manejar el evento del botón "Iniciar sesión"
+        // console.log('Botón iniciar sesión ha sido pulsado');
+        // Cambiar a la vistaInicio
+        this.controlador.verVista(InicioSesion.divvistaInicio) // Cambiado a la vista de inicio de sesión
     }
 }

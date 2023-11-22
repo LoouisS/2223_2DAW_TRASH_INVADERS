@@ -17,11 +17,11 @@
 						<img src="../src/img/logo.jpg" alt="logo-imagen">
 					</div>
 					<div id="contenedor-boton-registro">
-						<button><a href="register.html">Registro</a></button>
+						<button id="boton-registro">Registro</button>
 					</div>
 				</div>
 				<div id="div-inferior">
-					<button><a href="login.html">Iniciar sesion</a></button>
+					<button id="boton-inicio">Iniciar sesion</button>
 				</div>
 			</main>
 		</div>
@@ -68,8 +68,23 @@
 			</main>
         </div>
 
-		<!-- Introducimos la vista que corresponde al menú principal -->
-		<div id="divvistaMenu">
+		<!-- Introducimos la vista que corresponde al menú principal de usuario -->
+		<div id="divvistaMenuUsuario">
+			<main id="login-page">
+				<div id="div-superior">
+					<div id="contenedor-imagen">
+						<img src="../src/img/logo.jpg" alt="logo-imagen"></a>
+					</div>
+				</div>           
+				<button ><a href="juego.html">JUGAR</a></button>
+				<button>MEJORAS</button>
+				<button ><a href="clasificaciones.html">CLASIFICACIONES</a></button>
+				<button ><a href="login.html" class="enlace-como-boton">SALIR</a></button>   
+			</main>
+		</div>
+
+		<!-- Introducimos la vista que corresponde al menú principal de administrador -->
+		<div id="divvistaMenuAdm">
 			<main id="login-page">
 				<div id="div-superior">
 					<div id="contenedor-imagen">
@@ -78,14 +93,66 @@
 					<a href="opadmin.html" id="opadminimagen">
 						<img src="../src/img/gato.png" alt="Descripción de la imagen para opadmin">
 					</a>
-					<a href="mejoras.html" id="mejorasimagen">
-						<img src="../src/img/gato.png" alt="Descripción de la imagen para mejoras">
-					</a> 
 				</div>           
-				<button id="boton-jugar"><a href="juego.html">JUGAR</a></button>
-				<button >OPCIONES</button>
-				<button >CLASIFICACIONES</button>
-				<button ><a href="login.html" class="enlace-como-boton">SALIR</a></button>
+				<button ><a href="juego.html">JUGAR</a></button>
+				<button>MEJORAS</button>
+				<button ><a href="clasificaciones.html">CLASIFICACIONES</a></button>
+				<button ><a href="login.html" class="enlace-como-boton">SALIR</a></button>   
+			</main>
+		</div>
+
+		<!-- La vista relacionada con las clasificaciones (clasificaciones)-->
+		<div id="divvistaClasificaciones">
+			<main id="register-page">
+				<div id="div-superior">
+					<label><h1>CLASIFICACION</h1></label>
+				</div>
+				<table border="1" id="tmejoras">
+					<thead>
+						<tr>
+							<th>Número</th>
+							<th>Nombre</th>
+							<th>Puntuación</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Fila 1 -->
+						<tr>
+							<td>1</td>
+							<td>ABC</td>
+							<td>95</td>
+						</tr>
+				
+						<!-- Fila 2 -->
+						<tr>
+							<td>2</td>
+							<td>DEF</td>
+							<td>87</td>
+						</tr>
+				
+						<!-- Fila 3 -->
+						<tr>
+							<td>3</td>
+							<td>GHI</td>
+							<td>92</td>
+						</tr>
+				
+						<!-- Fila 4 -->
+						<tr>
+							<td>4</td>
+							<td>JKL</td>
+							<td>78</td>
+						</tr>
+				
+						<!-- Fila 5 -->
+						<tr>
+							<td>5</td>
+							<td>MNO</td>
+							<td>85</td>
+						</tr>
+					</tbody>
+				</table>
+				<button id="volvermenu" ><a href="menup.html">MENU</a></button>
 			</main>
 		</div>
 
@@ -109,15 +176,96 @@
 						<label for="aparicion">Porcentajes de Aparicion de Mejoras</label>
 						<input type="text" id="aparicion" name="aparicion">
 						<br>
-						<input type="submit" value="REGISTRARSE">
-						<div id="contenedor-boton-registro">
-							<button><a href="index.html">Volver al indice</a></button>
-						</div>
 						<div id="mejoras">
-							<button><a href="mejoras.html">Mejoras</a></button>
+							<button><a href="menup.html">ACEPTAR</a></button>
 						</div>
+						<button id="mejoras"><a href="bimagenes.html">Imagenes</a></button>
 					</form>
 				</div>
+				<button id="volvermenu"><a href="menup.html">MENU</a></button>
+			</main>
+		</div>
+
+		<!-- Introducimos la vista que corresponde a la ventana de opciones del administrador del banco de imagenes (bimagenes) -->
+		<div id="divvistaBanco">
+			<main id="register-page">
+				<div id="div-superior">
+					<label><h1>Banco de Imagenes</h1></label>
+				</div>
+					<div id="tmejoras">
+						<table border="1px">
+							<tr>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+							</tr>
+							<tr>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+							</tr>
+							<tr>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+							</tr>
+							<tr>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+							</tr>
+							<tr>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+							</tr>
+							<tr>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+							</tr>
+							<tr>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+							</tr>
+							<tr>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+							</tr>
+						</table>
+					</div>        
+				<button id="volvermenu"><a href="menup.html">MENU</a></button>
+				<form method="POST" enctype="multipart/form-data" id="formsubir">
+					<input type="file" name="imagen" accept=".png,.jpg,.jpeg," multiple><br/>
+					<input type="submit" value="SUBIR">
+					<input type="submit" value="BORRAR">
+				</form>   
 			</main>
 		</div>
 
@@ -127,55 +275,129 @@
 				<div id="div-superior">
 					<label><h1>Mejoras</h1></label>
 				</div>
-					<table border="1px"  id="tmejoras">
+				<table border="1px"  id="tmejoras">
+					<tr>
+						<th>Imagen</th>
+						<th>Descripción</th>
+						<th>Modificar</th>
+						<th>Borrar</th>
+					</tr>
+					<tr>
+						<!-- Celda 1: Imagen -->
+						<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+						<!-- Celda 2: Descripción -->
+						<td>Es un gatito y esta disociativo</td>
+						<!-- Celda 3: Botón Modificar -->
+						<td><button><a href="modificarmejora.html">Modificar</a></button></td>
+						<!-- Celda 4: Botón Borrar -->
+						<td><button>Borrar</button></td>
+					</tr>
+					<tr>
+						<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+						<td>Descripción de la fila 2</td>
+						<td><button><a href="modificarmejora.html">Modificar</a></button></td>
+						<td><button>Borrar</button></td>
+					</tr> 
+					<tr>
+						<td><img src="../src/img/foca.png" alt="Descripción imagen"></td>
+						<td>Guillermo</td>
+						<td><button><a href="modificarmejora.html">Modificar</a></button></td>
+						<td><button>Borrar</button></td>
+					</tr>
+					<tr>
+						<td><img src="../src/img/patatas.png" alt="Descripción imagen"></td>
+						<td>La comida de Guillermo</td>
+						<td><button><a href="modificarmejora.html">Modificar</a></button></td>
+						<td><button>Borrar</button></td>
+					</tr>
+					<!-- Repite las filas según sea necesario -->
+					<tr>
+						<td><img src="../src/img/patatas.png" alt="Descripción imagen"></td>
+						<td>La comida de Guillermo</td>
+						<td><button><a href="modificarmejora.html">Modificar</a></button></td>
+						<td><button>Borrar</button></td>
+					</tr>
+					<tr>
+						<td><img src="../src/img/foca.png" alt="Descripción imagen"></td>
+						<td>Guillermo</td>
+						<td><button><a href="modificarmejora.html">Modificar</a></button></td>
+						<td><button>Borrar</button></td>
+					</tr>
+				</table>
+				<button id="volvermenu" ><a href="menup.html">MENU</a></button>
+				<button id="subir" ><a href="nuevamejora.html">NUEVA MEJORA</a></button>
+			</main>
+		</div>
+
+		<!-- Ventana para añadir las nuevas mejoras -->
+		<div id="divvistaNewMejora">
+			<main id="register-page">
+				<div id="div-superior">
+					<label><h1>Nueva Mejora</h1></label>
+				</div>
+				<table border="1" id="tmejoras">
 						<tr>
-							<th>Imagen</th>
-							<th>Descripción</th>
-							<th>Modificar</th>
-							<th>Borrar</th>
+							<!-- Celda 1: Campo para hacer clic y elegir una imagen -->
+							<td>
+								<label for="uploadImage">Seleccionar Imagen:</label>
+								<input type="file" id="uploadImage" accept="image/*">
+							</td>           
+							<!-- Celda 2: Desplegable -->
+							<td>
+								<select>
+									<option value="opcion1">Correr mu rapido</option>
+									<option value="opcion2">Mas punticos</option>
+									<option value="opcion3">Limpieza automatica</option>
+								</select>
+							</td>           
+							<!-- Celda 3: Campo para número entero -->
+							<td>
+								<input type="number" min="1" max="20" placeholder="Ingrese un número">
+							</td>          
+							<!-- Celda 4: Campo para porcentaje -->
+							<td>
+								<input type="text" placeholder="Ingrese un porcentaje">                  
+							</td>
 						</tr>
+				</table>
+				<button id="volvermenu" ><a href="menup.html">MENU</a></button>
+				<button id="subir" ><a href="mejoras.html">ACEPTAR</a></button>
+			</main>
+		</div>
+
+		<!-- Ventana para modificar las mejoras -->
+		<div id="divvistaModMejora">
+			<main id="register-page">
+				<div id="div-superior">
+					<label><h1>Modificar Mejora</h1></label>
+				</div>
+				<table border="1" id="tmejoras">
 						<tr>
-							<!-- Celda 1: Imagen -->
-							<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
-							<!-- Celda 2: Descripción -->
-							<td>Es un gatito y esta disociativo</td>
-							<!-- Celda 3: Botón Modificar -->
-							<td><button><a href="index.html">Modificar</a></button></td>
-							<!-- Celda 4: Botón Borrar -->
-							<td><button><a href="index.html">Borrar</a></button></td>
+							<!-- Celda 1: Campo para hacer clic y elegir una imagen -->
+							<td>
+								<label for="uploadImage">Seleccionar Imagen:</label>
+								<input type="file" id="uploadImage" accept="image/*">
+							</td>           
+							<!-- Celda 2: Desplegable -->
+							<td>
+								<select>
+									<option value="opcion1">Correr mu rapido</option>
+									<option value="opcion2">Mas punticos</option>
+									<option value="opcion3">Limpieza automatica</option>
+								</select>
+							</td>           
+							<!-- Celda 3: Campo para número entero -->
+							<td>
+								<input type="number" min="1" max="20" placeholder="Ingrese un número">
+							</td>          
+							<!-- Celda 4: Campo para porcentaje -->
+							<td>
+								<input type="text" placeholder="Ingrese un porcentaje">                  
+							</td>
 						</tr>
-						<tr>
-							<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
-							<td>Descripción de la fila 2</td>
-							<td><button><a href="index.html">Modificar</a></button></td>
-							<td><button><a href="index.html">Borrar</a></button></td>
-						</tr> 
-						<tr>
-							<td><img src="../src/img/foca.png" alt="Descripción imagen"></td>
-							<td>Guillermo</td>
-							<td><button><a href="index.html">Modificar</a></button></td>
-							<td><button><a href="index.html">Borrar</a></button></td>
-						</tr>
-						<tr>
-							<td><img src="../src/img/patatas.png" alt="Descripción imagen"></td>
-							<td>La comida de Guillermo</td>
-							<td><button><a href="index.html">Modificar</a></button></td>
-							<td><button><a href="index.html">Borrar</a></button></td>
-						</tr>
-						<!-- Repite las filas según sea necesario -->
-						<tr>
-							<td><img src="../src/img/patatas.png" alt="Descripción imagen"></td>
-							<td>La comida de Guillermo</td>
-							<td><button><a href="index.html">Modificar</a></button></td>
-							<td><button><a href="index.html">Borrar</a></button></td>
-						</tr>
-						<tr>
-							<td><img src="../src/img/foca.png" alt="Descripción imagen"></td>
-							<td>Guillermo</td>
-							<td><button><a href="index.html">Modificar</a></button></td>
-							<td><button><a href="index.html">Borrar</a></button></td>
-						</tr>
-					</table>
+				</table>
+				<button id="volvermenu" ><a href="menup.html">MENU</a></button>
+				<button id="subir" ><a href="mejoras.html">ACEPTAR</a></button>
 			</main>
 		</div>
 

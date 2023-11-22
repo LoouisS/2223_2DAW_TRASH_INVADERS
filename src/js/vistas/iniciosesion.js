@@ -1,6 +1,6 @@
 //vistaLogin
 import { Vista } from './vista.js'
-import { MenuPrincipal } from './menuprincipal.js' // Importa la clase Vista2
+import { MenuPrincipalUsuario } from './menuprincipalusuario.js'// Importa la clase Vista2
 
 /**
  * Clase que representa la primera vista de la aplicación.
@@ -9,7 +9,7 @@ import { MenuPrincipal } from './menuprincipal.js' // Importa la clase Vista2
  */
 export class InicioSesion extends Vista {
   /**
-     * Crea una instancia de Vista1.
+     * Crea una instancia de la vista de inicio de sesion.
      * @constructor
      * @param {Controlador} controlador - Instancia del controlador asociado a la vista.
      * @param {HTMLElement} base - Elemento HTML que sirve como la base de la vista.
@@ -62,9 +62,13 @@ export class InicioSesion extends Vista {
 
     // Verificar si el usuario cumple con la regex1
     if (regex1.test(usuario)) {
-      // Usuario válido, cambiar a la Vista2
-      this.controlador.verVista(MenuPrincipal.vistaMenu)
+      // Usuario válido, cambiar a la vista del "Menú principal de usuario"
+      this.controlador.verVista(MenuPrincipalUsuario.vistaMenuUsuario)
 
+      /* aquí hay que hacer las validaciones pertinentes al inicio de sesion segun el usuario que se introduzca, por eso lo dejamos comentado de momento.
+      // Usuario válido "administrador", cambiar a la vista del "Menú principal de usuario"
+      this.controlador.verVista(MenuPrincipalAdm.vistaMenuAdm)
+      */
       // Limpiar el mensaje de error si estaba visible
       this.mostrarMensajeError('')
     } else {
