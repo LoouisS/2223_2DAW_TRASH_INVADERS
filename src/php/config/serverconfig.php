@@ -18,4 +18,6 @@
     define('default_controler', 'poner_controlador_por_defecto');
     define('default_method', 'poner_metodo_por_defecto');
 
+    define('css_path', getcwd() . '/src/css/');
+
 ?>

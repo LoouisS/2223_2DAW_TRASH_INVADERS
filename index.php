@@ -5,9 +5,11 @@ require_once 'src/php/controladores/imagenes.php';
 
 session_start();
 
+
+
 $imagenes = new Imagenes();
 
-$imagenes;
+$imagenes->mostrarImagen();
 
 // $controlador = "src/php/controladores/imagenes.php";
 

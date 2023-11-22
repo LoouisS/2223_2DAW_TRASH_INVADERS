@@ -91,6 +91,7 @@ class ModeloImagenes {
     }
 
     public function eliminarImagen($imagenes) {
+        
         $stmt = $this->conexion->prepare("DELETE FROM imagen WHERE idImagen = ?");
         $imagenes = (int) $imagenes;
         $stmt->bind_param("i", $imagenes);
