@@ -167,10 +167,7 @@ td button{
     text-align: center;
 }
 
-#bimagenes img {
-    width: 150px; 
-    height: 150px; 
-}
+
 
 #tmejoras{
     top: 10%;
@@ -233,6 +230,35 @@ td button{
     position: absolute;
     top:5%;
     left: 1px;
+}
+
+#volvermenu{
+    height: 4rem;
+    width: 7rem;
+    position: relative;
+    right:45%;
+}
+
+#subir{
+    height: 4rem;
+    width: 7rem;
+    position: relative;
+    left:44%;
+    font-size: large;
+    bottom:11%;
+}
+
+
+#formsubir{
+    height: auto;
+    width: auto;
+}
+
+input[type='file'] {
+    background-color: #ffffff; 
+    border: none;
+    width: 30%;
+
 }
 
 
