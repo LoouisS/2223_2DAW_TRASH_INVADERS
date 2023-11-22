@@ -1,52 +1,77 @@
 <?php
 
+require_once 'config.php';
+
 class ModeloImagenes {
     private $conexion;
     function __construct() {
-        /* Llamamos al método conexión y creamos una */
         $this->conexion = $this->conexion();
-        
     }
 
     public function conexion() {
+        $this->conexion = new mysqli(HOST, USER, PASSWORD, DATABASE);
+        $this->conexion->set_charset('utf8');
 
-        $conexion = new mysqli(HOST, USER, PASSWORD, DATABASE);
-        $conexion->set_charset('utf8');
-
-        return $conexion;
+        return $this->conexion;
     }
 
-    public function mostrasImagenes() {
-        $stmt = $this->conexion->prepare("SELECT imagen FROM imagen");
+    public function mostrarImagen() {
+        $stmt = $this->conexion->prepare("SELECT idImagen, nombre, imagen FROM imagen");
         $stmt->execute();
-        $stmt->bind_result($imagen);
+        $stmt->bind_result($idImagen, $nombre, $imagen);
+
+        $fetchedImages = [];
 
         while ($stmt->fetch()) {
-            echo '<img src="data:image/jpeg;base64,' . base64_encode($imagen) . '" alt="Fetched Image">';
+            $fetchedImages[] = [
+                'idImagen' => $idImagen,
+                'nombre' => $nombre,
+                'imagen' => base64_encode($imagen)
+            ];
         }
 
         $stmt->close();
         $this->conexion->close();
+
+        return $fetchedImages;
     }
 
-    public function agregarImagen($_FILES) {
+    public function agregarImagen($archivos) {
         $stmt = $this->conexion->prepare("INSERT INTO imagen (nombre, imagen, hash) VALUES (?, ?, ?)");
         $stmt->bind_param("sbs", $nombre, $imagen, $hash);
-        $imagenes = $_FILES['imagenes'];
+        if(isset($archivos['imagenes'])){
+            $imagenes = $archivos['imagenes'];
 
-        for($i = 0; $i < count($imagenes['name']); $i++) {
-            $nombre = basename($imagenes['name'][$i]);
-            $imagenData = file_get_contents($imagenes['tmp_name'][$i]);
-            $hash = hash('sha256', $imagenData);
-    
-            // Check if the hash already exists in the database
-            $checkStmt = $conn->prepare("SELECT COUNT(*) FROM imagen WHERE hash = ?");
-            $checkStmt->bind_param("s", $hash);
-            $checkStmt->execute();
-            $checkStmt->bind_result($count);
-            $checkStmt->fetch();
-            $checkStmt->close();
-    }
+            for($i = 0; $i < count($imagenes['name']); $i++) {
+                $nombre = basename($imagenes['name'][$i]);
+                $imagenData = file_get_contents($imagenes['tmp_name'][$i]);
+                $hash = hash('sha256', $imagenData);
+        
+                // Validar la extensión del archivo
+                $extension = pathinfo($nombre, PATHINFO_EXTENSION);
+                $allowedExtensions = array("jpg", "jpeg", "png");
+
+                if (!in_array($extension, $allowedExtensions)) {
+                    // Cambiar esto por una vista
+                    echo "Error: El archivo $nombre tiene una extensión no permitida. <br>";
+                    continue; 
+                }
+        
+                $count = $this->checkHash($hash);
+                if ($count > 0) {
+                    // Cambiar esto por una vista
+                    echo "Error: El archivo $nombre ya existe en la base de datos. <br>";
+                    continue; 
+                }
+        
+                // Insert the data into the database
+                $stmt->send_long_data(1, $imagenData);
+                if ($stmt->execute() === FALSE) {
+                    // Cambiar esto por una vista
+                    echo "Error: " . $stmt->error;
+                }
+            }
+        }
     }
 
     public function checkHash($hash) {
@@ -58,6 +83,23 @@ class ModeloImagenes {
         $stmt->close();
 
         return $count;
+    }
+
+    public function eliminarImagen($imagenes) {
+        $stmt = $this->conexion->prepare("DELETE FROM imagen WHERE idImagen = ?");
+        var_dump($imagenes);
+        $imagenes = (int) $imagenes;
+        $stmt->bind_param("i", $imagenes);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    // TODO Terminar de implementar este metodo
+    public function modificarImagen($idImagen, $nombre) {
+        $stmt = $this->conexion->prepare("UPDATE imagen SET nombre = ? WHERE idImagen = ?");
+        $stmt->bind_param("ssi", $nombre, $idImagen);
+        $stmt->execute();
+        $stmt->close();
     }
 }
 ?>
