@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once 'src\php\config\config.php';
 
 class ModeloImagenes {
     private $conexion;
@@ -64,7 +64,12 @@ class ModeloImagenes {
                     continue; 
                 }
         
-                // Insert the data into the database
+                // Sanitizar los datos antes de insertarlos en la base de datos
+                // TODO Quitar y probar si lo sanitiza bien
+                $nombre = mysqli_real_escape_string($this->conexion, $nombre);
+                $imagenData = mysqli_real_escape_string($this->conexion, $imagenData);
+        
+                // Insertar los datos en la base de datos
                 $stmt->send_long_data(1, $imagenData);
                 if ($stmt->execute() === FALSE) {
                     // Cambiar esto por una vista
@@ -87,7 +92,6 @@ class ModeloImagenes {
 
     public function eliminarImagen($imagenes) {
         $stmt = $this->conexion->prepare("DELETE FROM imagen WHERE idImagen = ?");
-        var_dump($imagenes);
         $imagenes = (int) $imagenes;
         $stmt->bind_param("i", $imagenes);
         $stmt->execute();
