@@ -7,12 +7,12 @@
     </head>
     <body>
         <main id="landing-page">
-            <div id="div-superior">
+            <div class="div-superior">
                 <div id="contenedor-imagen">
                     <img src="../src/img/logo.jpg" alt="logo-imagen">
                 </div>   
             </div>
-            <div id="div-inferior">
+            <div class="div-inferior">
                 <form method="POST" action="">
                     <label for="username">Usuario:</label>
                     <input type="text" id="username" name="username">

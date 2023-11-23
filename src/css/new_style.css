@@ -7,20 +7,22 @@ body {
 }
 
 /* Estilo para dividir la pantalla en dos secciones */
-#div-superior, #div-inferior {
+.div-superior, .div-inferior {
     width: 100%;
     height: 50%;
     float: left;
 }
 
+
+
 /* Estilos para la sección superior */
-#div-superior {
+.div-superior {
     background-color: #2b91eb;
     position: relative;
 }
 
 /* Estilos para la sección inferior */
-#div-inferior {
+.div-inferior {
     background-color: #ebbe85;
 }
 
@@ -99,7 +101,7 @@ main {
 }
 
 /* Estilos específicos para la página de login */
-#login-page > #div-superior > #contenedor-imagen {
+#login-page > .div-superior > #contenedor-imagen {
     width: 150px;
     height: 150px;
 }
@@ -107,7 +109,6 @@ main {
 /* Estilos generales para las imágenes */
 img {
     width: 100%;
-    height: 100%;
     border-radius: 20px;
 }
 
@@ -119,15 +120,15 @@ img {
 }
 
 /* Estilos específicos para la página de registro de usuario */
-#register-page > #div-superior, #login-page > #div-superior {
+#register-page > .div-superior, #login-page > .div-superior {
     height: 25%;
 }
 
-#register-page > #div-inferior, #login-page > #div-inferior {
+#register-page > .div-inferior, #login-page > .div-inferior {
     height: 75%;
 }
 
-#register-page > #div-superior, #register-page > #div-inferior, #login-page > #div-superior, #login-page > #div-inferior {
+#register-page > .div-superior, #register-page > .div-inferior, #login-page > .div-superior, #login-page > .div-inferior {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -180,7 +181,7 @@ td button{
     top: 10%;
     margin: auto;
     position: relative;
-    width: 70%;
+    width: 75%;
     overflow-y: auto;
 }
 
@@ -206,7 +207,7 @@ td button{
 }
 
 /* Estilos para el sistema de cuadrícula en la página del juego */
-.grid-container {
+#grid-container {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(7, 1fr);
@@ -278,15 +279,26 @@ input[type='file'] {
     height: 150px;
 }
 
+#opadmin{
+    width: 100%;
+}
+
+#bimagenesusuario{
+    font-size: 0.8rem;
+    height: 60%;
+}
+
+
+
 
 @media only screen and (max-width: 1024px) {
     html{
         font-size: 0.7em;
     }
-    #div-superior {
+    .div-superior {
         width: 100%;
     }
-    #div-inferior {
+    .div-inferior {
         width: 100%;
     }
     #opadminimagen{
@@ -306,9 +318,22 @@ input[type='file'] {
         margin: 20px auto;
     }
 
+    h1{
+        font-size: 1.3rem;
+    }
+
     label {
-        width: 100px;
+        width: 20rem;
+        height: 4.8rem;
+
     } 
+
+    input {
+        width: 12rem;
+        height: 4.4rem;
+
+    }
+
 }
 
 

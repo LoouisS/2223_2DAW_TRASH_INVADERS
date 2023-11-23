@@ -7,10 +7,10 @@
     </head>
     <body>
         <main id="landing-page">
-            <div id="div-superior">
+            <div class="div-superior">
                 <h1>REGISTRAR USUARIO</h1>
             </div>
-            <div id="div-inferior">
+            <div class="div-inferior">
                 <?php
                     //Verificar si hay un parámetro de error en la URL
                     if (isset($_GET['error'])) {

@@ -8,7 +8,7 @@
     </head>
     <body>
         <main id="register-page">
-            <div id="div-superior">
+            <div class="div-superior">
                 <label><h1 id="h1imagenes">Banco de Imagenes</h1></label>
             </div>
             <table id="imagenestabla">
