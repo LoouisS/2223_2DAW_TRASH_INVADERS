@@ -40,7 +40,7 @@
 						<label for="contraseña">Contraseña</label>
 						<input type="password" id="contraseña" name="contraseña">
 						<br>
-						<input type="submit" value="REGISTRARSE">
+						<input id="boton-registrarse" type="submit" value="REGISTRARSE">
 					</form>
 				</div>
 			</main>
@@ -62,7 +62,7 @@
 						<label for="password">Contraseña</label>
 						<input type="password" id="password" name="password">
 						<br>
-						<input type="submit" value="Iniciar Sesión">
+						<input id="boton-inicio" type="submit" value="Iniciar Sesión">
 					</form>
 				</div>
 			</main>
@@ -152,7 +152,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<button id="volvermenu" ><a href="menup.html">MENU</a></button>
+				<button id="boton-menu" >MENU</button> <!-- Redirige de nuevo a la vista menú principal (de usuario o de administrador) Por ahora todo lo vamos a hacer para usuario, lo demás que lo mire otro... -->
 			</main>
 		</div>
 
@@ -182,7 +182,7 @@
 						<button id="mejoras"><a href="bimagenes.html">Imagenes</a></button>
 					</form>
 				</div>
-				<button id="volvermenu"><a href="menup.html">MENU</a></button>
+				<button id="boton-menu">MENU</button> <!-- Retorna al menú principal de administrador -->
 			</main>
 		</div>
 
@@ -260,15 +260,16 @@
 							</tr>
 						</table>
 					</div>        
-				<button id="volvermenu"><a href="menup.html">MENU</a></button>
+				<button id="boton-menu">MENU</button> <!-- Retorna al menú de administrador -->
 				<form method="POST" enctype="multipart/form-data" id="formsubir">
 					<input type="file" name="imagen" accept=".png,.jpg,.jpeg," multiple><br/>
-					<input type="submit" value="SUBIR">
+					<input type="submit" value="SUBIR"><!-- Estos botones no los toco de momento, tienen más que ver con las neces -->
 					<input type="submit" value="BORRAR">
 				</form>   
 			</main>
 		</div>
 
+		<!-- TODAS LAS VENTANAS Y VISTAS RELACIONADAS A LOS POWER UPS LOS TRATAMOS MAÑANA, HAY MUCHAS COSAS QUE VAN A CAMBIAR, NO TIENE SENTIDO TOCARLOS AHORA -->
 		<!-- Introducimos la vista que corresponde a la ventana de mejoras en para el juego, los power ups (mejoras) -->
 		<div id="divvistaMejoras">
 			<main id="register-page">
@@ -324,8 +325,8 @@
 						<td><button>Borrar</button></td>
 					</tr>
 				</table>
-				<button id="volvermenu" ><a href="menup.html">MENU</a></button>
-				<button id="subir" ><a href="nuevamejora.html">NUEVA MEJORA</a></button>
+				<button id="boton-menu">MENU</button>
+				<button id="boton-newmejora">NUEVA MEJORA</button>
 			</main>
 		</div>
 
@@ -401,6 +402,7 @@
 			</main>
 		</div>
 
+		<!-- Hay que mirar la generación automática del DOM, ya hay código en el controlador que ha sido comentado para que no interfiera por el momento -->
 		<!-- Introducimos la vista que corresponde a la ventana de juego -->
 		<div id="divvistaJuego">
 			<main id="game-page">
