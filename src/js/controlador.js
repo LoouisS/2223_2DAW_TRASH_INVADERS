@@ -31,9 +31,9 @@ class Controlador {
     const divJuego = document.getElementById('divJuego')
 
     // Creo las vistas
-    this.vistas.set(Vista.INICIO, new Vista1(this, divInicio))
-    this.vistas.set(Vista.MENU, new Vista2(this, divMenu))
-    this.vistas.set(Vista.JUEGO, new Vista3(this, divJuego))
+    this.vistas.set(Vista.INICIO, new InicioSesion(this, divInicio))
+    this.vistas.set(Vista.MENU, new MenuPrincipal(this, divMenu))
+    this.vistas.set(Vista.JUEGO, new Juego(this, divJuego))
 
     this.verVista(Vista.INICIO)
 
