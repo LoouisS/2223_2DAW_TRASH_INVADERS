@@ -47,7 +47,7 @@ export class Juego extends Vista {
 
     this.imagenVista3 = imagenVista3
 
-    document.getElementById('divVista3').appendChild(this.imagenVista3)
+    document.getElementById('divJuego').appendChild(this.imagenVista3)
 
     // Obtener las dimensiones de la ventana
     const ventanaAncho = window.innerWidth
