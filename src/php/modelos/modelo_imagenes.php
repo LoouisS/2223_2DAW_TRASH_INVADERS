@@ -44,7 +44,6 @@ class ModeloImagenes {
         if(isset($archivos['imagenes'])){
             $imagenes = $archivos['imagenes'];
 
-
             for($i = 0; $i < count($imagenes['name']); $i++) {
                 $nombre = basename($imagenes['name'][$i]);
                 $imagenData = file_get_contents($imagenes['tmp_name'][$i]);

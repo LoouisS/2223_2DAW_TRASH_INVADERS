@@ -20,7 +20,7 @@
     <body>
         <main id="register-page">
             <div id="div-superior">
-                <label><h1>Banco de Imagenes</h1></label>
+                <h1>Banco de Imagenes</h1>
             </div>
             <table>
                 <thead>
@@ -36,11 +36,10 @@
                         echo "<tr><td colspan='3'>No hay imágenes</td></tr>";
                     } else {
                         foreach ($imagenes as $imagen) {
-            
                             echo "<tr>";
-                            echo "<td>" . $imagen['nombre'] . "</td>";
+                            echo "<td>" . pathinfo($imagen['nombre'], PATHINFO_FILENAME) . "</td>";
                             echo "<td><img src='data:image/jpeg;base64," . $imagen['imagen'] . "' alt='" . $imagen['nombre'] . "'></td>";
-                            echo "<td><a href='index.php?controller=imagenes&action=borrarImagen&idImagen=" . $imagen['idImagen'] . "'>Eliminar</a></td>";
+                            echo "<td><a href='index.php?controller=Imagenes&action=borrarImagen&idImagen=" . $imagen['idImagen'] . "'>Eliminar</a></td>";
                             echo "</tr>";
                         }
                     }

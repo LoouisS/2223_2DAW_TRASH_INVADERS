@@ -1,6 +1,4 @@
 <?php
-// FILEPATH: /c:/xampp/htdocs/projects/2324_2DAW_TRASH_INVADERS/src/php/vistas/confirmacion_borrado.php
-
 
 ?>
 

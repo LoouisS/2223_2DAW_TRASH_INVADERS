@@ -17,13 +17,14 @@ class Imagenes {
         require_once 'src/php/vistas/' . $this->vista . '.php';
     }
 
-    public function subirImagenes($archivos) {
-        $this->modelo->agregarImagen($archivos);
+    public function subirImagenes() {
+        $this->modelo->agregarImagen($_FILES);
+        header("Location: index.php");
     }
 
     public function borrarImagen($imagen) {
         $this->modelo->eliminarImagen((int)$imagen);
-        
+        header("Location: index.php");
     }
 
 }
