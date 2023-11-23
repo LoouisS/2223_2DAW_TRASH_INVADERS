@@ -19,14 +19,16 @@ class Imagenes {
 
     public function subirImagenes() {
         $this->modelo->agregarImagen($_FILES);
-        header("Location: index.php");
     }
 
     public function borrarImagen($imagen) {
         $this->modelo->eliminarImagen((int)$imagen);
-        header("Location: index.php");
     }
 
+    public function confirmarBorrado() {
+        $this->vista = 'confirmar_borrado';
+        $this->modelo->mostrarImagenPorId((int)$_GET['idImagen']);
+    }
 }
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-    define('DEFAULT_CONTROLLER', 'Imagenes');
-    define('DEFAULT_ACTION', 'mostrarImagen');
+    define('DEFAULT_CONTROLLER', 'Administrador');
+    define('DEFAULT_ACTION', 'mostrarAdmin');
 
 ?>

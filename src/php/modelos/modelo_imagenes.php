@@ -36,6 +36,23 @@ class ModeloImagenes {
         return $fetchedImages;
     }
 
+    public function mostrarImagenPorId($idImagen) {
+        $stmt = $this->conexion->prepare("SELECT idImagen, nombre, imagen FROM imagen WHERE idImagen = ?");
+        $stmt->bind_param("i", $idImagen);
+        $stmt->execute();
+        $stmt->bind_result($idImagen, $nombre, $imagen);
+        $stmt->fetch();
+        $stmt->close();
+
+        $fetchedImage = [
+            'idImagen' => $idImagen,
+            'nombre' => $nombre,
+            'imagen' => base64_encode($imagen)
+        ];
+
+        return $fetchedImage;
+    }
+
     public function agregarImagen($archivos) {
         
         $stmt = $this->conexion->prepare("INSERT INTO imagen (nombre, imagen, hash) VALUES (?, ?, ?)");

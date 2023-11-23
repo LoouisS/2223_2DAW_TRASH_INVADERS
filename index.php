@@ -28,15 +28,14 @@ $nombre_controlador = $_GET["controlador"];
 $controlador = new $nombre_controlador();
 
 
+// Datos para las vistas
+
+$datos["datos"] = array();
 if (method_exists($controlador, $_GET["action"])) {
-    
-    if (isset($_GET["idImagen"])) {
-        $dataToView["data"] = $controlador->{$_GET["action"]}($_GET["idImagen"]);
-    } else {
-        $dataToView["data"] = $controlador->{$_GET["action"]}();
-    }
+    $datos["datos"] = $controlador->{$_GET["action"]}();
 }
 
+echo 'src/php/vistas/' . $controlador->vista . '.php';
 require_once 'src/php/vistas/' . $controlador->vista . '.php';
 
 ?>
