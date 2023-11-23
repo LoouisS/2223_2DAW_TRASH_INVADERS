@@ -17,9 +17,13 @@ class Imagenes {
         require_once 'src/php/vistas/' . $this->vista . '.php';
     }
 
-    public function borrarImagen($archivos) {
-        $imagenes = $archivos['selectedImages'];
-        $this->modelo->eliminarImagen($imagenes);
+    public function subirImagenes($archivos) {
+        $this->modelo->agregarImagen($archivos);
+    }
+
+    public function borrarImagen($imagen) {
+        $this->modelo->eliminarImagen((int)$imagen);
+        
     }
 
 }

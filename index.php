@@ -5,9 +5,16 @@ require_once 'src/php/controladores/imagenes.php';
 
 session_start();
 
-
-
 $imagenes = new Imagenes();
+
+
+if ($_GET['action'] == 'borrarImagen' && $_GET['controller'] == 'imagenes' ) {
+    $imagenes->borrarImagen($_GET['idImagen']);
+} elseif ($_GET['action'] == 'subirImagenes' && $_GET['controller'] == 'imagenes' ) {
+    // Aquí puedes agregar el código que deseas ejecutar cuando la ruta coincida
+    $imagenes->subirImagenes($_FILES);
+    
+} 
 
 $imagenes->mostrarImagen();
 

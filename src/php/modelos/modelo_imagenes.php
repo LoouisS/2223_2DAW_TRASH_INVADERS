@@ -37,10 +37,13 @@ class ModeloImagenes {
     }
 
     public function agregarImagen($archivos) {
+        
         $stmt = $this->conexion->prepare("INSERT INTO imagen (nombre, imagen, hash) VALUES (?, ?, ?)");
         $stmt->bind_param("sbs", $nombre, $imagen, $hash);
+
         if(isset($archivos['imagenes'])){
             $imagenes = $archivos['imagenes'];
+
 
             for($i = 0; $i < count($imagenes['name']); $i++) {
                 $nombre = basename($imagenes['name'][$i]);
@@ -63,11 +66,6 @@ class ModeloImagenes {
                     echo "Error: El archivo $nombre ya existe en la base de datos. <br>";
                     continue; 
                 }
-        
-                // Sanitizar los datos antes de insertarlos en la base de datos
-                // TODO Quitar y probar si lo sanitiza bien
-                $nombre = mysqli_real_escape_string($this->conexion, $nombre);
-                $imagenData = mysqli_real_escape_string($this->conexion, $imagenData);
         
                 // Insertar los datos en la base de datos
                 $stmt->send_long_data(1, $imagenData);
@@ -93,7 +91,6 @@ class ModeloImagenes {
     public function eliminarImagen($imagenes) {
         
         $stmt = $this->conexion->prepare("DELETE FROM imagen WHERE idImagen = ?");
-        $imagenes = (int) $imagenes;
         $stmt->bind_param("i", $imagenes);
         $stmt->execute();
         $stmt->close();
