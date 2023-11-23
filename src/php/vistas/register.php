@@ -16,7 +16,6 @@
                     if (isset($_GET['error'])) {
                         $error = $_GET['error'];
 
-                        //Mostrar un mensaje de error correspondiente al parámetro
                         if($error === 'CamposObligatorios'){
                             echo "<p style='color: red;'>Por favor, complete todos los campos obligatorios.</p>";
                         }elseif($error === 'RegistroFallido'){
