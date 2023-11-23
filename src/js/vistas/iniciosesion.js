@@ -6,7 +6,7 @@ import { MenuPrincipal } from './menuprincipal.js' // Importa la clase Vista2
  * @class
  * @extends Vista
  */
-export class Vista1 extends Vista {
+export class InicioSesion extends Vista {
   /**
      * Crea una instancia de Vista1.
      * @constructor
@@ -62,7 +62,7 @@ export class Vista1 extends Vista {
     // Verificar si el usuario cumple con la regex1
     if (regex1.test(usuario)) {
       // Usuario válido, cambiar a la Vista2
-      this.controlador.verVista(Vista2.VISTA2)
+      this.controlador.verVista(MenuPrincipal.MENU)
 
       // Limpiar el mensaje de error si estaba visible
       this.mostrarMensajeError('')

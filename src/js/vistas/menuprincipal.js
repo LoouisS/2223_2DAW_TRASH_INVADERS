@@ -6,7 +6,7 @@ import { Juego } from './juego.js'
  * @class
  * @extends Vista
  */
-export class Vista2 extends Vista {
+export class MenuPrincipal extends Vista {
   /**
      * Crea una instancia de Vista2.
      * @constructor
@@ -38,6 +38,6 @@ export class Vista2 extends Vista {
     // Manejar el evento del botón JUGAR
     // console.log('Botón JUGAR pulsado');
     // Cambiar a la Vista3
-    this.controlador.verVista(Vista3.VISTA3) // Cambiado a Vista3.VISTA3
+    this.controlador.verVista(Juego.JUEGO) // Cambiado a Vista3.VISTA3
   }
 }
