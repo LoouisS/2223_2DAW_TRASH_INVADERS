@@ -62,7 +62,7 @@ export class InicioSesion extends Vista {
     // Verificar si el usuario cumple con la regex1
     if (regex1.test(usuario)) {
       // Usuario válido, cambiar a la Vista2
-      this.controlador.verVista(MenuPrincipal.MENU)
+      this.controlador.verVista(Vista.MENU)
 
       // Limpiar el mensaje de error si estaba visible
       this.mostrarMensajeError('')

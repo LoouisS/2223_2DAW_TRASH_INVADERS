@@ -38,6 +38,6 @@ export class MenuPrincipal extends Vista {
     // Manejar el evento del botón JUGAR
     // console.log('Botón JUGAR pulsado');
     // Cambiar a la Vista3
-    this.controlador.verVista(Juego.JUEGO) // Cambiado a Vista3.VISTA3
+    this.controlador.verVista(Vista.JUEGO) // Cambiado a Vista3.VISTA3
   }
 }
