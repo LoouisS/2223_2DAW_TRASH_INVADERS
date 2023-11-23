@@ -156,6 +156,7 @@ table {
     line-height: 50px; 
     border-collapse: collapse;
     overflow-y: auto;
+    margin: 0 auto;
 }
 
 /* Estilos para botones dentro de celdas de tabla */
@@ -264,6 +265,17 @@ input[type='file'] {
     background-color: #ffffff; 
     border: none;
     width: 30%;
+}
+
+/* h1 imagenes */
+#h1imagenes{
+    font-size: 1.3rem;
+}
+
+/* Tabla imagenes */
+#imagenestabla img{
+    width: 150px;
+    height: 150px;
 }
 
 

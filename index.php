@@ -4,6 +4,7 @@ require_once 'src/php/config/config.php';
 require_once 'src/php/controladores/imagenes.php';
 
 session_start();
+error_reporting(0);
 
 $imagenes = new Imagenes();
 

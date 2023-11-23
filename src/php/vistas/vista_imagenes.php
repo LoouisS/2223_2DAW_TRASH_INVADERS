@@ -5,24 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="src/css/new_style.css">
         <title>Banco de Imagenes</title>
-        <style>
-            img {
-                width: 150px;
-                height: 150px;
-            }
-
-            table {
-                border-collapse: collapse;
-                margin: 0 auto;
-            }
-        </style>
     </head>
     <body>
         <main id="register-page">
             <div id="div-superior">
-                <label><h1>Banco de Imagenes</h1></label>
+                <label><h1 id="h1imagenes">Banco de Imagenes</h1></label>
             </div>
-            <table>
+            <table id="imagenestabla">
                 <thead>
                     <tr>
                         <th>Nombre Imagen</th>
@@ -33,7 +22,7 @@
                 <tbody>
                     <?php
                     if (!is_iterable($imagenes) || count($imagenes) === 0) {
-                        echo "<tr><td colspan='3'>No hay imágenes</td></tr>";
+                        echo "<tr ><td colspan='3'>No hay imágenes</td></tr>";
                     } else {
                         foreach ($imagenes as $imagen) {
             
