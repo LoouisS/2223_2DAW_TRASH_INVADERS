@@ -11,13 +11,14 @@ import { Vista } from './vistas/vista.js'
 import { Indice } from './vistas/indice.js'
 import { Registro } from './vistas/registro.js'
 import { InicioSesion } from './vistas/iniciosesion.js'
-import { MenuPrincipal } from './vistas/menuprincipalUsuario.js'
-//import { Mejoras } from './vistas/mejoras.js'
-//import { Opciones } from './vistas/opcionesadm.js'
-//import {  } from './vistas/mejoras.js'
-//import {  } from './vistas/opcionesadm.js'
-//import {  } from './vistas/mejoras.js'
-//import {  } from './vistas/opcionesadm.js'
+import { MenuPrincipalUsuario } from './vistas/menuprincipalusuario.js'
+import { MenuPrincipalAdm } from './vistas/menuprincipaladm.js'
+import { Mejoras } from './vistas/mejoras.js'
+import { NuevaMejora } from './vistas/nuevamejora.js'
+import { ModificarMejora } from './vistas/modificarmejora.js'
+import { OpcionesAdministrador } from './vistas/opcionesadm.js'
+import { Clasificaciones } from './vistas/clasificaciones.js'
+import { BancoImagenes } from './vistas/bancoimagenes.js'
 import { Juego } from './vistas/juego.js'
 
 console.log('Script cargado correctamente')
@@ -52,8 +53,8 @@ class Controlador {
     this.vistas.set(Vista.vistaIndice, new Indice(this, divvistaIndice))
     this.vistas.set(Vista.vistaRegistro, new Registro(this, divvistaRegistro))
     this.vistas.set(Vista.vistaInicio, new InicioSesion(this, divvistaLogin))
-    this.vistas.set(Vista.vistaMenuUsuario, new MenuPrincipal(this, divvistaMenuUsuario))
-    this.vistas.set(Vista.vistaMenuAdm, new MenuPrincipal(this, divvistaMenuAdm))
+    this.vistas.set(Vista.vistaMenuUsuario, new MenuPrincipalUsuario(this, divvistaMenuUsuario))
+    this.vistas.set(Vista.vistaMenuAdm, new MenuPrincipalAdm(this, divvistaMenuAdm))
     this.vistas.set(Vista.vistaOpciones, new OpcionesAdministrador(this, divvistaOpciones))
     this.vistas.set(Vista.vistaBanco, new BancoImagenes(this, divvistaBanco))
     this.vistas.set(Vista.vistaMejoras, new Mejoras(this, divvistaMejoras))

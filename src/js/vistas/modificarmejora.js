@@ -1,7 +1,7 @@
-//vistaOpciones
+//vistaModMejora
 import { Vista } from "./vista";
 
-export class OpcionesAdministrador extends Vista {
+export class ModificarMejora extends Vista {
     /**
        * Crea una instancia de Vista2.
        * @constructor
@@ -12,5 +12,4 @@ export class OpcionesAdministrador extends Vista {
         super(controlador, base)
         this.crearInterfaz()
     }
-
 }

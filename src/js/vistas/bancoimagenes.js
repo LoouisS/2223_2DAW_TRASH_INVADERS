@@ -1,7 +1,7 @@
-//vistaOpciones
+//vistaBanco
 import { Vista } from "./vista";
 
-export class OpcionesAdministrador extends Vista {
+export class BancoImagenes extends Vista {
     /**
        * Crea una instancia de Vista2.
        * @constructor
