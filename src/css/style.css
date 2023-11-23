@@ -1,0 +1,213 @@
+/* Implementado */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Pagina del login */
+
+/* Implementado */
+#login-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+/* Implementado */
+#div1, #div2 {
+    width: 100%;
+    float: left;
+    height: 50%;
+}
+/* Implementado */
+#div1 {
+    background-color: #2b91eb;
+    position: relative; 
+}
+/* Implementado */
+#contenedor-imagen {
+    width: 15%;
+    height: auto;
+    margin: 30px auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 100px;
+}
+
+#login-page input[type="text"] {
+    display: block;
+    width: 60%;
+    height: 100px;
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    margin: auto; 
+    font-size: 3.1rem;
+    text-align: center;
+}
+
+input[type="text"]::placeholder {
+    text-align: center;
+}
+
+#div2 {
+    background-color: #ebbe85;
+}
+
+button {
+    box-sizing: content-box;
+    display: block;
+    margin: 35px auto;
+    font-size: 3.1rem;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+
+#boton-inicio-sesion {
+    width: 35%;
+    height: 20%;
+}
+
+#boton-salir {
+    width: 25%;
+    height: 20%;
+}
+
+/* Pagina del admin */
+
+#admin-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#admin-page > div {
+    width: 100%;
+    float: left;
+}
+
+#admin-page > #div1 {
+    height: 30%;
+}
+
+#admin-page > #div2 {
+    height: 70%;
+}
+
+#admin-page > #div1 > h1 {
+    width: 50%;
+    text-align: center;
+    font-size: 4rem;
+    margin: 50px auto;
+    background-color: white;
+}
+
+form {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.form-admin-parameters {
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.form-admin-parameters > * {
+    font-size: 1.7rem;
+}
+
+.form-admin-parameters label, input[type='text'] {
+    background-color: white;
+    height: 10px;
+    text-align: center;
+    display: inline-block;  
+    height: auto;
+}
+
+.form-admin-parameters input[type='text'] {
+    width: 5%;
+    border: none;
+    padding: 0;
+}
+
+label {
+    width: 30%;
+}
+
+input[type='submit'] {
+    background-color: #ffffff; 
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+input[type='submit']:hover {
+    background-color: #000000; 
+    color: white;
+}
+
+a {
+     text-decoration: none;
+}
+
+/* Pagina del juego principal */
+
+#game-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#game-page > #div1 {
+    height: 40%;
+}
+
+#game-page > #div2 {
+    height: 60%;
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.item {
+    background-color: #ccc;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#imagenVista3{
+    width : 150px;
+    height : 110px;
+
+}
+
+#mensaje-error {
+    position: absolute;
+    background-color: #bdcce0; /* Color de fondo */
+    border: 2px solid #000000; /* Borde del mensaje */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    display: none;
+}
+
+
+
+

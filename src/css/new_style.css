@@ -1,0 +1,146 @@
+/* Estilos generales */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#div-superior, #div-inferior {
+    width: 100%;
+    height: 50%;
+    float: left;
+}
+
+#div-superior {
+    background-color: #2b91eb;
+    position: relative;
+}
+
+#div-inferior {
+    background-color: #ebbe85;
+}
+
+button {
+    box-sizing: content-box;
+    width: 15%;
+    height: 70px;
+    display: block;
+    margin: 15px auto;
+    font-size: 2rem;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+
+input[type='submit'] {
+    background-color: #ffffff; 
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+label {
+    display: inline-block;
+    text-align: left;
+    width: 150px;
+    background-color: #e3eaed; 
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    line-height: 50px; 
+}
+
+input {
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    padding: 0;
+    border: 0;
+    margin-top: 10px;
+}
+
+
+
+/* Pagina principal */
+
+main {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilos div imagen */
+
+#contenedor-imagen {
+    /* Hacerlo responsive */
+    width: 250px;
+    height: 250px;
+    margin: 20px auto;
+}
+
+#login-page > #div-superior > #contenedor-imagen {
+    width: 150px;
+    height: 150px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* Estilos contenedor  */
+
+#contenedor-boton-registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pagina registrar usuario */
+
+#register-page > #div-superior, #login-page > #div-superior {
+    height: 25%;
+}
+
+#register-page > #div-inferior, #login-page > #div-inferior {
+    height: 75%;
+}
+
+#register-page > #div-superior, #register-page > #div-inferior, #login-page > #div-superior, #login-page > #div-inferior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1  {
+   background-color: white;
+    padding: 20px;
+}
+
+form  {
+    width: 50%;
+    height: 90%;
+    text-align: center;
+}
+
+
+
+/* Pagina iniciar sesion usuario */
+
