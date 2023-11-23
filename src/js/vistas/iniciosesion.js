@@ -1,5 +1,5 @@
 import { Vista } from './vista.js'
-import { Vista2 } from './vista2.js' // Importa la clase Vista2
+import { MenuPrincipal } from './menuprincipal.js' // Importa la clase Vista2
 
 /**
  * Clase que representa la primera vista de la aplicación.

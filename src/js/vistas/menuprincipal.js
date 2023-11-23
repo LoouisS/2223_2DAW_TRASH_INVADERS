@@ -1,5 +1,5 @@
 import { Vista } from './vista.js'
-import { Vista3 } from './vista3.js'
+import { Juego } from './juego.js'
 
 /**
  * Clase que representa la segunda vista de la aplicación.

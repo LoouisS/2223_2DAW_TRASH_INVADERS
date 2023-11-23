@@ -1,4 +1,3 @@
-// vista3.js
 import { Vista } from './vista.js'
 
 /**

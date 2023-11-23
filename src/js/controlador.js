@@ -8,9 +8,9 @@
 
 import { Modelo } from './modelos/modelo.js'
 import { Vista } from './vistas/vista.js'
-import { Vista1 } from './vistas/vista1.js'
-import { Vista2 } from './vistas/vista2.js'
-import { Vista3 } from './vistas/vista3.js'
+import { InicioSesion } from './vistas/iniciosesion.js'
+import { MenuPrincipal } from './vistas/menuprincipal.js'
+import { Juego } from './vistas/juego.js'
 console.log('Script cargado correctamente')
 
 class Controlador {
@@ -26,16 +26,16 @@ class Controlador {
   constructor () {
     this.modelo = new Modelo()
 
-    const divVista1 = document.getElementById('divVista1')
-    const divVista2 = document.getElementById('divVista2')
-    const divVista3 = document.getElementById('divVista3')
+    const divInicio = document.getElementById('divInicio')
+    const divMenu = document.getElementById('divMenu')
+    const divJuego = document.getElementById('divJuego')
 
     // Creo las vistas
-    this.vistas.set(Vista.VISTA1, new Vista1(this, divVista1))
-    this.vistas.set(Vista.VISTA2, new Vista2(this, divVista2))
-    this.vistas.set(Vista.VISTA3, new Vista3(this, divVista3))
+    this.vistas.set(Vista.INICIO, new Vista1(this, divInicio))
+    this.vistas.set(Vista.MENU, new Vista2(this, divMenu))
+    this.vistas.set(Vista.JUEGO, new Vista3(this, divJuego))
 
-    this.verVista(Vista.VISTA1)
+    this.verVista(Vista.INICIO)
 
     console.log(this.vistas)
   }
