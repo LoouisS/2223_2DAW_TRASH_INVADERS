@@ -104,8 +104,8 @@ class ModeloImagenes {
         return $count;
     }
 
-    public function eliminarImagen($imagenes) {
-        
+    public function eliminarImagen($imagenes) { 
+        echo "DELETE FROM imagen WHERE idImagen = " . $imagenes;
         $stmt = $this->conexion->prepare("DELETE FROM imagen WHERE idImagen = ?");
         $stmt->bind_param("i", $imagenes);
         $stmt->execute();

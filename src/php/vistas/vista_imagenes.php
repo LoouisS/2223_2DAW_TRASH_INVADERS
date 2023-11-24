@@ -15,6 +15,10 @@
                 border-collapse: collapse;
                 margin: 0 auto;
             }
+
+            a {
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
@@ -46,13 +50,11 @@
                     ?>
                 </tbody>
             </table>
-            <form method="POST" enctype="multipart/form-data" id="formsubir" action="index.php?controlador=Imagenes&action=subirImagenes">
+            <form method="POST" enctype="multipart/form-data" id="formsubir" action="index.php?controlador=Imagenes&action=confirmaSubida">
                 <input type="file" name="imagenes[]" accept=".png,.jpg,.jpeg," multiple><br/>
                 <input type="submit" value="SUBIR">
             </form>
-            <div id="volvermenu">
-                <a href="menup.html">MENU</a>
-            </div>
+            <a href="index.php">Volver</a>
         </main>
     </body>
 </html>
