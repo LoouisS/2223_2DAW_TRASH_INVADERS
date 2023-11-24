@@ -28,7 +28,9 @@
             </div>
             <?php 
             if (isset($_GET['error'])) {
-                echo "<p>" . $_GET['error'] . "</p>";
+                echo "<p>Extension Incorrecta </p>";
+            } else if (isset($_GET['errorArchivoVacio'])) {
+                echo "<p> No seleccionaste ningun archivo</p>";
             }
             ?>
             <table>

@@ -26,8 +26,9 @@ class Imagenes {
     }
 
     public function confirmarBorrado() {
-        $this->modelo->mostrarImagenPorId((int)$_GET['idImagen']);
+        $imagen = $this->modelo->mostrarImagenPorId((int)$_GET['idImagen']);
         $this->vista = 'confirmar_borrado';
+        require_once 'src/php/vistas/' . $this->vista . '.php';
     }
 
     public function ejecucionBorrado() {

@@ -35,7 +35,6 @@ if (method_exists($controlador, $_GET["action"])) {
     $datos["datos"] = $controlador->{$_GET["action"]}();
 }
 
-echo 'src/php/vistas/' . $controlador->vista . '.php';
 require_once 'src/php/vistas/' . $controlador->vista . '.php';
 
 ?>

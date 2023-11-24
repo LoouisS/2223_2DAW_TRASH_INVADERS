@@ -63,6 +63,11 @@ class ModeloImagenes {
 
             for($i = 0; $i < count($imagenes['name']); $i++) {
                 $nombre = basename($imagenes['name'][$i]);
+                // Comprobamos que se ha seleccionado un archivo
+                if (empty($imagenes['tmp_name'][$i]) || file_get_contents($imagenes['tmp_name'][$i]) === '') {
+                    header("Location: index.php?controlador=Imagenes&action=mostrarImagen&errorArchivoVacio=archivoVacio");
+                }
+
                 $imagenData = file_get_contents($imagenes['tmp_name'][$i]);
                 $hash = hash('sha256', $imagenData);
         
@@ -105,19 +110,11 @@ class ModeloImagenes {
     }
 
     public function eliminarImagen($imagenes) { 
-        echo "DELETE FROM imagen WHERE idImagen = " . $imagenes;
         $stmt = $this->conexion->prepare("DELETE FROM imagen WHERE idImagen = ?");
         $stmt->bind_param("i", $imagenes);
         $stmt->execute();
         $stmt->close();
     }
 
-    // TODO Terminar de implementar este metodo
-    public function modificarImagen($idImagen, $nombre) {
-        $stmt = $this->conexion->prepare("UPDATE imagen SET nombre = ? WHERE idImagen = ?");
-        $stmt->bind_param("ssi", $nombre, $idImagen);
-        $stmt->execute();
-        $stmt->close();
-    }
 }
 ?>
