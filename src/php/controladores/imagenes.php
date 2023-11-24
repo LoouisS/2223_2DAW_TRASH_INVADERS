@@ -33,12 +33,13 @@ class Imagenes {
 
     public function ejecucionBorrado() {
         $this->modelo->eliminarImagen($_GET['idImagen']);
-        $this->vista = 'borrado_exitoso';
+        header('Location: index.php?controlador=Imagenes&action=mostrarImagen&borrado=BorradoCorrecto');
     }
 
     public function confirmaSubida() {
         $this->modelo->agregarImagen($_FILES);
         $this->vista = 'confirmacion_subida';  
+        header('Location: index.php?controlador=Imagenes&action=mostrarImagen&subidaCorrecta=Ok');
     }
 
     public function extensionIncorrecta() {

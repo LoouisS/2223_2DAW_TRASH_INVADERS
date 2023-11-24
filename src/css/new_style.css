@@ -139,6 +139,7 @@ img {
 h1  {
    background-color: white;
     padding: 20px;
+    text-align: center;
 }
 
 /* Estilos para formularios */
@@ -351,4 +352,14 @@ input[type='file'] {
 
 }
 
+p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 50px;
+    width: 50%;
+    color: white;
+    background-color: #4f6c9d;
+}
 

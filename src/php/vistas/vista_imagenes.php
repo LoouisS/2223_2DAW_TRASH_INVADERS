@@ -19,6 +19,7 @@
             a {
                 text-decoration: none;
             }
+
         </style>
     </head>
     <body>
@@ -31,6 +32,10 @@
                 echo "<p>Extension Incorrecta </p>";
             } else if (isset($_GET['errorArchivoVacio'])) {
                 echo "<p> No seleccionaste ningun archivo</p>";
+            } elseif (isset($_GET['subidaCorrecta'])) {
+                echo "<p> Subida correcta de los archivos </p>";
+            } elseif (isset($_GET['borrado'])) {
+                echo "<p> Borrado correcto de la imagen </p>";
             }
             ?>
             <table>
