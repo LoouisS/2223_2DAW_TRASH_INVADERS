@@ -39,6 +39,12 @@ class Imagenes {
         $this->modelo->agregarImagen($_FILES);
         $this->vista = 'confirmacion_subida';  
     }
+
+    public function extensionIncorrecta() {
+        $imagenes = $this->modelo->mostrarImagen();
+        $this->vista = 'extension_incorrecta';
+        require_once 'src/php/vistas/' . $this->vista . '.php';
+    }
 }
 
 ?>

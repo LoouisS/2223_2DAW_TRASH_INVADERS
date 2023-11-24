@@ -72,7 +72,7 @@ class ModeloImagenes {
 
                 if (!in_array($extension, $allowedExtensions)) {
                     // Cambiar esto por una vista
-                    echo "Error: El archivo $nombre tiene una extensión no permitida. <br>";
+                    header("Location: index.php?controlador=Imagenes&action=mostrarImagen&error=extensionIncorrecta");
                     continue; 
                 }
         

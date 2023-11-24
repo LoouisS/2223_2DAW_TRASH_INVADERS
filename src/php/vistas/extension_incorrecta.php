@@ -26,11 +26,7 @@
             <div id="div-superior">
                 <h1>Banco de Imagenes</h1>
             </div>
-            <?php 
-            if (isset($_GET['error'])) {
-                echo "<p>" . $_GET['error'] . "</p>";
-            }
-            ?>
+            <p>Has introducido una extension incorrecta del archivo</p>
             <table>
                 <thead>
                     <tr>
