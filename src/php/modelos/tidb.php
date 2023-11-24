@@ -3,7 +3,7 @@
 <?php
     require_once 'config/config.php';
 
-    class Tidb {
+    class TrashInvaderDB {
 
         private $host;
         private $trashinvadersdb;

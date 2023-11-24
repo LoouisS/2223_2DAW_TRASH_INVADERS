@@ -1,28 +1,35 @@
 /* Estilos generales */
 
+/* Reset de márgenes y padding del body */
 body {
     margin: 0;
     padding: 0;
 }
 
-#div-superior, #div-inferior {
+/* Estilo para dividir la pantalla en dos secciones */
+.div-superior, .div-inferior {
     width: 100%;
     height: 50%;
     float: left;
 }
 
-#div-superior {
+
+
+/* Estilos para la sección superior */
+.div-superior {
     background-color: #2b91eb;
     position: relative;
 }
 
-#div-inferior {
+/* Estilos para la sección inferior */
+.div-inferior {
     background-color: #ebbe85;
 }
 
+/* Estilos para los botones */
 button {
     box-sizing: content-box;
-    width: 15%;
+    width: 25%;
     height: 70px;
     display: block;
     margin: 15px auto;
@@ -33,26 +40,29 @@ button {
     border: none;
 }
 
+/* Estilos para los botones de tipo submit */
 input[type='submit'] {
-    background-color: #ffffff; 
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
+    background-color: #2b91eb;
+    color: white;
     cursor: pointer;
-
+    transition: background-color 0.3s;
 }
 
+input[type='submit']:hover {
+    background-color: #1e6aa7; /* Cambia el color al pasar el mouse sobre el botón */
+}
+
+/* Estilos para enlaces */
 a {
     text-decoration: none;
     color: black;
 }
 
+/* Estilos para etiquetas de texto */
 label {
     display: inline-block;
     text-align: left;
-    width: 150px;
+    width: 350px;
     background-color: #e3eaed; 
     height: 50px;
     border-radius: 10px;
@@ -62,6 +72,7 @@ label {
     line-height: 50px; 
 }
 
+/* Estilos para campos de entrada de texto */
 input {
     display: inline-block;
     width: 300px;
@@ -75,72 +86,280 @@ input {
     margin-top: 10px;
 }
 
-
-
-/* Pagina principal */
-
+/* Estilos para la página principal */
 main {
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
+    background-color: #ebbe85;
 }
 
-/* Estilos div imagen */
-
+/* Estilos para la sección de imágenes */
 #contenedor-imagen {
-    /* Hacerlo responsive */
-    width: 250px;
-    height: 250px;
+    width: 18%;
+    height: 63%;
     margin: 20px auto;
 }
 
-#login-page > #div-superior > #contenedor-imagen {
+/* Estilos específicos para la página de login */
+#login-page > .div-superior > #contenedor-imagen {
     width: 150px;
     height: 150px;
 }
 
+/* Estilos generales para las imágenes */
 img {
     width: 100%;
-    height: 100%;
     border-radius: 20px;
 }
 
-/* Estilos contenedor  */
-
+/* Estilos para el contenedor de botones de registro */
 #contenedor-boton-registro {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Pagina registrar usuario */
-
-#register-page > #div-superior, #login-page > #div-superior {
+/* Estilos específicos para la página de registro de usuario */
+#register-page > .div-superior, #login-page > .div-superior {
     height: 25%;
 }
 
-#register-page > #div-inferior, #login-page > #div-inferior {
+#register-page > .div-inferior, #login-page > .div-inferior {
     height: 75%;
 }
 
-#register-page > #div-superior, #register-page > #div-inferior, #login-page > #div-superior, #login-page > #div-inferior {
+#register-page > .div-superior, #register-page > .div-inferior, #login-page > .div-superior, #login-page > .div-inferior {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Estilos para encabezados h1 */
 h1  {
    background-color: white;
     padding: 20px;
+    text-align: center;
 }
 
+/* Estilos para formularios */
 form  {
     width: 50%;
     height: 90%;
     text-align: center;
 }
 
+/* Estilos para tablas */
+table {
+    width: 70%;
+    background-color: #e3eaed; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    line-height: 50px; 
+    border-collapse: collapse;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+/* Estilos para botones dentro de celdas de tabla */
+td button{
+    width: 70%;
+    font-size: 1rem;
+}
+
+/* Estilos para el contenedor de imágenes */
+#bimagenes {
+    width: auto;
+    max-height: 100%; /* Evita que la tabla crezca más allá del 100% del alto del div-inferior */
+    overflow: auto; /* Agrega una barra de desplazamiento si la tabla es más grande que el contenedor */
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilos para imágenes dentro de la tabla de mejoras */
+#tmejoras{
+    top: 10%;
+    margin: auto;
+    position: relative;
+    width: 75%;
+    overflow-y: auto;
+}
+
+#ejemploimagen{
+    width: 150px; 
+    height: 150px; 
+}
+
+.eliminarconfir{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#tmejoras img {
+    width: 150px; 
+    height: 150px; 
+}
+
+/* Estilos para la página del juego principal */
+#game-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilos para las secciones div1 y div2 dentro de la página del juego */
+#game-page > #div1 {
+    height: 40%;
+}
+
+#game-page > #div2 {
+    height: 60%;
+}
+
+/* Estilos para el sistema de cuadrícula en la página del juego */
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+}
+
+/* Estilos para elementos dentro de la cuadrícula del juego */
+.item {
+    background-color: #ccc;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* Estilos para imágenes específicas en la página del juego */
+#opadminimagen{
+    width: 100px; 
+    height: 100px; 
+    position:absolute;
+    left: 91%;
+    top: 5%;
+}
+
+#mejorasimagen{
+    width: 100px; 
+    height: 100px;
+    position: relative;
+    top:5%;
+}
+
+/* Estilos para botones específicos en la página del juego */
+#volvermenu{
+    height: 4rem;
+    width: 7rem;
+    position: relative;
+    right:45%;
+}
+
+#subir{
+    height: 4rem;
+    width: 7rem;
+    position: relative;
+    left:44%;
+    font-size: large;
+    bottom:11%;
+}
+
+/* Estilos para el formulario de subida de archivos */
+#formsubir{
+    height: auto;
+    width: auto;
+}
+
+/* Estilos para el input de tipo file */
+input[type='file'] {
+    background-color: #ffffff;
+    border: 2px solid #2b91eb; /* Borde azul para resaltar el área del archivo */
+    border-radius: 5px;
+    padding: 10px;
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+/* h1 imagenes */
+#h1imagenes{
+    font-size: 1.3rem;
+}
+
+/* Tabla imagenes */
+#imagenestabla img{
+    width: 150px;
+    height: 150px;
+}
+
+#opadmin{
+    width: 100%;
+}
+
+#bimagenesusuario{
+    font-size: 0.8rem;
+    height: 60%;
+}
 
 
-/* Pagina iniciar sesion usuario */
+
+
+@media only screen and (max-width: 1024px) {
+    html{
+        font-size: 0.7em;
+    }
+    .div-superior {
+        width: 100%;
+    }
+    .div-inferior {
+        width: 100%;
+    }
+    #opadminimagen{
+        left: 85%;
+    }
+    #tmejoras img {
+        width: 100px; 
+        height: 100px; 
+    }
+    button {
+        width: 20%;
+        height: 50px;
+    }
+    #contenedor-imagen {
+        width: 10%;
+        height: 13%;
+        margin: 20px auto;
+    }
+
+    h1{
+        font-size: 1.3rem;
+    }
+
+    label {
+        width: 20rem;
+        height: 4.8rem;
+
+    } 
+
+    input {
+        width: 12rem;
+        height: 4.4rem;
+
+    }
+
+}
+
+p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 50px;
+    width: 50%;
+    color: white;
+    background-color: #4f6c9d;
+}
 
