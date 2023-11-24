@@ -44,7 +44,7 @@
                 <tbody>
                     <?php
                     if (!is_iterable($imagenes) || count($imagenes) === 0) {
-                        echo "<tr><td colspan='3'>No hay imágenes</td></tr>";
+                        echo "<tr ><td colspan='3'>No hay imágenes</td></tr>";
                     } else {
                         foreach ($imagenes as $imagen) {
                             echo "<tr>";
@@ -61,8 +61,7 @@
                 <input type="file" name="imagenes[]" accept=".png,.jpg,.jpeg," multiple><br/>
                 <input type="submit" value="SUBIR">
             </form>
-            <a href="index.php">Volver</a>
+            <button id="subir" ><a href="index.php">Volver</a></button>
         </main>
     </body>
 </html>
-
