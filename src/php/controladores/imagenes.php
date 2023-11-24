@@ -17,15 +17,28 @@ class Imagenes {
         require_once 'src/php/vistas/' . $this->vista . '.php';
     }
 
-    public function subirImagenes($archivos) {
-        $this->modelo->agregarImagen($archivos);
+    public function subirImagenes() {
+        $this->modelo->agregarImagen($_FILES);
     }
 
-    public function borrarImagen($imagen) {
-        $this->modelo->eliminarImagen((int)$imagen);
-        
+    public function borrarImagen() {
+        $this->modelo->eliminarImagen((int)$$_GET['idImagen']);
     }
 
+    public function confirmarBorrado() {
+        $this->modelo->mostrarImagenPorId((int)$_GET['idImagen']);
+        $this->vista = 'confirmar_borrado';
+    }
+
+    public function ejecucionBorrado() {
+        $this->modelo->eliminarImagen($_GET['idImagen']);
+        $this->vista = 'borrado_exitoso';
+    }
+
+    public function confirmaSubida() {
+        $this->modelo->agregarImagen($_FILES);
+        $this->vista = 'confirmacion_subida';  
+    }
 }
 
 ?>

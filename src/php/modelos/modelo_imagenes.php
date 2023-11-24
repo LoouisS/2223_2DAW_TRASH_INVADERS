@@ -36,6 +36,23 @@ class ModeloImagenes {
         return $fetchedImages;
     }
 
+    public function mostrarImagenPorId($idImagen) {
+        $stmt = $this->conexion->prepare("SELECT idImagen, nombre, imagen FROM imagen WHERE idImagen = ?");
+        $stmt->bind_param("i", $idImagen);
+        $stmt->execute();
+        $stmt->bind_result($idImagen, $nombre, $imagen);
+        $stmt->fetch();
+        $stmt->close();
+
+        $fetchedImage = [
+            'idImagen' => $idImagen,
+            'nombre' => $nombre,
+            'imagen' => base64_encode($imagen)
+        ];
+
+        return $fetchedImage;
+    }
+
     public function agregarImagen($archivos) {
         
         $stmt = $this->conexion->prepare("INSERT INTO imagen (nombre, imagen, hash) VALUES (?, ?, ?)");
@@ -43,7 +60,6 @@ class ModeloImagenes {
 
         if(isset($archivos['imagenes'])){
             $imagenes = $archivos['imagenes'];
-
 
             for($i = 0; $i < count($imagenes['name']); $i++) {
                 $nombre = basename($imagenes['name'][$i]);
@@ -88,8 +104,8 @@ class ModeloImagenes {
         return $count;
     }
 
-    public function eliminarImagen($imagenes) {
-        
+    public function eliminarImagen($imagenes) { 
+        echo "DELETE FROM imagen WHERE idImagen = " . $imagenes;
         $stmt = $this->conexion->prepare("DELETE FROM imagen WHERE idImagen = ?");
         $stmt->bind_param("i", $imagenes);
         $stmt->execute();
