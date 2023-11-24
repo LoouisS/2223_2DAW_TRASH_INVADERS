@@ -242,8 +242,10 @@ td button{
 #volvermenu{
     height: 4rem;
     width: 7rem;
-    position: relative;
-    right:45%;
+    position: fixed;
+    right:90%;
+    top:87%;
+    
 }
 
 #subir{
@@ -252,7 +254,6 @@ td button{
     position: relative;
     left:44%;
     font-size: large;
-    bottom:11%;
 }
 
 /* Estilos para el formulario de subida de archivos */
