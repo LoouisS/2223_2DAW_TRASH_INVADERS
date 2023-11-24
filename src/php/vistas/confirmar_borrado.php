@@ -9,10 +9,10 @@
             <div class="div-superior">
                 <h1>Confirmación de Borrado</h1>
             </div>
-            <div>
+            <div class="eliminarconfir">
                 <img src="src/img/gato.png" alt="Descripción imagen" id="ejemploimagen"/>
             </div>
-            <h1 id="eliminarconfir">¿Estás seguro de que deseas eliminar esta imagen?</h1>              
+            <h1 class="eliminarconfir">¿Estás seguro de que deseas eliminar esta imagen?</h1>              
             <?php echo "<button><a href='index.php?controlador=Imagenes&action=ejecucionBorrado&idImagen=" . $_GET['idImagen'] . "'>Eliminar</a></button>"; ?>               
             <div>
                 <button><a href="index.php?controlador=Imagenes&action=mostrarImagen">Cancelar</a></button>

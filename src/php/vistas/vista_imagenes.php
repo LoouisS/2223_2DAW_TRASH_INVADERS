@@ -54,8 +54,7 @@
                 <input type="file" name="imagenes[]" accept=".png,.jpg,.jpeg," multiple><br/>
                 <input type="submit" value="SUBIR">
             </form>
-            <a href="index.php">Volver</a>
+            <button id="subir" ><a href="index.php">Volver</a></button>
         </main>
     </body>
 </html>
-

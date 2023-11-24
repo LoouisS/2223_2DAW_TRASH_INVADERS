@@ -42,13 +42,14 @@ button {
 
 /* Estilos para los botones de tipo submit */
 input[type='submit'] {
-    background-color: #ffffff; 
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
+    background-color: #2b91eb;
+    color: white;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type='submit']:hover {
+    background-color: #1e6aa7; /* Cambia el color al pasar el mouse sobre el botón */
 }
 
 /* Estilos para enlaces */
@@ -188,10 +189,9 @@ td button{
 #ejemploimagen{
     width: 150px; 
     height: 150px; 
-    margin: 0 auto;
 }
 
-#eliminarconfir{
+.eliminarconfir{
     width: 50%;
     text-align: center;
     margin: 0 auto;
@@ -275,9 +275,12 @@ td button{
 
 /* Estilos para el input de tipo file */
 input[type='file'] {
-    background-color: #ffffff; 
-    border: none;
-    width: 30%;
+    background-color: #ffffff;
+    border: 2px solid #2b91eb; /* Borde azul para resaltar el área del archivo */
+    border-radius: 5px;
+    padding: 10px;
+    width: 40%;
+    margin-bottom: 20px;
 }
 
 /* h1 imagenes */
