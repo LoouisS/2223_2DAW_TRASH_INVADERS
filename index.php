@@ -1,7 +1,11 @@
 <?php 
 
-require_once 'src/php/config/serverconfig.php';
-require_once 'src/php/controladores/imagenes.php';
+ini_set('display_errors', 1);
+
+require_once getcwd() . '/src/php/config/serverconfig.php';
+require_once getcwd() . '/src/php/controladores/imagenes.php';
+
+
 
 // Si no hay controlador en la URL, se usa el controlador por defecto
 if (!isset($_GET["controlador"])) {
@@ -22,7 +26,7 @@ if (!file_exists($ruta_controlador)) {
 }
 
 // Se carga el controlador
-require_once $ruta_controlador;
+require_once getcwd() . "/" .  $ruta_controlador;
 
 $nombre_controlador = $_GET["controlador"];
 $controlador = new $nombre_controlador();
@@ -35,6 +39,6 @@ if (method_exists($controlador, $_GET["action"])) {
     $datos["datos"] = $controlador->{$_GET["action"]}();
 }
 
-require_once 'src/php/vistas/' . $controlador->vista . '.php';
+require_once getcwd() . '/src/php/vistas/' . $controlador->vista . '.php';
 
 ?>

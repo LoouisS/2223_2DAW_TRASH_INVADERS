@@ -7,7 +7,7 @@
         // Constructor de la clase
         public function __construct() {
             // Incluir el archivo de configuración para obtener datos de conexión
-            require_once('../config/config.php');
+            require_once getcwd() . '/../config/config.php';
 
             // Establecer la conexión a la base de datos usando PDO
             $this->conexion = new PDO('mysql:host=' . HOST . '; dbname=' . TRASHINVADERSBD, USUARIO, PSWBD);

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'src\php\config\config.php';
+require_once getcwd() . '/src/php/config/config.php';
 
 class ModeloImagenes {
     private $conexion;
@@ -60,31 +60,36 @@ class ModeloImagenes {
 
         if(isset($archivos['imagenes'])){
             $imagenes = $archivos['imagenes'];
+            $allowedExtensions = array("jpg", "jpeg", "png");
 
-            for($i = 0; $i < count($imagenes['name']); $i++) {
-                $nombre = basename($imagenes['name'][$i]);
-                // Comprobamos que se ha seleccionado un archivo
+            for ($i = 0; $i < count($imagenes['name']); $i++) {
                 if (empty($imagenes['tmp_name'][$i]) || file_get_contents($imagenes['tmp_name'][$i]) === '') {
                     header("Location: index.php?controlador=Imagenes&action=mostrarImagen&errorArchivoVacio=archivoVacio");
+                    exit();
                 }
+
+                $extension = strtolower(pathinfo($imagenes['name'][$i], PATHINFO_EXTENSION));
+ 
+        
+                if (!in_array($extension, $allowedExtensions)) {
+                    // Cambiar esto por una vista
+                    header("Location: index.php?controlador=Imagenes&action=mostrarImagen&error=extensionIncorrecta&extension" . $extension);
+                    exit();
+                }
+            }
+
+            for($i = 0; $i < count($imagenes['name']); $i++) {
+                
+                $nombre = basename($imagenes['name'][$i]);
 
                 $imagenData = file_get_contents($imagenes['tmp_name'][$i]);
                 $hash = hash('sha256', $imagenData);
         
-                // Validar la extensión del archivo
-                $extension = pathinfo($nombre, PATHINFO_EXTENSION);
-                $allowedExtensions = array("jpg", "jpeg", "png");
-
-                if (!in_array($extension, $allowedExtensions)) {
-                    // Cambiar esto por una vista
-                    header("Location: index.php?controlador=Imagenes&action=mostrarImagen&error=extensionIncorrecta");
-                    continue; 
-                }
         
                 $count = $this->checkHash($hash);
                 if ($count > 0) {
                     // Cambiar esto por una vista
-                    echo "Error: El archivo $nombre ya existe en la base de datos. <br>";
+                    // echo "Error: El archivo $nombre ya existe en la base de datos. <br>";
                     continue; 
                 }
         
@@ -92,7 +97,8 @@ class ModeloImagenes {
                 $stmt->send_long_data(1, $imagenData);
                 if ($stmt->execute() === FALSE) {
                     // Cambiar esto por una vista
-                    echo "Error: " . $stmt->error;
+                    // echo "Error: " . $stmt->error;
+                    continue;
                 }
             }
         }

@@ -1,7 +1,7 @@
 <?php
     //Incluir los archivos necesarios
-    require_once('../config/config.php'); //Incluye el archivo de configuración de la base de datos
-    require_once('../modelos/regusermdl.php'); //Incluye el modelo del registro de usuarios
+    require_once getcwd() . '/../config/config.php'; 
+    require_once getcwd() .'/../modelos/regusermdl.php'; 
 
     //Verificar si la solicitud es de tipo POST
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
