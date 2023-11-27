@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang=es>
+<html lang="en">
 	<head>
-		<meta charset=utf-8/>
-		<meta name=viewport content='width=device-width, initial-scale=1' />
-		<meta name="author" content="David, Antonio y Guillermo" />
-		<link rel="stylesheet" href="css/reset.css">
+		<meta charset="utf-8">
+		<meta name=viewport content='width=device-width, initial-scale=1'>
+		<meta name="author" content="David, Antonio y Guillermo">
+		<link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
+		<link rel="stylesheet" href="../src/css/reset.css">
 		<link rel="stylesheet" href="../src/css/new_style.css">
+		<link rel="stylesheet" href="../src/css/style_guille_client.css">
 		<title>Trash Invaders</title>
 	</head>
 	<body>	  
-		<div id=div-vista1>
+		<div class="vistas" id="vista-principal">
 			<main id="landing-page">
 				<div class="div-superior">
 					<div id="contenedor-imagen">
@@ -24,28 +26,63 @@
 				</div>
 			</main>
         </div>
-		<div id=divVista2>
-			<main id="login-page">
-				<div id="div1">
-					<div id="contenedor-imagen">
-						<img src="../src/img/logo.jpg" alt="logo-imagen">
-					</div>
-					<button id="boton-jugar">JUGAR</button>
-				</div>  
-				<div id="div2">
-					<button id="boton-opciones">OPCIONES</button>
-					<button id="boton-clasificaciones">CLASIFICACIONES</button>
-					<a href="index.html" class="enlace-como-boton">
-						<button id="boton-salir">SALIR</button>
-					</a>
-				</div>				
+		<div class="vistas" id="vista-registro">
+			<main id="register-page">
+				<div class="div-superior">
+					<a href="index.html"><h1>REGISTRAR USUARIO</h1></a>
+				</div>
+				<div class="div-inferior">
+					<form>
+						<label for="nombre">Nombre</label>                 
+						<input type="text" id="nombre" name="nombre">
+						<br>
+						<label for="contraseña">Contraseña</label>
+						<input type="password" id="contraseña" name="contraseña">
+						<br>
+						<input type="submit" value="REGISTRARSE">
+					</form>
+				</div>
 			</main>
 		</div>
-		<div id=divVista3>
+		<div class="vistas" id="vista-login">
+			<main id="login-page">
+				<div class="div-superior">
+					<div id="contenedor-imagen">
+						<a href="index.html"><img src="../src/img/logo.jpg" alt="logo-imagen"></a>
+					</div>
+				</div>
+				<div class="div-inferior">
+					<form action="menup.html" method="post">
+						<label for="username">Usuario</label>
+						<input type="text" id="username" name="username">
+						<br>
+						<label for="password">Contraseña</label>
+						<input type="password" id="password" name="password">
+						<br>
+						<input type="submit" value="Iniciar Sesión">
+						<button ><a href="opadmin.html" >TEMPORAL ADMIN</a></button>   
+					</form>
+				</div>
+			</main>
+		</div>
+		<div class="vistas" id="vista-menu-usuario">
+			<main id="login-page">
+				<div class="div-superior">
+					<div id="contenedor-imagen">
+						<img src="../src/img/logo.jpg" alt="logo-imagen"></a>
+					</div>
+				</div>           
+				<button ><a href="juego.html">JUGAR</a></button>
+				<button ><a href="mejoras.html">MEJORAS</a></button>
+				<button ><a href="clasificaciones.html">CLASIFICACIONES</a></button>
+				<button ><a href="login.html" class="enlace-como-boton">SALIR</a></button>   
+			</main>
+		</div>
+		<div class="vistas" id="vista-principal-juego">
 			<main id="game-page">
-				<div id="div1">
+				<div class="div-superior">
 				</div>  
-				<div id="div2" class="grid-container">
+				<div class="div-inferior" id="grid-container">
 					<div class="grid-item">1</div>
 					<div class="grid-item">2</div>
 					<div class="grid-item">3</div>
@@ -101,12 +138,289 @@
 					<div class="grid-item">53</div>
 					<div class="grid-item">54</div>
 					<div class="grid-item">55</div>
-					<div class="grid-item">56</div>
-					
+					<div class="grid-item">56</div>               
 				</div>
 			</main>
-
 		</div>
-		<script type=module src=js/controlador.js></script>
+		<div class="vistas" id="vista-menu-mejoras">
+			<main id="register-page">
+				<div class="div-superior">
+					<label><h1>Mejoras</h1></label>
+				</div>
+				<table border="1px"  id="tmejoras">
+					<tr>
+						<td>
+							<img src="../src/img/gato.png" alt="Descripción imagen">
+							<br>
+							<a href="bimagenesusuario.html" >
+								<button id="bimagenesusuario">Cambiar Imagen</button>
+							</a>
+						</td>
+						<td>
+							<select>
+								<option value="opcion1">Correr muy rápido</option>
+								<option value="opcion2">Más punticos</option>
+								<option value="opcion3">Limpieza automática</option>
+							</select>
+						</td> 
+						<td>
+							<input type="number" min="1" max="20" placeholder="Ingrese un número">
+						</td>          
+						<td>
+							<input type="text" placeholder="Ingrese un porcentaje">                  
+						</td>
+						<td><button>Borrar</button></td>
+					</tr>
+					<tr>
+						<td>
+							<img src="../src/img/logo.jpg" alt="Descripción imagen">
+							<br>
+							<a href="bimagenesusuario.html" >
+								<button id="bimagenesusuario">Cambiar Imagen</button>
+							</a>
+						</td>
+						<td>
+							<select>
+								<option value="opcion1">Correr mu rapido</option>
+								<option value="opcion2">Mas punticos</option>
+								<option value="opcion3">Limpieza automatica</option>
+							</select>
+						</td> 
+						<td>
+							<input type="number" min="1" max="20" placeholder="Ingrese un número">
+						</td>          
+						<td>
+							<input type="text" placeholder="Ingrese un porcentaje">                  
+						</td>
+						<td><button>Borrar</button></td>
+					</tr> 
+					<tr>
+						<td><img src="../src/img/foca.png" alt="Descripción imagen">
+							<br>
+							<a href="bimagenesusuario.html" >
+								<button id="bimagenesusuario">Cambiar Imagen</button>
+							</a>
+						</td>
+						<td>
+							<select>
+								<option value="opcion1">Correr mu rapido</option>
+								<option value="opcion2">Mas punticos</option>
+								<option value="opcion3">Limpieza automatica</option>
+							</select>
+						</td> 
+						<td>
+							<input type="number" min="1" max="20" placeholder="Ingrese un número">
+						</td>          
+						<td>
+							<input type="text" placeholder="Ingrese un porcentaje">                  
+						</td>
+						<td><button>Borrar</button></td>
+					</tr>
+					<tr>
+						<td><img src="../src/img/patatas.png" alt="Descripción imagen">
+							<br>
+							<a href="bimagenesusuario.html" >
+								<button id="bimagenesusuario">Cambiar Imagen</button>
+							</a>
+						</td>
+						<td>
+							<select>
+								<option value="opcion1">Correr mu rapido</option>
+								<option value="opcion2">Mas punticos</option>
+								<option value="opcion3">Limpieza automatica</option>
+							</select>
+						</td> 
+						<td>
+							<input type="number" min="1" max="20" placeholder="Ingrese un número">
+						</td>          
+						<td>
+							<input type="text" placeholder="Ingrese un porcentaje">                  
+						</td>
+						<td><button>Borrar</button></td>
+					</tr>
+					<tr>
+						<td><img src="../src/img/patatas.png" alt="Descripción imagen">
+							<br>
+							<a href="bimagenesusuario.html" >
+								<button id="bimagenesusuario">Cambiar Imagen</button>
+							</a>
+						</td>
+						<td>
+							<select>
+								<option value="opcion1">Correr mu rapido</option>
+								<option value="opcion2">Mas punticos</option>
+								<option value="opcion3">Limpieza automatica</option>
+							</select>
+						</td>
+						<td>
+							<input type="number" min="1" max="20" placeholder="Ingrese un número">
+						</td>          
+						<td>
+							<input type="text" placeholder="Ingrese un porcentaje">                  
+						</td> 
+						<td><button>Borrar</button></td>
+					</tr>
+					<tr>
+						<td><img src="../src/img/foca.png" alt="Descripción imagen">
+							<br>
+							<a href="bimagenesusuario.html" >
+								<button id="bimagenesusuario">Cambiar Imagen</button>
+							</a>
+						</td>
+						<td>
+							<select>
+								<option value="opcion1">Correr mu rapido</option>
+								<option value="opcion2">Mas punticos</option>
+								<option value="opcion3">Limpieza automatica</option>
+							</select>
+						</td> 
+						<td>
+							<input type="number" min="1" max="20" placeholder="Ingrese un número">
+						</td>          
+						<td>
+							<input type="text" placeholder="Ingrese un porcentaje">                  
+						</td>
+						<td><button>Borrar</button></td>
+					</tr>
+				</table>
+				<button id="volvermenu" ><a href="menup.html">VOLVER</a></button>
+				<button id="subir" ><a href="nuevamejora.html">NUEVA MEJORA</a></button>
+			</main>
+		</div>
+		<div class="vistas" id="vista-clasificaciones">
+			<main id="register-page">
+				<div class="div-superior">
+					<label><h1>CLASIFICACION</h1></label>
+				</div>
+				<table border="1" id="tmejoras">
+					<thead>
+						<tr>
+							<th>Número</th>
+							<th>Nombre</th>
+							<th>Puntuación</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>ABC</td>
+							<td>95</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>DEF</td>
+							<td>87</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>GHI</td>
+							<td>92</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>JKL</td>
+							<td>78</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>MNO</td>
+							<td>85</td>
+						</tr>
+					</tbody>
+				</table>
+				<button id="volvermenu" ><a href="menup.html">MENU</a></button>
+			</main>
+		</div>
+		<div class="vistas" id="vista-opciones-administrador">
+			<main id="register-page">
+				<div class="div-superior">
+					<label><h1>Administrador</h1></label>
+				</div>
+				<div class="div-inferior">
+					<form id="opadmin">
+						<button id="mejoras"><a href="opcionesadmin.html">Configuracion de Parametros</a></button>
+						<button id="mejoras"><a href="bimagenes.html">Banco de Imagenes</a></button>
+					</form>
+				</div>
+				<button id="volvermenu"><a href="login.html">MENU</a></button>
+			</main>
+		</div>
+		<div class="vistas" id="vista-pool-imagenes">
+			<main id="register-page">
+				<div class="div-superior">
+					<label><h1 id="h1imagenes">Banco de Imagenes</h1></label>
+				</div>
+					<div id="tmejoras">
+						<table border="1px" id="imagenestabla">
+							<tr>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+							</tr>
+							<tr>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+							</tr>
+							<tr>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+							</tr>
+							<tr>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+							</tr>
+							<tr>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+							</tr>
+							<tr>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+							</tr>
+							<tr>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+								<td><img src="../src/img/logo.jpg" alt="Descripción imagen"></td>
+								<td><img src="../src/img/gato.png" alt="Descripción imagen"></td>
+							</tr>
+							<tr>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+								<td>logo.png</td>
+								<td>gato.jpg</td>
+							</tr>
+						</table>
+					</div>        
+				<button id="subir"><a href="mejoras.html">VOLVER</a></button> 
+			</main>
+		</div>
+		<script type="module" src="./js/index.js"></script>
 	</body>
 </html>

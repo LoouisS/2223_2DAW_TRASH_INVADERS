@@ -3,7 +3,7 @@ import { Vista } from './vistas/vista.js'
 import { Vista1 } from './vistas/vista1.js'
 import { Vista2 } from './vistas/vista2.js'
 import { Vista3 } from './vistas/vista3.js'
-console.log('Script cargado correctamente')
+
 
 class Controlador {
   /**
@@ -18,12 +18,12 @@ class Controlador {
   constructor () {
     this.modelo = new Modelo()
 
-    const div-vista1 = document.getElementById('div-vista1')
+    const div_vista1 = document.getElementById('div-vista1')
     const divVista2 = document.getElementById('divVista2')
     const divVista3 = document.getElementById('divVista3')
 
     // Creo las vistas
-    this.vistas.set(Vista.VISTA1, new Vista1(this, div-vista1))
+    this.vistas.set(Vista.VISTA1, new Vista1(this, div_vista1))
     this.vistas.set(Vista.VISTA2, new Vista2(this, divVista2))
     this.vistas.set(Vista.VISTA3, new Vista3(this, divVista3))
 
@@ -40,7 +40,7 @@ class Controlador {
   verVista (vista) {
     this.ocultarVistas()
     this.vistas.get(vista).mostrar(true)
-    this.vistaActual = vista // Actualiza la vista actual
+    this.vistaActual = vista 
   }
 
   /**
