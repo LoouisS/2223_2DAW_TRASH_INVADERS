@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="src/css/new_style.css">
     </head>
     <body id="register-page">
-        <main id="login-page">
+        <main class="login-page">
             <div class="div-superior">
                 <h1>La imagen ha sido eliminada con exito</h1>
             </div>

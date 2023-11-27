@@ -9,7 +9,7 @@
     <body>
         <main id="landing-page">
             <div class="div-superior">
-                <div id="contenedor-imagen">
+                <div class="contenedor-imagen">
                     <img src="../src/img/logo.jpg" alt="logo-imagen">
                 </div>   
             </div>

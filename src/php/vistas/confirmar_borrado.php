@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="src/css/new_style.css">
     </head>
     <body id="register-page">
-        <main id="login-page">
+        <main class="login-page">
             <div class="div-superior">
                 <h1>Confirmación de Borrado</h1>
             </div>

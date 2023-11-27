@@ -34,11 +34,11 @@ td button{
 }
 
 
-#register-page > #div-inferior, #login-page > #div-inferior {
+#register-page > #div-inferior, .login-page > #div-inferior {
     height: 75%;
 }
 
-#register-page > #div-superior, #register-page > #div-inferior, #login-page > #div-superior, #login-page > #div-inferior {
+#register-page > #div-superior, #register-page > #div-inferior, .login-page > #div-superior, .login-page > #div-inferior {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +55,7 @@ form  {
     text-align: center;
 }
 
-#login-page > #div-superior > #contenedor-imagen {
+.login-page > #div-superior > .contenedor-imagen {
     width: 150px;
     height: 150px;
 }
@@ -76,11 +76,11 @@ img {
 
 /* Pagina registrar usuario */
 
-#register-page > #div-superior, #login-page > #div-superior {
+#register-page > #div-superior, .login-page > #div-superior {
     height: 25%;
 }
 
-#contenedor-imagen {
+.contenedor-imagen {
     /* Hacerlo responsive */
     width: 250px;
     height: 250px;
