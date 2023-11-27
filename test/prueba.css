@@ -28,17 +28,17 @@ td button{
     height: 150px; 
 }
 
-#tmejoras{
+.tmejoras{
     width: 1rem;
 
 }
 
 
-#register-page > #div-inferior, .login-page > #div-inferior {
+.register-page > #div-inferior, .login-page > #div-inferior {
     height: 75%;
 }
 
-#register-page > #div-superior, #register-page > #div-inferior, .login-page > #div-superior, .login-page > #div-inferior {
+.register-page > #div-superior, .register-page > #div-inferior, .login-page > #div-superior, .login-page > #div-inferior {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +76,7 @@ img {
 
 /* Pagina registrar usuario */
 
-#register-page > #div-superior, .login-page > #div-superior {
+.register-page > #div-superior, .login-page > #div-superior {
     height: 25%;
 }
 

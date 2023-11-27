@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="src/css/new_style.css">
     </head>
     <body>
-        <main id="register-page">
+        <main class="register-page">
             <div class="div-superior">
                 <label><h1>Administrador</h1></label>
             </div>

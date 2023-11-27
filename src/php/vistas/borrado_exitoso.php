@@ -6,7 +6,7 @@
         <title>Document</title>
         <link rel="stylesheet" href="src/css/new_style.css">
     </head>
-    <body id="register-page">
+    <body class="register-page">
         <main class="login-page">
             <div class="div-superior">
                 <h1>La imagen ha sido eliminada con exito</h1>

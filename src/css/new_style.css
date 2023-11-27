@@ -94,42 +94,42 @@ main {
     background-color: #ebbe85;
 }
 
-/* Estilos para la sección de imágenes */
+/* Estilos para la sección de imágenes */  /* MODIFICADO: contenedor-imagen es clase */
 .contenedor-imagen {
     width: 18%;
     height: 63%;
     margin: 20px auto;
 }
 
-/* Estilos específicos para la página de login */
+/* Estilos específicos para la página de login */  /* MODIFICADO: login-page es clase */
 .login-page > .div-superior > .contenedor-imagen {
     width: 150px;
     height: 150px;
 }
 
-/* Estilos generales para las imágenes */
+/* Estilos generales para las imágenes */ 
 img {
     width: 100%;
     border-radius: 20px;
 }
 
-/* Estilos para el contenedor de botones de registro */
+/* Estilos para el contenedor de botones de registro */  /* REVISADO */
 #contenedor-boton-registro {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Estilos específicos para la página de registro de usuario */
-#register-page > .div-superior, .login-page > .div-superior {
+/* Estilos específicos para la página de registro de usuario */  /* MODIFICADO: register-page es clase */
+.register-page > .div-superior, .login-page > .div-superior {
     height: 25%;
 }
 
-#register-page > .div-inferior, .login-page > .div-inferior {
+.register-page > .div-inferior, .login-page > .div-inferior {
     height: 75%;
 }
 
-#register-page > .div-superior, #register-page > .div-inferior, .login-page > .div-superior, .login-page > .div-inferior {
+.register-page > .div-superior, .register-page > .div-inferior, .login-page > .div-superior, .login-page > .div-inferior {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,7 +168,8 @@ td button{
     font-size: 1rem;
 }
 
-/* Estilos para el contenedor de imágenes */
+
+/* Estilos para el contenedor de imágenes */  /*  ESTO NO SE ESTÁ UTILIZANDO*/
 #bimagenes {
     width: auto;
     max-height: 100%; /* Evita que la tabla crezca más allá del 100% del alto del div-inferior */
@@ -178,8 +179,8 @@ td button{
     text-align: center;
 }
 
-/* Estilos para imágenes dentro de la tabla de mejoras */
-#tmejoras{
+/* Estilos para imágenes dentro de la tabla de mejoras */  /* MODIFICADO: tmejoras es clase */
+.tmejoras{
     top: 10%;
     margin: auto;
     position: relative;
@@ -187,7 +188,8 @@ td button{
     overflow-y: auto;
 }
 
-#ejemploimagen{
+/* REVISADO */
+#ejemploimagen{  
     width: 150px; 
     height: 150px; 
 }
@@ -198,28 +200,19 @@ td button{
     margin: 0 auto;
 }
 
-#tmejoras img {
+.tmejoras img {
     width: 150px; 
     height: 150px; 
 }
 
-/* Estilos para la página del juego principal */
+/* Estilos para la página del juego principal */  /* REVISADO */
 #game-page {
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
-/* Estilos para las secciones div1 y div2 dentro de la página del juego */
-#game-page > #div1 {
-    height: 40%;
-}
-
-#game-page > #div2 {
-    height: 60%;
-}
-
-/* Estilos para el sistema de cuadrícula en la página del juego */
+/* Estilos para el sistema de cuadrícula en la página del juego */  /* REVISADO */
 #grid-container {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -320,7 +313,7 @@ input[type='file'] {
     #opadminimagen{
         left: 85%;
     }
-    #tmejoras img {
+    .tmejoras img {
         width: 100px; 
         height: 100px; 
     }

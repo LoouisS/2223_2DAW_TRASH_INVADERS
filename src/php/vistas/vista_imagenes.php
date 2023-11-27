@@ -23,7 +23,7 @@
         </style>
     </head>
     <body>
-        <main id="register-page">
+        <main class="register-page">
             <div id="div-superior">
                 <h1>Banco de Imagenes</h1>
             </div>
