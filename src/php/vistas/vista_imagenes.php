@@ -29,7 +29,7 @@
             </div>
             <?php 
             if (isset($_GET['error'])) {
-                echo "<p>Extension Incorrecta </p>";
+                echo "<p>Extension Incorrecta. Solo se permiten archivos con extension JPG, PNG, JPEG.</p>";
             } else if (isset($_GET['errorArchivoVacio'])) {
                 echo "<p> No seleccionaste ningun archivo</p>";
             } elseif (isset($_GET['subidaCorrecta'])) {
