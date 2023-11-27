@@ -1,8 +1,4 @@
-/*
-*Clase de servicio para llamadas AJAX
-*AEMET 
-*/
- 
+
 export class Rest{
     static get(url ,params,callback){
         let paramsGET='?'

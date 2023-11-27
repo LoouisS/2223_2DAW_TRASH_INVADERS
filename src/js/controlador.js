@@ -1,11 +1,3 @@
-/**
- * Controlador principal de la aplicación.
- * Responsabilidad:
- * - Aplicar las reglas de negocio.
- * - Gestionar el cambio de vista.
- * - Validar los permisos de usuario.
- */
-
 import { Modelo } from './modelos/modelo.js'
 import { Vista } from './vistas/vista.js'
 import { Vista1 } from './vistas/vista1.js'
@@ -26,12 +18,12 @@ class Controlador {
   constructor () {
     this.modelo = new Modelo()
 
-    const divVista1 = document.getElementById('divVista1')
+    const div-vista1 = document.getElementById('div-vista1')
     const divVista2 = document.getElementById('divVista2')
     const divVista3 = document.getElementById('divVista3')
 
     // Creo las vistas
-    this.vistas.set(Vista.VISTA1, new Vista1(this, divVista1))
+    this.vistas.set(Vista.VISTA1, new Vista1(this, div-vista1))
     this.vistas.set(Vista.VISTA2, new Vista2(this, divVista2))
     this.vistas.set(Vista.VISTA3, new Vista3(this, divVista3))
 
