@@ -297,7 +297,16 @@ input[type='file'] {
     height: 60%;
 }
 
-
+p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 50px;
+    width: 50%;
+    color: white;
+    background-color: #4f6c9d;
+}
 
 /* Para tablets con resolución máxima de 1024 y orientación horizontal*/
 @media screen and (max-width: 1024px) and (orientation: landscape) {
@@ -334,42 +343,25 @@ input[type='file'] {
     label {
         width: 20rem;
         height: 4.8rem;
-
     } 
 
     input {
         width: 12rem;
         height: 4.4rem;
-
     }
 }
 
 
 /* Evitar que las tablets tomen la orientación vertical */
-@media screen and (max-width: 1024px) and (orientation: portrait) {
-    body{
-        display: none;
+@media screen and (orientation: portrait) {
+    body {
+        transform: rotate(90deg);
+        width: 100vh;
     }
 }
 
 /* ¿Tenemos encuenta pantallas en estas resoluciones? */
-@media screen and (min-width: 1025px) and (max-width: 1919px) {
-
-}
+/* @media screen and (min-width: 1025px) and (max-width: 1919px) {} */
 
 /* Estilos para pantallas con resolución de 1920px */
-@media screen and (min-width: 1920px){
-
-}
-
-p {
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 0 auto;
-    padding: 0;
-    line-height: 50px;
-    width: 50%;
-    color: white;
-    background-color: #4f6c9d;
-}
-
+/* @media screen and (min-width: 1920px){} */
