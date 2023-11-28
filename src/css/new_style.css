@@ -308,7 +308,7 @@ p {
     background-color: #4f6c9d;
 }
 
-/* Para tablets con resolución máxima de 1024 y orientación horizontal*/
+/* Para tablets con resolución máxima de 1024 y orientación horizontal */
 @media screen and (max-width: 1024px) and (orientation: landscape) {
     html{
         font-size: 0.7em;
@@ -355,9 +355,11 @@ p {
 /* Evitar que las tablets tomen la orientación vertical */
 @media screen and (orientation: portrait) {
     body {
-        transform: rotate(90deg);
-        width: 100vh;
+        transform: rotate(90deg); /* Rota la pantalla 90 grados */
+        width: 100vh;  /* viewport hight, esta líne hace que coja todo la altura del dispositivo */
     }
+
+    /*content: ;  Vamos */
 }
 
 /* ¿Tenemos encuenta pantallas en estas resoluciones? */
