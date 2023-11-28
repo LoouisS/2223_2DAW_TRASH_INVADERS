@@ -4,6 +4,8 @@ ini_set('display_errors', 1);
 
 require_once getcwd() . '/src/php/config/serverconfig.php';
 require_once getcwd() . '/src/php/controladores/imagenes.php';
+require_once getcwd() . '/src/php/modelos/modelo_mejora.php';
+require_once getcwd() . "/src/php/controladores/controlador_mejora.php";
 
 
 
@@ -22,7 +24,7 @@ $ruta_controlador = "src/php/controladores/" . strtolower($_GET["controlador"]) 
 
 // Si el controlador no existe, se usa el controlador por defecto
 if (!file_exists($ruta_controlador)) {
-    $ruta_controlador = "src/php/controladores/" . constant("default_controler") . ".php";
+    $ruta_controlador = "src/php/controladores/" . constant("DEFAULT_CONTROLLER") . ".php";
 }
 
 // Se carga el controlador
@@ -40,5 +42,6 @@ if (method_exists($controlador, $_GET["action"])) {
 }
 
 require_once getcwd() . '/src/php/vistas/' . $controlador->vista . '.php';
+
 
 ?>
