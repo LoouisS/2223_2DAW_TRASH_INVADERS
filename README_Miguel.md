@@ -4,6 +4,7 @@
 
 - [ ] Codigo cumple con las reglas de programacion
     - [ ] KISS
+        - Hombre, espero estar desarrollando el codigo lo mas simple posible, o al menos eso me parece a mi jaja.
     - [ ] DRY
     - [ ] SOLID
 

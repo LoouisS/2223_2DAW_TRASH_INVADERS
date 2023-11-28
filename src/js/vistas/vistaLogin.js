@@ -7,18 +7,16 @@ export class VistaLogin extends Vista {
 
         // Seleccionamos el input type submit del formulario
 
-        const botonLogin = contenedor.querySelector('#iniciar-sesion')
+        const botonLogin = contenedor.querySelector('#vistaMenu')
 
         // Añadimos un evento al boton de login
         botonLogin.onclick = () => {
-         
+            this.controlador.irAVista('vistaMenu')
         }
 
     }
 
-    // TODO
-    // Validar con REGEX el input del usuario
-    // Validar con REGEX el input de la contraseña
+
 
 
 }
