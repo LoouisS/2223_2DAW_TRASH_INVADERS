@@ -220,7 +220,7 @@ td button{
     gap: 10px;
 }
 
-/* Estilos para elementos dentro de la cuadrícula del juego */
+/* Estilos para elementos dentro de la cuadrícula del juego */  /* NO SE USA */
 .item {
     background-color: #ccc;
     padding: 20px;
@@ -228,7 +228,7 @@ td button{
     text-align: center;
 }
 
-/* Estilos para imágenes específicas en la página del juego */
+/* Estilos para imágenes específicas en la página del juego */  /* NO SE USA, PERO INCLUSO APARECE EN LA MEDIA */
 #opadminimagen{
     width: 100px; 
     height: 100px; 
@@ -237,22 +237,22 @@ td button{
     top: 5%;
 }
 
-#mejorasimagen{
+#mejorasimagen{  /* NO SE USA */
     width: 100px; 
     height: 100px;
     position: relative;
     top:5%;
 }
 
-/* Estilos para botones específicos en la página del juego */
-#volvermenu{
+/* Estilos para botones específicos en la página del juego */  /* MODIFICADO: volvermenu es una clase */
+.volvermenu{
     height: 4rem;
     width: 7rem;
     position: relative;
     right:45%;
 }
 
-#subir{
+.subir{   /* MODIFICADO: subir es una clase */
     height: 4rem;
     width: 7rem;
     position: relative;
@@ -261,7 +261,7 @@ td button{
     bottom:11%;
 }
 
-/* Estilos para el formulario de subida de archivos */
+/* Estilos para el formulario de subida de archivos */  /* REVISADO */
 #formsubir{
     height: auto;
     width: auto;
@@ -299,8 +299,8 @@ input[type='file'] {
 
 
 
-
-@media only screen and (max-width: 1024px) {
+/* Para tablets con resolución máxima de 1024 y orientación horizontal*/
+@media screen and (max-width: 1024px) and (orientation: landscape) {
     html{
         font-size: 0.7em;
     }
@@ -342,6 +342,23 @@ input[type='file'] {
         height: 4.4rem;
 
     }
+}
+
+
+/* Evitar que las tablets tomen la orientación vertical */
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+    body{
+        display: none;
+    }
+}
+
+/* ¿Tenemos encuenta pantallas en estas resoluciones? */
+@media screen and (min-width: 1025px) and (max-width: 1919px) {
+
+}
+
+/* Estilos para pantallas con resolución de 1920px */
+@media screen and (min-width: 1920px){
 
 }
 

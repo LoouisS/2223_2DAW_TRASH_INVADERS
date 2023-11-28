@@ -18,7 +18,7 @@
                     <button id="mejoras"><a href="index.php?controlador=Imagenes&action=mostrarImagen">Banco de Imagenes</a></button>
                 </div> 
             </div>
-            <button id="volvermenu"><a href="login.html">MENU</a></button>
+            <button class="volvermenu"><a href="login.html">MENU</a></button>
         </main>
     </body>
 </html>
