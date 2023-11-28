@@ -11,22 +11,22 @@
 		<title>Trash Invaders</title>
 	</head>
 	<body>	  
-		<div class="vistas" id="vista-principal">
+		<div id="vista-principal">
 			<main id="landing-page">
 				<div class="div-superior">
 					<div id="contenedor-imagen">
 						<img src="../src/img/logo.jpg" alt="logo-imagen">
 					</div>
 					<div id="contenedor-boton-registro">
-						<button><a href="register.html">Registro</a></button>
+						<a id="boton-registro">Registro</a>
 					</div>
-				</div>
-				<div class="div-inferior">
-					<button><a href="login.html">Iniciar sesion</a></button>
-				</div>
+					</div>
+					<div class="div-inferior">
+						<a id="boton-login">Iniciar sesion</a>
+					</div>
 			</main>
         </div>
-		<div class="vistas" id="vista-registro">
+		<div id="vista-registro">
 			<main id="register-page">
 				<div class="div-superior">
 					<a href="index.html"><h1>REGISTRAR USUARIO</h1></a>
@@ -44,11 +44,11 @@
 				</div>
 			</main>
 		</div>
-		<div class="vistas" id="vista-login">
+		<div id="vista-login">
 			<main id="login-page">
 				<div class="div-superior">
 					<div id="contenedor-imagen">
-						<a href="index.html"><img src="../src/img/logo.jpg" alt="logo-imagen"></a>
+						<img src="../src/img/logo.jpg" alt="logo-imagen">
 					</div>
 				</div>
 				<div class="div-inferior">
@@ -59,13 +59,12 @@
 						<label for="password">Contraseña</label>
 						<input type="password" id="password" name="password">
 						<br>
-						<input type="submit" value="Iniciar Sesión">
-						<button ><a href="opadmin.html" >TEMPORAL ADMIN</a></button>   
+						<input type="submit" value="Iniciar Sesión" id="iniciar-sesion">
 					</form>
 				</div>
 			</main>
 		</div>
-		<div class="vistas" id="vista-menu-usuario">
+		<div id="vista-menu-usuario">
 			<main id="login-page">
 				<div class="div-superior">
 					<div id="contenedor-imagen">
@@ -78,7 +77,7 @@
 				<button ><a href="login.html" class="enlace-como-boton">SALIR</a></button>   
 			</main>
 		</div>
-		<div class="vistas" id="vista-principal-juego">
+		<div id="vista-principal-juego">
 			<main id="game-page">
 				<div class="div-superior">
 				</div>  
@@ -142,7 +141,7 @@
 				</div>
 			</main>
 		</div>
-		<div class="vistas" id="vista-menu-mejoras">
+		<div id="vista-menu-mejoras">
 			<main id="register-page">
 				<div class="div-superior">
 					<label><h1>Mejoras</h1></label>
@@ -287,7 +286,7 @@
 				<button id="subir" ><a href="nuevamejora.html">NUEVA MEJORA</a></button>
 			</main>
 		</div>
-		<div class="vistas" id="vista-clasificaciones">
+		<div id="vista-clasificaciones">
 			<main id="register-page">
 				<div class="div-superior">
 					<label><h1>CLASIFICACION</h1></label>
@@ -331,7 +330,7 @@
 				<button id="volvermenu" ><a href="menup.html">MENU</a></button>
 			</main>
 		</div>
-		<div class="vistas" id="vista-opciones-administrador">
+		<div id="vista-opciones-administrador">
 			<main id="register-page">
 				<div class="div-superior">
 					<label><h1>Administrador</h1></label>
@@ -345,7 +344,7 @@
 				<button id="volvermenu"><a href="login.html">MENU</a></button>
 			</main>
 		</div>
-		<div class="vistas" id="vista-pool-imagenes">
+		<div id="vista-pool-imagenes">
 			<main id="register-page">
 				<div class="div-superior">
 					<label><h1 id="h1imagenes">Banco de Imagenes</h1></label>
@@ -421,6 +420,6 @@
 				<button id="subir"><a href="mejoras.html">VOLVER</a></button> 
 			</main>
 		</div>
-		<script type="module" src="./js/index.js"></script>
+		<script type="module" src="./js/controller.js"></script>
 	</body>
 </html>

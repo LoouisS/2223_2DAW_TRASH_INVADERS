@@ -1,8 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
 
-body {
+body, html {
     font-family: 'Bubblegum Sans', sans-serif;
     font-size: 22px;
+}
+
+
+a {
+    box-sizing: content-box;
+    width: 25%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
+    font-size: 2rem;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
 }
 
 

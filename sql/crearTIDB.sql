@@ -39,7 +39,8 @@ CREATE TABLE IF NOT EXISTS mejora (
 
 -- Creacion de la tabla administrador
 CREATE TABLE IF NOT EXISTS administrador(
-    idAdmin char(3) NOT NULL
+    idAdmin char(3) NOT NULL,
+    contrasenia varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS parametros(
