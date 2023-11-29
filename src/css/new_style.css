@@ -308,8 +308,45 @@ p {
     background-color: #4f6c9d;
 }
 
-/* Para tablets con resolución máxima de 1024 y orientación horizontal */
-@media screen and (max-width: 1024px) and (orientation: landscape) {
+/* Media query para pantallas más pequeñas (menores de 1024px) */
+@media screen and (max-width: 1023px) {
+    /* Cubre toda la pantalla del dispositivo */
+    .mensaje {
+        position: fixed;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        
+        /* Con esto ajustamos la posición del texto */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        /* Un color de fondo */
+        
+        background-color: rgb(37, 110, 112);
+        /* Debemos superponerlo */
+        z-index: 1000;
+    }
+
+    /* El texto que vamos a mostrar */
+    .mensaje::before {
+        content: "La resolución de tu dispositivo no es la adecuada para esta web. Juegue en navegadores de ordenador o tabletas.";
+        font-size: 1.5rem; /* Ajustamos el tamaño del texto */
+        text-align: center; /* Centramos el texto */
+        color: white; /* Cambiamos el color del texto */
+    }
+
+    /* Ocultar todo el contenido */
+    #ocultar {
+        display: none;
+    }
+}
+
+/* Para tablets con resolución mínima de 1024, resolución máxima de 1280 y orientación horizontal */
+@media screen and (min-width: 1024px) and (max-width: 1280px) and (orientation: landscape) {
     html{
         font-size: 0.7em;
     }
@@ -351,14 +388,12 @@ p {
     }
 }
 
-
 /* Evitar que las tablets tomen la orientación vertical */
-@media screen and (orientation: portrait) {
+@media screen and (min-device-width: 1024px) and (max-device-width: 1280px) and (orientation: portrait) {
     body {
-        transform: rotate(90deg); /* Rota la pantalla 90 grados */
-        width: 100vh;  /* viewport hight, esta líne hace que coja todo la altura del dispositivo */
+        display: none;
     }
-
+    
     /*content: ;  Vamos */
 }
 
