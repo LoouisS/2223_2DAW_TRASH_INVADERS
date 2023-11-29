@@ -4,6 +4,7 @@ require_once getcwd() . '/src/php/config/config.php';
 
 class ModeloMejora {
     private $conexion;
+
     function __construct() {
         $this->conexion = $this->conexion();
     }
@@ -15,59 +16,66 @@ class ModeloMejora {
         return $this->conexion;
     }
 
-/*
     public function obtenerMejoras() {
-        $resultados = array();
-
-        // Obtener todas las mejoras
-        $query = "SELECT idMejora, descripcion, multiplicador, duracionMejora, activado FROM mejora";
-        $result = $this->conexion->query($query);
-
-        if ($result) {
-            while ($row = $result->fetch_assoc()) {
-                $resultados[] = $row;
-            }
-        }
-
-        return $resultados;
-    }
-*/
-    public function obtenerMejoras() {
-        $result = $this->conexion->prepare("SELECT idMejora, descripcion, multiplicador, duracionMejora, activado FROM mejora");
+        // Modifica la consulta para obtener las descripciones únicas
+        $result = $this->conexion->prepare("SELECT idMejora, descripcion, multiplicador, duracionMejora FROM mejora");
         $result->execute();
-        $result->bind_result($idMejora, $descripcion, $multiplicador,$duracionMejora,$activado);
-
+        $result->bind_result($idMejora, $descripcion, $multiplicador, $duracionMejora);
+    
         $resultados = [];
-
+    
         while ($result->fetch()) {
             $resultados[] = [
                 'idMejora' => $idMejora,
                 'descripcion' => $descripcion,
-                'multiplicador' => ($multiplicador),
-                'duracionMejora' => ($duracionMejora),
-                'activado' => ($activado)
-
+                'multiplicador' => $multiplicador,
+                'duracionMejora' => $duracionMejora
             ];
         }
+    
         $result->close();
         $this->conexion->close();
-
+    
         return $resultados;
+    }
+    
 
+    public function obtenerMejorasPorId($idMejora) {
+        $result = $this->conexion->prepare("SELECT idMejora, descripcion, multiplicador, duracionMejora FROM mejora WHERE idMejora = ?");
+        $result->bind_param("i", $idMejora);
+        $result->execute();
+        $result->bind_result($idMejora, $descripcion, $multiplicador, $duracionMejora);
+
+        // Verificamos si se obtuvo algún resultado
+        if ($result->fetch()) {
+            $result->close();
+
+            $resultados = [
+                'idMejora' => $idMejora,
+                'descripcion' => $descripcion,
+                'multiplicador' => $multiplicador,
+                'duracionMejora' => $duracionMejora
+            ];
+
+            return $resultados;
+        } else {
+            // Manejar el caso en el que no se encontraron resultados
+            return null;
+        }
     }
 
-    public function agregarMejora($descripcion, $multiplicador, $duracionMejora, $activado) {
+    public function agregarMejora($descripcion, $multiplicador, $duracionMejora) {
         // Insertar nueva mejora
-        $stmt = $this->conexion->prepare("INSERT INTO mejora (descripcion, multiplicador, duracionMejora, activado) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("siii", $descripcion, $multiplicador, $duracionMejora, $activado);
+        $stmt = $this->conexion->prepare("INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES (?, ?, ?)");
+        $stmt->bind_param("sii", $descripcion, $multiplicador, $duracionMejora);
 
         return $stmt->execute();
     }
 
-    public function actualizarMejora($idMejora, $descripcion, $multiplicador, $duracionMejora, $activado) {
+    public function actualizarMejora($idMejora, $descripcion, $multiplicador, $duracionMejora) {
         // Actualizar mejora por ID
-        $stmt = $this->conexion->prepare("UPDATE mejora SET descripcion = ?, multiplicador = ?, duracionMejora = ?, activado = ? WHERE idMejora = ?");
-        $stmt->bind_param("siiii", $descripcion, $multiplicador, $duracionMejora, $activado, $idMejora);
+        $stmt = $this->conexion->prepare("UPDATE mejora SET descripcion = ?, multiplicador = ?, duracionMejora = ? WHERE idMejora = ?");
+        $stmt->bind_param("siii", $descripcion, $multiplicador, $duracionMejora, $idMejora);
 
         return $stmt->execute();
     }

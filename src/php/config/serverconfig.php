@@ -1,7 +1,7 @@
 <?php
 
-    define('DEFAULT_CONTROLLER', 'Mejoras');
-    define('DEFAULT_ACTION', 'mostrarMejora');
+    define('DEFAULT_CONTROLLER', 'Usuario');
+    define('DEFAULT_ACTION', 'mostrarUsuario');
 
     /**
      *define('DEFAULT_CONTROLLER', 'Administrador');

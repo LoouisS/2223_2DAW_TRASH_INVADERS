@@ -6,6 +6,7 @@ require_once getcwd() . '/src/php/config/serverconfig.php';
 require_once getcwd() . '/src/php/controladores/imagenes.php';
 require_once getcwd() . '/src/php/modelos/modelo_mejora.php';
 require_once getcwd() . "/src/php/controladores/controlador_mejora.php";
+require_once getcwd() . '/src/php/controladores/usuario.php';
 
 
 
@@ -40,8 +41,6 @@ $datos["datos"] = array();
 if (method_exists($controlador, $_GET["action"])) {
     $datos["datos"] = $controlador->{$_GET["action"]}();
 }
-
-require_once getcwd() . '/src/php/vistas/' . $controlador->vista . '.php';
 
 
 ?>
