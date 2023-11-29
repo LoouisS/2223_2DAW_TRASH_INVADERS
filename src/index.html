@@ -61,7 +61,8 @@
 						<br>
 						<input type="submit" value="Iniciar Sesión" id="iniciar-sesion">
 					</form>
-					<button id="vistaMenu" style="width: 150px; height: 75px; font-size: 22px; margin: 0;">Menu Usuario</button>
+					<button id="vistaMenu" style="width: 150px; height: 55px; font-size: 22px; margin: 0;">Menu Usuario</button>
+					<button id="buttonVolver" style="width: 150px; height: 55px; font-size: 22px; margin: 0;">Volver</button>
 				</div>
 			</main>
 		</div>
@@ -75,72 +76,32 @@
 				<a href="juego.html">JUGAR</a>
 				<a href="mejoras.html">MEJORAS</a>
 				<a href="clasificaciones.html">CLASIFICACIONES</a>
-				<a href="login.html" class="enlace-como-boton">SALIR</a>
-				<button id="mejoras-usuario">Mejoras Usuario</button>   
+				<a href="login.html">SALIR</a>
+				<button id="mejoras-usuario">Mejoras Usuario</button> 
+				<button id="volverlogin">Volver</button>  
 			</main>
 		</div>
 		<div id="vista-principal-juego">
 			<main id="game-page">
 				<div class="div-superior">
 				</div>  
-				<div class="div-inferior" id="grid-container">
-					<div class="grid-item">1</div>
-					<div class="grid-item">2</div>
-					<div class="grid-item">3</div>
-					<div class="grid-item">4</div>
-					<div class="grid-item">5</div>
-					<div class="grid-item">6</div>
-					<div class="grid-item">7</div>
-					<div class="grid-item">8</div>
-					<div class="grid-item">9</div>
-					<div class="grid-item">10</div>
-					<div class="grid-item">11</div>
-					<div class="grid-item">12</div>
-					<div class="grid-item">13</div>
-					<div class="grid-item">14</div>
-					<div class="grid-item">15</div>
-					<div class="grid-item">16</div>
-					<div class="grid-item">17</div>
-					<div class="grid-item">18</div>
-					<div class="grid-item">19</div>
-					<div class="grid-item">20</div>
-					<div class="grid-item">21</div>
-					<div class="grid-item">22</div>
-					<div class="grid-item">23</div>
-					<div class="grid-item">24</div>
-					<div class="grid-item">25</div>
-					<div class="grid-item">26</div>
-					<div class="grid-item">27</div>
-					<div class="grid-item">28</div>
-					<div class="grid-item">29</div>
-					<div class="grid-item">30</div>
-					<div class="grid-item">31</div>
-					<div class="grid-item">32</div>
-					<div class="grid-item">33</div>
-					<div class="grid-item">34</div>
-					<div class="grid-item">35</div>
-					<div class="grid-item">36</div>
-					<div class="grid-item">37</div>
-					<div class="grid-item">38</div>
-					<div class="grid-item">39</div>
-					<div class="grid-item">40</div>
-					<div class="grid-item">41</div>
-					<div class="grid-item">42</div>
-					<div class="grid-item">43</div>
-					<div class="grid-item">44</div>
-					<div class="grid-item">45</div>
-					<div class="grid-item">46</div>
-					<div class="grid-item">47</div>
-					<div class="grid-item">48</div>
-					<div class="grid-item">49</div>
-					<div class="grid-item">50</div>
-					<div class="grid-item">51</div>
-					<div class="grid-item">52</div>
-					<div class="grid-item">53</div>
-					<div class="grid-item">54</div>
-					<div class="grid-item">55</div>
-					<div class="grid-item">56</div>               
+				<div class="div-inferior" id="grid-container">              
 				</div>
+				<script>
+				function generateGridItems() {
+					var gridContainer = document.getElementById("grid-container");
+					var gridItems = "";
+
+					for (var i = 1; i <= 56; i++) {
+						gridItems += '<div class="grid-item">' + i + '</div>';
+					}
+
+					gridContainer.innerHTML = gridItems;
+				}
+
+				// Call the function to generate the grid items
+				generateGridItems();
+				</script>
 			</main>
 		</div>
 		<div id="vista-menu-mejoras">
@@ -293,14 +254,24 @@
 				<div class="div-superior">
 					<h1>Nueva Mejora</h1>
 				</div>
-				<label>Imagen</label>
-				<select id="select-option-agregar-mejora">
-					
+				<label for="imagenMejora">Imagen</label>
+				<select id="select-option-agregar-mejora" name="imagenMejora">
 				</select>
+				<br>
+				<label for="descripcionMejora">Descripción</label>
+				<input type="text" id="descripcionMejora" name="descripcionMejora" placeholder="Descripción de la mejora">
+				<br>
+				<label for="multiplicadorMejora">Multiplicador</label>
+				<input type="text" id="multiplicadorMejora" name="multiplicadorMejora" placeholder="Multiplicador de la mejora">
+				<br>
+				<label for="porcentajeAparicion">Porcentaje de Aparición</label>
+				<input type="text" id="porcentajeAparicion" name="porcentajeAparicion" placeholder="Porcentaje de aparición de la mejora">
+				<br>
 				<a href="mejoras.html">VOLVER</a>
-				<a href="mejoras.html">ACEPTAR</a>
+				<a href="mejoras.html" id="aceptarBtn">ACEPTAR</a>
 			</main>
 		</div>
+		
 		<script type="module" src="./js/controller.js"></script>
 	</body>
 </html>

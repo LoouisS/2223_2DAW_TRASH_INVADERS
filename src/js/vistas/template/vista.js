@@ -1,4 +1,4 @@
-export class Vista{
+export class Vista {
 
     constructor(controlador, contenedor) {
         this.controlador = controlador;

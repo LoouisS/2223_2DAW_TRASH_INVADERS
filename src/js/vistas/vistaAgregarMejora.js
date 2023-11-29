@@ -7,7 +7,7 @@ export class VistaAgregarMejora extends Vista {
         super(controlador, contenedor);
         this.rest = new Rest();
         
-        const result = Rest.peticionGET2();
+        const result = Rest.obtenerImagenes();
         result.then(data => {
             
         })
