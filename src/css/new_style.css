@@ -4,6 +4,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-size: 16px;
 }
 
 /* Estilo para dividir la pantalla en dos secciones */
@@ -257,7 +258,6 @@ td button{
     width: 7rem;
     position: relative;
     left:44%;
-    font-size: large;
     bottom:11%;
 }
 
@@ -273,7 +273,7 @@ input[type='file'] {
     border: 2px solid #2b91eb; /* Borde azul para resaltar el área del archivo */
     border-radius: 5px;
     padding: 10px;
-    width: 40%;
+    width: 80%;
     margin-bottom: 20px;
 }
 
@@ -330,7 +330,7 @@ p {
         /* Un color de fondo */
         background-color: rgb(74, 173, 177);
 
-        /* Debemos superponerlo */
+        /* Lo superponemos */
         z-index: 1000;
     }
 
@@ -348,42 +348,56 @@ p {
     }
 }
 
-/* Para tablets con resolución mínima de 1024x768, resolución máxima de 1920x1200 y orientación horizontal */
-@media screen and (min-width: 1024px) and (max-width: 1920px) and (orientation: landscape) {
-    html{
-        font-size: 0.7em;
+/* Para tablets con ancho mínimo de 768px y máximo de 1024px en orientación horizontal */
+@media screen and (min-width: 768px) and (max-width: 1920px) and (orientation: landscape) {
+    html {
+        font-size: 0.8em;
     }
+
+    button{
+        font-size: 0.9em;
+    }
+
+    #nuevamejora{
+        
+    }
+    
     .div-superior {
         width: 100%;
     }
+    
     .div-inferior {
         width: 100%;
     }
-    #opadminimagen{
+    
+    #opadminimagen {
         left: 85%;
     }
+    
     .tmejoras img {
-        width: 100px; 
-        height: 100px; 
+        width: 100px;
+        height: 100px;
     }
+    
     button {
         width: 20%;
         height: 50px;
     }
+    
     .contenedor-imagen {
         width: 10%;
         height: 13%;
         margin: 20px auto;
     }
 
-    h1{
+    h1 {
         font-size: 1.3rem;
     }
 
     label {
         width: 20rem;
         height: 4.8rem;
-    } 
+    }
 
     input {
         width: 12rem;
