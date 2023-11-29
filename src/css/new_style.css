@@ -310,8 +310,8 @@ p {
 
 /* Media query para pantallas más pequeñas (menores de 1024px) */
 @media screen and (max-width: 1023px) {
-    /* Cubre toda la pantalla del dispositivo */
     .mensaje {
+        /* Cubre toda la pantalla del dispositivo */
         position: fixed;
         margin: auto;
         left: 0;
@@ -319,21 +319,24 @@ p {
         top: 0;
         bottom: 0;
         
+        /* Borde alrededor del mensaje */
+        border: 5px solid rgb(5, 245, 185);
+
         /* Con esto ajustamos la posición del texto */
         display: flex;
         align-items: center;
         justify-content: center;
         
         /* Un color de fondo */
-        
-        background-color: rgb(37, 110, 112);
+        background-color: rgb(74, 173, 177);
+
         /* Debemos superponerlo */
         z-index: 1000;
     }
 
     /* El texto que vamos a mostrar */
     .mensaje::before {
-        content: "La resolución de tu dispositivo no es la adecuada para esta web. Juegue en navegadores de ordenador o tabletas.";
+        content: "La resolución de tu dispositivo no es la adecuada para esta web. Juegue en navegadores de ordenador o tabletas en posición horizontal.";
         font-size: 1.5rem; /* Ajustamos el tamaño del texto */
         text-align: center; /* Centramos el texto */
         color: white; /* Cambiamos el color del texto */
@@ -345,8 +348,8 @@ p {
     }
 }
 
-/* Para tablets con resolución mínima de 1024, resolución máxima de 1280 y orientación horizontal */
-@media screen and (min-width: 1024px) and (max-width: 1280px) and (orientation: landscape) {
+/* Para tablets con resolución mínima de 1024x768, resolución máxima de 1920x1200 y orientación horizontal */
+@media screen and (min-width: 1024px) and (max-width: 1920px) and (orientation: landscape) {
     html{
         font-size: 0.7em;
     }
@@ -387,18 +390,3 @@ p {
         height: 4.4rem;
     }
 }
-
-/* Evitar que las tablets tomen la orientación vertical */
-@media screen and (min-device-width: 1024px) and (max-device-width: 1280px) and (orientation: portrait) {
-    body {
-        display: none;
-    }
-    
-    /*content: ;  Vamos */
-}
-
-/* ¿Tenemos encuenta pantallas en estas resoluciones? */
-/* @media screen and (min-width: 1025px) and (max-width: 1919px) {} */
-
-/* Estilos para pantallas con resolución de 1920px */
-/* @media screen and (min-width: 1920px){} */
