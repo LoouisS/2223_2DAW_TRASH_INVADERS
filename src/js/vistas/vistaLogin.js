@@ -9,7 +9,6 @@ export class VistaLogin extends Vista {
 
         const botonLogin = contenedor.querySelector('#vistaMenu')
 
-        // Añadimos un evento al boton de login
         botonLogin.onclick = () => {
             this.controlador.irAVista('vistaMenu')
         }

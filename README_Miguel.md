@@ -13,6 +13,8 @@
 - [ ] Controlador mejoras
 - [ ] Modelo de las mejoras
 - [ ] Vista de las mejoras
+    - ./src/js/vistas/* 
+        - He desarrollado 4 vistas en total mas el template
 
 #### Documentacion codigo
 
@@ -25,6 +27,8 @@
 #### Eventos
 
 - [ ] Movimiento del personaje mediante el teclado
+    - He añadido onclick a botones del menu para la navegacion
+
 
 #### Depuracion y pruebas
 
@@ -33,11 +37,14 @@
 #### Gestion del DOM
 
 - [ ] Generacion de las mejoras del usuario
+    - ./src/js/services/rest
 
 #### AJAX
 
 - [ ] Enviar puntuaciones al servidor mediante JSON
 - [ ] Traer datos relacionados con el usuario mediante peticiones GET
+    - ./src/js/services/rest
+
 - [ ] Enviar puntuaciones al servidor mediante peticiones PUT
 - [ ] Borrar asociaciones de mejoras mediante peticiones DELETE
 - [ ] Actualizar parcialmente una mejora mediante peticiones PATCH

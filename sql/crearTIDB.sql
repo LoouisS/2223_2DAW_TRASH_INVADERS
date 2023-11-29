@@ -37,6 +37,13 @@ CREATE TABLE IF NOT EXISTS mejora (
     activado BIT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+-- Inserta tres mejoras en la tabla mejoras
+
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Multiplicador puntos', 2, 10);
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Te mueves mas rapido', 3, 10);
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('La basura viene mas despacio', 4, 10);
+
+
 -- Creacion de la tabla administrador
 CREATE TABLE IF NOT EXISTS administrador(
     idAdmin char(3) NOT NULL,
