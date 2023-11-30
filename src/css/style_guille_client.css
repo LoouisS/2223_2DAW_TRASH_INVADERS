@@ -27,3 +27,8 @@ button {
     font-size: 22px; 
     margin: 0;
 }
+
+#imagen-previsualizacion img {
+    width: 100px;
+    height: 100px;
+}

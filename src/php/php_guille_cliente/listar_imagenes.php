@@ -20,7 +20,7 @@ if (mysqli_connect_errno()) {
 
 // Selecciona el campo blob de la imagen
 
-$consulta = "SELECT imagen FROM imagen";
+$consulta = "SELECT nombre, imagen FROM imagen";
 
 $resultado = mysqli_query($conexion, $consulta);
 
@@ -33,7 +33,10 @@ if (!$resultado) {
 $imagenes = array();
 
 while ($fila = mysqli_fetch_array($resultado)) {
-    $imagenes[] = array('imagen' => base64_encode($fila['imagen']));
+    $imagenes[] = array(
+        'nombre' => $fila['nombre'],
+        'imagen' => base64_encode($fila['imagen'])
+    );
 }
 
 echo json_encode($imagenes);

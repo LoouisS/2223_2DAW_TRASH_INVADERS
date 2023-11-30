@@ -14,8 +14,9 @@ export class Rest {
                 const imagesData = data.map(item => {
                     return {
                         src: `data:image/png;base64,${item.imagen}`,
-                        width: "100px",
-                        height: "100px"
+                        width: "100",
+                        height: "100",
+                        nombre: item.nombre 
                     };
                 });
                 return imagesData;
