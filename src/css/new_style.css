@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 /* Estilos generales */
 
 /* Reset de márgenes y padding del body */
@@ -5,21 +8,39 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
+    font-family: 'Bubblegum Sans', sans-serif;
 }
 
 /* Estilo para dividir la pantalla en dos secciones */
 .div-superior, .div-inferior {
     width: 100%;
-    height: 50%;
     float: left;
 }
 
+label {
+    font-size: 2em;
+}
 
+.tamfuente {
+    font-size: 2em;
+}
+
+.botones-menus {
+    position: relative;
+    top: 10%;
+    font-size: 1.75em;
+}
+
+#ir-registrar {
+    position: relative;
+    margin-top: 11.42%;
+}
 
 /* Estilos para la sección superior */
 .div-superior {
     background-color: #2b91eb;
     position: relative;
+    height: 40%;
 }
 
 /* Estilos para la sección inferior */
@@ -39,6 +60,7 @@ button {
     background-color: white;
     cursor: pointer;
     border: none;
+    font-family: 'Bubblegum Sans', sans-serif;
 }
 
 /* Estilos para los botones de tipo submit */
@@ -51,6 +73,28 @@ input[type='submit'] {
 
 input[type='submit']:hover {
     background-color: #1e6aa7; /* Cambia el color al pasar el mouse sobre el botón */
+}
+
+/* Estilos para inputs de tablas */
+input[type='text'] {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type='number'] {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+select {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Estilos para enlaces */
@@ -75,6 +119,19 @@ label {
 
 /* Estilos para campos de entrada de texto */
 input {
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    padding: 0;
+    border: 0;
+    margin-top: 10px;
+}
+
+#descripcion {
     display: inline-block;
     width: 300px;
     height: 50px;
@@ -249,14 +306,14 @@ td button{
 .volvermenu{
     height: 4rem;
     width: 7rem;
-    position: relative;
+    position: fixed;
     right:45%;
 }
 
 .subir{   /* MODIFICADO: subir es una clase */
     height: 4rem;
     width: 7rem;
-    position: relative;
+    position: fixed;
     left:44%;
     bottom:11%;
 }
@@ -308,8 +365,8 @@ p {
     background-color: #4f6c9d;
 }
 
-/* Media query para pantallas más pequeñas (menores de 1024px) */
-@media screen and (max-width: 1023px) {
+/* Media query para pantallas más pequeñas y pantallas en posición vertical */
+@media screen and (max-width: 920px){
     .mensaje {
         /* Cubre toda la pantalla del dispositivo */
         position: fixed;
@@ -358,10 +415,28 @@ p {
         font-size: 0.9em;
     }
 
-    #nuevamejora{
-        
+    .boton-borrar{
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 150px;
     }
-    
+
+    .volvermenu {
+        height: 4rem;
+        width: 7rem;
+        position: relative;
+        right:43.5%;
+        top: 10%;
+    }
+
+    .subir {   
+        height: 4rem;
+        width: 7rem;
+        position: relative;
+        left:43%;
+        top: 1.35%;
+    }
+
     .div-superior {
         width: 100%;
     }
