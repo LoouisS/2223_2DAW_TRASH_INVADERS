@@ -6,10 +6,10 @@ class Usuario {
     // Modelo no sera necesario
 
     function __construct() {
-        $this->vista = 'vista_usuario'; 
+        $this->vista = 'vista_inicio'; 
     }
 
-    public function mostrarUsuario() {
+    public function mostrarInicio() {
         require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
     }
 }

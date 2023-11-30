@@ -7,6 +7,14 @@ require_once getcwd() . '/src/php/controladores/imagenes.php';
 require_once getcwd() . '/src/php/modelos/modelo_mejora.php';
 require_once getcwd() . "/src/php/controladores/controlador_mejora.php";
 require_once getcwd() . '/src/php/controladores/usuario.php';
+require_once getcwd() . '/src/php/modelos/modelo_inicio_sesion.php';
+require_once getcwd() . '/src/php/controladores/sesion.php';
+require_once getcwd() . '/src/php/modelos/modelo_menu.php';
+require_once getcwd() . '/src/php/controladores/menu.php';
+require_once getcwd() . '/src/php/controladores/controlador_inicio_sesion.php';
+require_once getcwd() . '/src/php/controladores/credenciales_incorrectas.php';
+
+
 
 
 

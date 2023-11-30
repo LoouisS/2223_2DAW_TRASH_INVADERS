@@ -18,7 +18,7 @@
             <button ><a href="juego.html">JUGAR</a></button>
             <button ><a href="index.php?controlador=ControladorMejora&action=mostrarMejoras">MEJORAS</a></a></button>
             <button ><a href="clasificaciones.html">CLASIFICACIONES</a></button>
-            <button ><a href="login.html" class="enlace-como-boton">SALIR</a></button>   
+            <button ><a href="index.php">SALIR</a></button>
         </main>
     </body>
 </html>
