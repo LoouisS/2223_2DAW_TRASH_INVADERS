@@ -4,6 +4,7 @@ import { VistaLogin } from './vistas/vistaLogin.js'
 import { VistaMenuUsuario } from './vistas/vistaMenuUsuario.js'
 import { VistaMenuMejoras } from './vistas/vistaMenuMejoras.js'
 import { VistaAgregarMejora } from './vistas/vistaAgregarMejora.js'
+import { VistaRankings } from './vistas/vistaRankings.js'
 
 class trashInvaders{
 
@@ -23,7 +24,8 @@ class trashInvaders{
             'vistaClasificaciones': document.getElementById('vista-clasificaciones'),
             'vistaOpcionesAdmin': document.getElementById('vista-opciones-administrador'),
             'vistaPoolImagenes': document.getElementById('vista-pool-imagenes'),
-            'vistaAgregarMejora' : document.getElementById('vista-agregar-mejora')
+            'vistaAgregarMejora' : document.getElementById('vista-agregar-mejora'),
+            'vistaRankings' : document.getElementById('vista-rankings')
         }
 
         this.ocultarVistas();
@@ -35,7 +37,7 @@ class trashInvaders{
         this.vistaMenuUsuario = new VistaMenuUsuario(this, this.views.vistaMenu);
         this.vistaMenuMejoras = new VistaMenuMejoras(this, this.views.vistaMejoras);
         this.vistaAgregarMejora = new VistaAgregarMejora(this, this.views.vistaAgregarMejora);
-
+        this.vistaRankings = new VistaRankings(this, this.views.vistaRankings);
     }
 
     irAVista(vista) {

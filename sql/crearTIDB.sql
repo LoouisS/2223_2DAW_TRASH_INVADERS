@@ -79,3 +79,21 @@ ALTER TABLE usuario_imagen_mejora ADD CONSTRAINT unique_usuario_imagen UNIQUE (i
 ALTER TABLE imagen ADD CONSTRAINT unique_hash UNIQUE (hash);
 
 COMMIT;
+
+
+CREATE TABLE rankins (
+    idRanking int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    idUsuario VARCHAR(255) NOT NULL,
+    puntuacion int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('AAA', 100);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('BBB', 200);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('CCC', 300);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('DDD', 400);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('EEE', 500);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('FFF', 600);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('GGG', 700);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('HHH', 800);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('III', 900);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('JJJ', 1000);

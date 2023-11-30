@@ -127,8 +127,5 @@ export class VistaMenuMejoras extends Vista {
         });
     }
 
-    validarInput(input) {
-        console.log("Estoy funcionando")
-    }
 
 }

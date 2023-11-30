@@ -20,8 +20,6 @@ export class VistaAgregarMejora extends Vista {
         const multiplicadorInput = contenedor.querySelector('#multiplicadorMejora');
         multiplicadorInput.addEventListener('blur', () => this.validarMultiplicador(multiplicadorInput));
 
-        const porcentajeAparicion = contenedor.querySelector('#porcentajeAparicion');
-        porcentajeAparicion.addEventListener('blur', () => this.validarMultiplicador(porcentajeAparicion));
 
         // Crear el elemento para mostrar el mensaje de error
         const mensajeErrorMultiplicador = document.createElement('div');
@@ -47,7 +45,6 @@ export class VistaAgregarMejora extends Vista {
             poolImagenes.appendChild(option);
         });
 
-        // Mostrar la imagen seleccionada inicialmente
         this.mostrarImagenSeleccionada();
     }
 

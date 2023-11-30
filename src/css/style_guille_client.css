@@ -28,12 +28,16 @@ button {
     margin: 0;
 }
 
+
+
+input {
+    margin: 5px;
+}
+
 #imagen-previsualizacion img {
     width: 100px;
     height: 100px;
 }
-
-/* Make styles for select */
 
 select {
     position: relative;
@@ -48,3 +52,40 @@ select {
     font-size: 22px;
     padding: 0 20px;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffd590;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  th, td {
+    opacity: 0;
+    transform: translateX(-50px);
+    text-align: center;
+    vertical-align: middle;
+    animation: aparecerElemento 0.5s forwards; 
+  }
+
+  th {
+    background-color: #ffd590;
+    color: #333;
+  }
+
+  tr:hover {
+    background-color: rgb(203, 169, 110);
+    color: white;
+  }
+
+
+  @keyframes aparecerElemento {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }

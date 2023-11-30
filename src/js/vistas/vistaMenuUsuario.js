@@ -6,6 +6,8 @@ export class VistaMenuUsuario extends Vista {
         
         const botonMejoras = contenedor.querySelector("#mejoras-usuario")
         const volverLogin = contenedor.querySelector("#volverlogin")
+        const vistaRankings = contenedor.querySelector("#vistaRankings")
+        
 
         botonMejoras.onclick = () => {
             this.controlador.irAVista('vistaMejoras')
@@ -15,6 +17,9 @@ export class VistaMenuUsuario extends Vista {
             this.controlador.irAVista('vistaPrincipal')
         }
 
+        vistaRankings.onclick = () => {
+            this.controlador.irAVista('vistaRankings')
+        }
     }
 
 }

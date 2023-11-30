@@ -79,6 +79,7 @@
 				<a href="login.html">SALIR</a>
 				<button id="mejoras-usuario">Mejoras Usuario</button> 
 				<button id="volverlogin">Volver</button>  
+				<button id="vistaRankings">Rankings</button>
 			</main>
 		</div>
 		<div id="vista-principal-juego">
@@ -108,7 +109,6 @@
 				<div class="div-superior">
 					<h1 >Mejoras</h1>
 				</div>
-				<!-- TODO Mostrar un mensaje vacio si no hay nada -->
 				<a href="menup.html">VOLVER</a>
 				<a href="nuevamejora.html">NUEVA MEJORA</a>
 				<button id="boton-agregar-mejora">Agregar Mejora</button>
@@ -264,8 +264,8 @@
 					<label for="multiplicadorMejora">Multiplicador</label>
 					<input type="text" id="multiplicadorMejora" name="multiplicadorMejora" placeholder="Multiplicador de la mejora">
 					<br>
-					<label for="porcentajeAparicion">Porcentaje de Aparición</label>
-					<input type="text" id="porcentajeAparicion" name="porcentajeAparicion" placeholder="Porcentaje de aparición de la mejora">
+					<!-- <label for="porcentajeAparicion">Porcentaje de Aparición</label>
+					<input type="text" id="porcentajeAparicion" name="porcentajeAparicion" placeholder="Porcentaje de aparición de la mejora"> -->
 				</div>
 				<div id="imagen-previsualizacion"></div>
 				<a href="mejoras.html">VOLVER</a>
@@ -273,7 +273,22 @@
 				<button id="button-volver-agregar-mejora">Volver</button>
 			</main>
 		</div>
-		
+		<div id="vista-rankings">
+			<main id="register-page">
+				<div class="div-superior">
+					<h1>RANKINGS</h1>
+				</div>
+				<div id="user-input">
+					<label for="username">Username:</label>
+					<input type="text" id="username" name="username" placeholder="Enter your username">
+					<br>
+					<label for="number">Number:</label>
+					<input type="text" id="number" name="number" placeholder="Enter a number">
+					<br>
+					<button id="submit-puntuacion">Submit</button>
+				</div>
+			</main>	
+		</div>
 		<script type="module" src="./js/controller.js"></script>
 	</body>
 </html>

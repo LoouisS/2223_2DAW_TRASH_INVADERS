@@ -31,4 +31,24 @@ export class Rest {
                 return data.prob_aparicion_mejora;
             });
     }
+
+    static async obtenerPuntuaciones() {
+        const url = "php/php_guille_cliente/listar_rankings.php";
+        return fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                return data;
+            });
+    }
+
+    static agregarPuntuacion(idUsuario, puntuacion) {
+        const url = "php/php_guille_cliente/insertar_ranking.php";
+        const formData = new FormData();
+        formData.append("idUsuario", idUsuario);
+        formData.append("puntuacion", puntuacion);
+        return fetch(url, {
+            method: "POST",
+            body: formData
+        });
+    }
 }

@@ -48,19 +48,19 @@
 
 #### Gestion del DOM
 
-- [X] Tres selectores
+- [x] Tres selectores
     - getElementsByClassName
     - getElementByID
     - querySelector
-- [X] Generacion de las mejoras del usuario (lista en funcion de los datos en la base de datos)
+- [x] Generacion de las mejoras del usuario (lista en funcion de los datos en la base de datos)
 
 #### AJAX
 
 - [ ] Enviar puntuaciones al servidor mediante JSON
-- [X] Traer datos relacionados con el usuario mediante peticiones GET
+- [x] Traer datos relacionados con el usuario mediante peticiones GET
     - ./src/js/services/rest 
         Metodo: static async obtenerDatos()
         Lista las mejoras que hay en la base de datos pertenecientes a un usuario concreto
 
 - [ ] Borrar asociaciones de mejoras mediante peticiones DELETE
-- [ ] POST Pendiente
+- [x] POST Pendiente
