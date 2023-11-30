@@ -17,6 +17,23 @@ class Imagenes {
         require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
     }
 
+    public function seleccionarImagen() {
+        // Verificar si se ha enviado un formulario para seleccionar una imagen
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['seleccionImagen'])) {
+            $selectedImageId = $_POST['seleccionImagen'];
+            // Obtener la información de la imagen seleccionada (esto puede depender de cómo esté implementado tu modelo)
+            $selectedImage = $this->modelo->mostrarImagenPorId($selectedImageId); // Reemplaza con la función real
+            if ($selectedImage) {
+                // Puedes hacer algo con la imagen seleccionada aquí si es necesario
+                // Por ejemplo, podrías almacenar la información de la imagen en la sesión para mostrarla después de redireccionar
+                $_SESSION['selectedImage'] = $selectedImage;
+            }
+        }
+
+        // Redireccionar a la página de mostrar mejoras
+        header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
+    }
+
     public function subirImagenes() {
         $this->modelo->agregarImagen($_FILES);
     }

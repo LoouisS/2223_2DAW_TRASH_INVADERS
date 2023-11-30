@@ -29,22 +29,29 @@
                         <th>Descripcion</th>
                         <th>Multiplicador</th>
                         <th>Duracion Mejora</th>
+                        <th>Porcentaje de Aparicion</th>
                         <th>Eliminar</th>          
                     </tr>
                 </thead>
+
+
                 <tbody>
                     <?php
                         if (!is_iterable($mejoras) || count($mejoras) === 0) {
-                            echo "<tr><td colspan='5'>No hay Mejoras</td></tr>";
+                            echo "<tr><td colspan='6'>No hay Mejoras</td></tr>";
                         } else {
                             foreach ($mejoras as $mejora) {
                                 echo "<tr>";
+                                echo "<td><a href='index.php?controlador=Imagenes&action=mostrarImagen&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></td>";
                                 echo "<td>" . $mejora['descripcion'] . "</td>";
                                 echo "<td>" . $mejora['multiplicador'] . "</td>";
                                 echo "<td>" . $mejora['duracionMejora'] . "</td>";
+                                echo "<td>" . $mejora['porcentaje_aparicion'] . "</td>";
+
                                 // Puedes acceder al idMejora aquí
                                 echo "<td><a href='index.php?controlador=ControladorMejora&action=confirmarBorrado&idMejora=" . $mejora['idMejora'] . "'>Eliminar</a></td>";
                                 echo "</tr>";
+                                
                             }
                         }
                     ?>
@@ -61,11 +68,13 @@
                         }
                     ?>
                 </select>
-
+                
                 <label>Multiplicador:</label>
                 <input type="number" name="multiplicador" required>
                 <label>Duración Mejora:</label>
                 <input type="number" name="duracionMejora" required>
+                <label>Porcentaje de Aparicion:</label>
+                <input type="number" name="porcentaje_aparicion" required>
                 <button type="submit">Agregar Mejora</button>
             </form>
 

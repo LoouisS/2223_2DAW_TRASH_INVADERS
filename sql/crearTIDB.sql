@@ -33,12 +33,14 @@ CREATE TABLE IF NOT EXISTS mejora (
     idMejora tinyint UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     descripcion VARCHAR(120) NOT NULL,
     multiplicador TINYINT UNSIGNED NULL,
-    duracionMejora TINYINT UNSIGNED NULL
+    duracion_mejora TINYINT UNSIGNED NULL,
+    porcentaje_aparicion TINYINT UNSIGNED NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Creacion de la tabla administrador
 CREATE TABLE IF NOT EXISTS administrador(
-    idAdmin char(3) NOT NULL
+    idAdmin char(3) NOT NULL,
+    contrasenia varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS parametros(

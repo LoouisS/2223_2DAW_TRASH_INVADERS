@@ -22,10 +22,10 @@ class ControladorMejora {
         $descripcion = $_POST['descripcion'] ?? '';
         $multiplicador = $_POST['multiplicador'] ?? 0;
         $duracionMejora = $_POST['duracionMejora'] ?? 0;
-        $activado = $_POST['activado'] ?? 0;
+        $porcentaje_aparicion = $_POST['porcentaje_aparicion'] ?? 0;
     
         // Llamar al método del modelo para agregar la mejora
-        $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $activado);
+        $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
     
         // Redirigir a la página de mostrarMejoras
         header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
@@ -59,9 +59,9 @@ class ControladorMejora {
         $descripcion = $datosMejora['descripcion'] ?? '';
         $multiplicador = $datosMejora['multiplicador'] ?? 0;
         $duracionMejora = $datosMejora['duracionMejora'] ?? 0;
-        $activado = $datosMejora['activado'] ?? 0;
+        $porcentaje_aparicion = $datosMejora['porcentaje_aparicion'] ?? 0;
 
-        $exito = $this->modelo->actualizarMejora($idMejora, $descripcion, $multiplicador, $duracionMejora, $activado);
+        $exito = $this->modelo->actualizarMejora($idMejora, $descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
 
         if ($exito) {
             // Redireccionar o mostrar un mensaje de éxito
