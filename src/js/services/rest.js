@@ -22,4 +22,13 @@ export class Rest {
                 return imagesData;
             });
     }
+
+    static async obtenerPorcentajeAparicion() {
+        const url = "php/php_guille_cliente/parametros_juego.php";
+        return fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                return data.prob_aparicion_mejora;
+            });
+    }
 }

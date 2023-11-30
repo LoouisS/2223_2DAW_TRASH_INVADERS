@@ -9,9 +9,25 @@ export class VistaAgregarMejora extends Vista {
 
         this.inicializarImagenes();
 
+        const botonVolver = contenedor.querySelector('#button-volver-agregar-mejora');
+        botonVolver.addEventListener('click', () => this.controlador.irAVista('vistaMejoras'));
+
         // Agregar evento de cambio al elemento select
         const selectImagenes = contenedor.querySelector('#select-option-agregar-mejora');
         selectImagenes.addEventListener('change', () => this.mostrarImagenSeleccionada());
+
+        // Agregar evento de cambio al campo de texto multiplicadorMejora
+        const multiplicadorInput = contenedor.querySelector('#multiplicadorMejora');
+        multiplicadorInput.addEventListener('blur', () => this.validarMultiplicador(multiplicadorInput));
+
+        const porcentajeAparicion = contenedor.querySelector('#porcentajeAparicion');
+        porcentajeAparicion.addEventListener('blur', () => this.validarMultiplicador(porcentajeAparicion));
+
+        // Crear el elemento para mostrar el mensaje de error
+        const mensajeErrorMultiplicador = document.createElement('div');
+        mensajeErrorMultiplicador.id = 'mensaje-error-multiplicador';
+        mensajeErrorMultiplicador.style.color = 'red';
+        multiplicadorInput.parentNode.appendChild(mensajeErrorMultiplicador);
     }
 
     async inicializarImagenes() {
@@ -74,4 +90,21 @@ export class VistaAgregarMejora extends Vista {
         imgElement.height = imagen.height;
         previsualizacionImagen.appendChild(imgElement);
     }
+
+    validarMultiplicador(input) {
+        const regex = /^[1-5]$/; // Regular expression for numbers between 1 and 5
+        const value = input.value;
+        const mensajeError = this.contenedor.querySelector('#mensaje-error-multiplicador');
+    
+        if (!regex.test(value)) {
+            // If the value does not match the regular expression
+            mensajeError.textContent = 'Introduzca un valor entre 1 y 5';
+            input.style.border = '2px solid red';
+        } else {
+            // If the value matches the regular expression
+            mensajeError.textContent = '';
+            input.style.border = 'green';  
+        }
+    }
+    
 }

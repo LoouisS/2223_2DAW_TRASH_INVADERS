@@ -92,14 +92,13 @@
 					var gridContainer = document.getElementById("grid-container");
 					var gridItems = "";
 
-					for (var i = 1; i <= 56; i++) {
+					for (let i = 1; i <= 56; i++) {
 						gridItems += '<div class="grid-item">' + i + '</div>';
 					}
 
 					gridContainer.innerHTML = gridItems;
 				}
 
-				// Call the function to generate the grid items
 				generateGridItems();
 				</script>
 			</main>
@@ -271,6 +270,7 @@
 				<div id="imagen-previsualizacion"></div>
 				<a href="mejoras.html">VOLVER</a>
 				<a href="mejoras.html" id="aceptarBtn">ACEPTAR</a>
+				<button id="button-volver-agregar-mejora">Volver</button>
 			</main>
 		</div>
 		
