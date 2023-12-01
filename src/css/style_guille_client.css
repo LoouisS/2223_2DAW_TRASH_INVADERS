@@ -89,3 +89,9 @@ table {
       opacity: 1;
     }
   }
+
+table button {
+  /* Resetea sus estilos */
+  all: unset;
+  cursor: pointer;
+}

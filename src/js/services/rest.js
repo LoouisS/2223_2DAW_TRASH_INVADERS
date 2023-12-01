@@ -51,4 +51,11 @@ export class Rest {
             body: formData
         });
     }
+
+    static async borrarPuntuacion(idRanking) {
+        const url = "php/php_guille_cliente/borrar_puntuacion.php?idRanking=" + idRanking;
+        return fetch(url, {
+            method: "DELETE"
+        });
+    }
 }

@@ -44,7 +44,7 @@
 
 #### Depuracion y pruebas
 
-- [X] Codigo probado por los coworkers
+- [x] Codigo probado por los coworkers
 
 #### Gestion del DOM
 
@@ -55,12 +55,11 @@
 - [x] Generacion de las mejoras del usuario (lista en funcion de los datos en la base de datos)
 
 #### AJAX
-
-- [ ] Enviar puntuaciones al servidor mediante JSON
+- [x] Enviar puntuaciones al servidor mediante JSON
 - [x] Traer datos relacionados con el usuario mediante peticiones GET
     - ./src/js/services/rest 
         Metodo: static async obtenerDatos()
         Lista las mejoras que hay en la base de datos pertenecientes a un usuario concreto
 
-- [ ] Borrar asociaciones de mejoras mediante peticiones DELETE
+- [x] Borrar asociaciones de mejoras mediante peticiones DELETE
 - [x] POST Pendiente
