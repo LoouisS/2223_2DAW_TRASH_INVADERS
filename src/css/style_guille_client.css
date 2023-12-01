@@ -95,3 +95,37 @@ table button {
   all: unset;
   cursor: pointer;
 }
+
+#vista-registro form {
+  animation: aparecerFormulario 0.5s forwards; 
+}
+
+@keyframes aparecerFormulario {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Estilos específicos para el formulario de registro */
+#vista-registro form {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+#vista-registro form div {
+  animation: aparecerElemento 0.5s forwards;
+}
+
+@keyframes aparecerElemento {
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+#vista-registro form label, #vista-registro form input, #vista-registro form small {
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: aparecerElemento 0.5s forwards;
+}

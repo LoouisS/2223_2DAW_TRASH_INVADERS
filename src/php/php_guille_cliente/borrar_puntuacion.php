@@ -2,10 +2,10 @@
 
 // Conecta a trashinvaders localmente
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "trashinvaders";
+$servername = "18.2daw.esvirgua.com";
+$username = "user2daw_18";
+$password = "B8ML(10P{v11";
+$dbname = "user2daw_BD2-18";
 
 // Crea la conexion a la base de datos
 
@@ -23,7 +23,7 @@ $id = $_GET['idRanking'];
 
 // Borra la mejora de la base de datos
 
-$sql = "DELETE FROM rankins WHERE idRanking = $id";
+$sql = "DELETE FROM rankings WHERE idRanking = $id";
 
 // Devuelve una respuesta encodeada en JSON
 

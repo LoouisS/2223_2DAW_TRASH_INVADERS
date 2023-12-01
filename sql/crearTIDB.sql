@@ -97,3 +97,4 @@ INSERT INTO rankins (idUsuario, puntuacion) VALUES ('GGG', 700);
 INSERT INTO rankins (idUsuario, puntuacion) VALUES ('HHH', 800);
 INSERT INTO rankins (idUsuario, puntuacion) VALUES ('III', 900);
 INSERT INTO rankins (idUsuario, puntuacion) VALUES ('JJJ', 1000);
+

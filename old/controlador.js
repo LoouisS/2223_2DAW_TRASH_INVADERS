@@ -4,7 +4,6 @@ import { Vista1 } from './vistas/vista1.js'
 import { Vista2 } from './vistas/vista2.js'
 import { Vista3 } from './vistas/vista3.js'
 
-
 class Controlador {
   /**
      * Inicializa los atributos del Controlador.
@@ -40,7 +39,7 @@ class Controlador {
   verVista (vista) {
     this.ocultarVistas()
     this.vistas.get(vista).mostrar(true)
-    this.vistaActual = vista 
+    this.vistaActual = vista
   }
 
   /**

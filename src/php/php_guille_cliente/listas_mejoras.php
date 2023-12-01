@@ -1,14 +1,14 @@
 
 <?php
 
-define("HOST", "localhost");
-define("DATABASE", "trashinvaders");
-define("USER", "root");
-define("PASSWORD", "");
+$servername = "18.2daw.esvirgua.com";
+$username = "user2daw_18";
+$password = "B8ML(10P{v11";
+$dbname = "user2daw_BD2-18";
 
 // Crea una conexion a la base de datos
 
-$conexion = new mysqli(HOST, USER, PASSWORD, DATABASE);
+$conexion = new mysqli($servername, $username, $password, $dbname);
 
 // Comprueba la conexion
 

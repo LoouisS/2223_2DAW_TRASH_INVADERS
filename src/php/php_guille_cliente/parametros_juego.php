@@ -1,7 +1,13 @@
 <?php 
 
+$servername = "18.2daw.esvirgua.com";
+$username = "user2daw_18";
+$password = "B8ML(10P{v11";
+$dbname = "user2daw_BD2-18";
+
 // Crea una conexion a la base de datos local
-$conexion = mysqli_connect("localhost", "root", "", "trashinvaders");
+
+$conexion = mysqli_connect($servername, $username, $password, $dbname);
 
 // Comprueba la conexion
 

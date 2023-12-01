@@ -32,16 +32,38 @@
 					<a href="index.html"><h1>REGISTRAR USUARIO</h1></a>
 				</div>
 				<div class="div-inferior">
-					<form>
-						<label for="nombre">Nombre</label>                 
-						<input type="text" id="nombre" name="nombre">
+					<form id="registro-form">
+						<div>
+							<label for="nombre">Nombre</label>
+							<input type="text" id="nombre" name="nombre">
+						</div>
 						<br>
-						<label for="contraseña">Contraseña</label>
-						<input type="password" id="contraseña" name="contraseña">
+						<div>
+							<label for="correo">Correo Electrónico</label>
+							<input type="email" id="correo" name="correo">
+						</div>
+						<br>
+						<div>
+							<label for="contraseña">Contraseña</label>
+							<input type="password" id="contraseña" name="contraseña">
+							<br>
+							<small id="contraseña-info">La contraseña debe tener al menos 8 caracteres, incluir letras mayúsculas, minúsculas, números y caracteres especiales.</small>
+						</div>
+						<br>
+						<div>
+							<label for="telefono">Teléfono</label>
+							<input type="tel" id="telefono" name="telefono">
+						</div>
+						<br>
+						<div>
+							<label for="fechaNacimiento">Fecha de Nacimiento</label>
+							<input type="date" id="fechaNacimiento" name="fechaNacimiento">
+						</div>
 						<br>
 						<input type="submit" value="REGISTRARSE">
 					</form>
 				</div>
+									
 			</main>
 		</div>
 		<div id="vista-login">
@@ -112,6 +134,7 @@
 				<a href="menup.html">VOLVER</a>
 				<a href="nuevamejora.html">NUEVA MEJORA</a>
 				<button id="boton-agregar-mejora">Agregar Mejora</button>
+				<button id="button-volver-listar-mejora">Volver</button>
 			</main>
 		</div>
 		<div id="vista-clasificaciones">
@@ -286,6 +309,7 @@
 					<input type="text" id="number" name="number" placeholder="Enter a number">
 					<br>
 					<button id="submit-puntuacion">Submit</button>
+					<button id="button-volver-rankings">Volver</button>
 				</div>
 			</main>	
 		</div>

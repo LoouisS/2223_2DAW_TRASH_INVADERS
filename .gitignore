@@ -1,1 +1,3 @@
 src/php/config/config.php
+node_modules
+.eslintrc.json
