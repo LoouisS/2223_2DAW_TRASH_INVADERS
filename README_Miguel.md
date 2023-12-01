@@ -9,7 +9,6 @@
     - [ ] SOLID
 
 #### Programacion Orientada a Objetos
-
 - [x] Controlador mejoras
     - He desarrollado un controlador
 - [x] Modelo de las mejoras
@@ -19,7 +18,6 @@
         - He desarrollado 5 vistas en total mas el template
 
 #### Documentacion codigo
-
 - [ ] Documentacion generada automaticamente
 
 #### Validacion formularios
@@ -35,19 +33,17 @@
 - [ ] Se valida el valor de los multiplicadores mediante expresiones regulares
 
 #### Eventos
-
-- [ ] Movimiento del personaje mediante el teclado (3/5)
+- [x] Se han usado 5 eventos diferentes
     - He añadido onclick a botones del menu para la navegacion
     - He añadido blur para la validacion de la regex de los multiplicadores
     - He añadido change para cuando se modifica la opcion del select se modifique la previsualizacion
-
+    - He añadido el mouseover para una animacion del boton de eliminar
+    - He añadido el mouseout para una animacion del boton de eliminar
 
 #### Depuracion y pruebas
-
 - [x] Codigo probado por los coworkers
 
 #### Gestion del DOM
-
 - [x] Tres selectores
     - getElementsByClassName
     - getElementByID

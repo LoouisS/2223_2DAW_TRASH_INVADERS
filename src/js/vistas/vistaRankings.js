@@ -19,7 +19,17 @@ export class VistaRankings extends Vista {
         botonEnviarPuntuacion.onclick = () => this.enviarPuntuacion();
 
         const botonesEliminar = this.contenedor.querySelectorAll('.eliminar-btn');
-        botonesEliminar.forEach(boton => { 
+        botonesEliminar.forEach(boton => {
+            boton.addEventListener('mouseover', () => {
+                boton.style.transition = 'transform 10s ease';
+                boton.style.transform = 'rotate(18000deg)'; 
+            });
+        
+            boton.addEventListener('mouseout', () => {
+                boton.style.transition = 'transform 10s ease';
+                boton.style.transform = ''; 
+            });
+        
             boton.addEventListener('click', () => console.log(boton.getAttribute('data-id-ranking')));
         });
     }
