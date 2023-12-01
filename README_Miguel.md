@@ -1,9 +1,5 @@
 ### Tareas Sprint 3 Parte Cliente
 
-NOTA SUPER IMPORTANTE DON MIGUEL
-
-SI EN ALGUN PUNTO DE LA APP NO PUEDE NAVEGAR
-REFRESQUE POR FAVOR PORQUE ALGUNOS BOTONES DE NAVEGACION 
 
 #### Javascript Basico
 - [x] Codigo cumple con las reglas de programacion
@@ -73,14 +69,14 @@ REFRESQUE POR FAVOR PORQUE ALGUNOS BOTONES DE NAVEGACION
         
 
 #### AJAX
-- [ ] GET (Todas vuelven en formato JSON)
+- [x] GET (Todas vuelven en formato JSON)
     - Listo las mejoras mediante una peticion GET
     - Listo las imagenes de las mejoras mediante una peticion GET
     - Obtengo el valor total que no debe superar el total de las mejoras con GET
     - Obtengo las puntuaciones del ranking con GET
 
-- [ ] POST
+- [x] POST
     - Envio puntuaciones al servidor mediante POST en formato JSON
 
-- [ ] DELETE
+- [x] DELETE
     - Elimino una puntuacion en concreto mediante delete
