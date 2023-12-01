@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Estilos generales */
+
+/* Reset de márgenes y padding del body */
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Bubblegum Sans', sans-serif;
+}
+
+/* Estilo para dividir la pantalla en dos secciones */
+.div-superior, .div-inferior {
+    width: 100%;
+    float: left;
+}
+
+label {
+    font-size: 2em;
+}
+
+.tamfuente {
+    font-size: 2em;
+}
+
+.botones-menus {
+    position: relative;
+    top: 10%;
+    font-size: 1.75em;
+}
+
+#ir-registrar {
+    position: relative;
+    margin-top: 11.42%;
+}
+
+/* Estilos para la sección superior */
+.div-superior {
+    background-color: #2b91eb;
+    position: relative;
+    height: 40%;
+}
+
+/* Estilos para la sección inferior */
+.div-inferior {
+    background-color: #ebbe85;
+}
+
+/* Estilos para los botones */
+button {
+    box-sizing: content-box;
+    width: 25%;
+    height: 70px;
+    display: block;
+    margin: 15px auto;
+    font-size: 2rem;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    font-family: 'Bubblegum Sans', sans-serif;
+}
+
+/* Estilos para los botones de tipo submit */
+input[type='submit'] {
+    background-color: #2b91eb;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type='submit']:hover {
+    background-color: #1e6aa7; /* Cambia el color al pasar el mouse sobre el botón */
+}
+
+/* Estilos para inputs de tablas */
+input[type='text'] {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type='number'] {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+select {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos para enlaces */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Estilos para etiquetas de texto */
+label {
+    display: inline-block;
+    text-align: left;
+    width: 350px;
+    background-color: #e3eaed; 
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    line-height: 50px; 
+}
+
+/* Estilos para campos de entrada de texto */
+input {
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    padding: 0;
+    border: 0;
+    margin-top: 10px;
+}
+
+#descripcion {
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    padding: 0;
+    border: 0;
+    margin-top: 10px;
+}
+
+/* Estilos para la página principal */
+main {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #ebbe85;
+}
+
+/* Estilos para la sección de imágenes */  /* MODIFICADO: contenedor-imagen es clase */
+.contenedor-imagen {
+    width: 18%;
+    height: 63%;
+    margin: 20px auto;
+}
+
+/* Estilos específicos para la página de login */  /* MODIFICADO: login-page es clase */
+.login-page > .div-superior > .contenedor-imagen {
+    width: 150px;
+    height: 150px;
+}
+
+/* Estilos generales para las imágenes */ 
+img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* Estilos para el contenedor de botones de registro */  /* REVISADO */
+#contenedor-boton-registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos específicos para la página de registro de usuario */  /* MODIFICADO: register-page es clase */
+.register-page > .div-superior, .login-page > .div-superior {
+    height: 25%;
+}
+
+.register-page > .div-inferior, .login-page > .div-inferior {
+    height: 75%;
+}
+
+.register-page > .div-superior, .register-page > .div-inferior, .login-page > .div-superior, .login-page > .div-inferior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para encabezados h1 */
+h1  {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos para formularios */
+form  {
+    width: 50%;
+    height: 90%;
+    text-align: center;
+}
+
+/* Estilos para tablas */
+table {
+    width: 70%;
+    background-color: #e3eaed; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    line-height: 50px; 
+    border-collapse: collapse;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+/* Estilos para botones dentro de celdas de tabla */
+td button{
+    width: 70%;
+    font-size: 1rem;
+}
+
+
+/* Estilos para el contenedor de imágenes */  /*  ESTO NO SE ESTÁ UTILIZANDO*/
+#bimagenes {
+    width: auto;
+    max-height: 100%; /* Evita que la tabla crezca más allá del 100% del alto del div-inferior */
+    overflow: auto; /* Agrega una barra de desplazamiento si la tabla es más grande que el contenedor */
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilos para imágenes dentro de la tabla de mejoras */  /* MODIFICADO: tmejoras es clase */
+.tmejoras{
+    top: 10%;
+    margin: auto;
+    position: relative;
+    width: 75%;
+    overflow-y: auto;
+}
+
+/* REVISADO */
+#ejemploimagen{  
+    width: 150px; 
+    height: 150px; 
+}
+
+.eliminarconfir{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.tmejoras img {
+    width: 150px; 
+    height: 150px; 
+}
+
+/* Estilos para la página del juego principal */  /* REVISADO */
+#game-page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilos para el sistema de cuadrícula en la página del juego */  /* REVISADO */
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+}
+
+/* Estilos para elementos dentro de la cuadrícula del juego */  /* NO SE USA */
+.item {
+    background-color: #ccc;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* Estilos para imágenes específicas en la página del juego */  /* NO SE USA, PERO INCLUSO APARECE EN LA MEDIA */
+#opadminimagen{
+    width: 100px; 
+    height: 100px; 
+    position:absolute;
+    left: 91%;
+    top: 5%;
+}
+
+#mejorasimagen{  /* NO SE USA */
+    width: 100px; 
+    height: 100px;
+    position: relative;
+    top:5%;
+}
+
+/* Estilos para botones específicos en la página del juego */  /* MODIFICADO: volvermenu es una clase */
+.volvermenu{
+    height: 4rem;
+    width: 7rem;
+    position: fixed;
+    right:45%;
+}
+
+.subir{   /* MODIFICADO: subir es una clase */
+    height: 4rem;
+    width: 7rem;
+    position: fixed;
+    left:44%;
+    bottom:11%;
+}
+
+/* Estilos para el formulario de subida de archivos */  /* REVISADO */
+#formsubir{
+    height: auto;
+    width: auto;
+}
+
+/* Estilos para el input de tipo file */
+input[type='file'] {
+    background-color: #ffffff;
+    border: 2px solid #2b91eb; /* Borde azul para resaltar el área del archivo */
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+/* h1 imagenes */
+#h1imagenes{
+    font-size: 1.3rem;
+}
+
+/* Tabla imagenes */
+#imagenestabla img{
+    width: 150px;
+    height: 150px;
+}
+
+#opadmin{
+    width: 100%;
+}
+
+#bimagenesusuario{
+    font-size: 0.8rem;
+    height: 60%;
+}
+
+p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 50px;
+    width: 50%;
+    color: white;
+    background-color: #4f6c9d;
+}
+
+/* Media query para pantallas más pequeñas y pantallas en posición vertical */
+@media screen and (max-width: 920px){
+    .mensaje {
+        /* Cubre toda la pantalla del dispositivo */
+        position: fixed;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        
+        /* Borde alrededor del mensaje */
+        border: 5px solid rgb(5, 245, 185);
+
+        /* Con esto ajustamos la posición del texto */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        /* Un color de fondo */
+        background-color: rgb(74, 173, 177);
+
+        /* Lo superponemos */
+        z-index: 1000;
+    }
+
+    /* El texto que vamos a mostrar */
+    .mensaje::before {
+        content: "La resolución de tu dispositivo no es la adecuada para esta web. Juegue en navegadores de ordenador o tabletas en posición horizontal.";
+        font-size: 1.5rem; /* Ajustamos el tamaño del texto */
+        text-align: center; /* Centramos el texto */
+        color: white; /* Cambiamos el color del texto */
+    }
+
+    /* Ocultar todo el contenido */
+    #ocultar {
+        display: none;
+    }
+}
+
+/* Para tablets con ancho mínimo de 768px y máximo de 1024px en orientación horizontal */
+@media screen and (min-width: 768px) and (max-width: 1920px) and (orientation: landscape) {
+    html {
+        font-size: 0.8em;
+    }
+
+    button{
+        font-size: 0.9em;
+    }
+
+    .boton-borrar{
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 150px;
+    }
+
+    .volvermenu {
+        height: 4rem;
+        width: 7rem;
+        position: relative;
+        right:43.5%;
+        top: 10%;
+    }
+
+    .subir {   
+        height: 4rem;
+        width: 7rem;
+        position: relative;
+        left:43%;
+        top: 1.35%;
+    }
+
+    .div-superior {
+        width: 100%;
+    }
+    
+    .div-inferior {
+        width: 100%;
+    }
+    
+    #opadminimagen {
+        left: 85%;
+    }
+    
+    .tmejoras img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    button {
+        width: 20%;
+        height: 50px;
+    }
+    
+    .contenedor-imagen {
+        width: 10%;
+        height: 13%;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    label {
+        width: 20rem;
+        height: 4.6rem;
+    }
+
+    input {
+        width: 12rem;
+        height: 4.2rem;
+    }
+}
