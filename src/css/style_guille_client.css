@@ -28,8 +28,6 @@ button {
     margin: 0;
 }
 
-
-
 input {
     margin: 5px;
 }
@@ -128,4 +126,8 @@ table button {
   opacity: 0;
   transform: translateX(-10px);
   animation: aparecerElemento 0.5s forwards;
+}
+
+#beach-section {
+  position: relative;
 }

@@ -6,6 +6,7 @@ import { VistaMenuMejoras } from './vistas/vistaMenuMejoras.js'
 import { VistaAgregarMejora } from './vistas/vistaAgregarMejora.js'
 import { VistaRankings } from './vistas/vistaRankings.js'
 import { VistaRegistro } from './vistas/vistaRegistro.js'
+import { VistaJuego } from './vistas/vistaJuego.js'
 
 /**
  * Clase que representa el juego Trash Invaders.
@@ -42,6 +43,7 @@ class TrashInvaders {
     this.vistaMenuMejoras = new VistaMenuMejoras(this, this.views.vistaMejoras)
     this.vistaAgregarMejora = new VistaAgregarMejora(this, this.views.vistaAgregarMejora)
     this.vistaRankings = new VistaRankings(this, this.views.vistaRankings)
+    this.vistaPrincipalJuego = new VistaJuego(this, this.views.vistaJuego)
 
     this.modelo = new Modelo(this)
   }

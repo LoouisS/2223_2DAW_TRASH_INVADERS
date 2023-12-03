@@ -99,6 +99,7 @@
 				<a href="mejoras.html">MEJORAS</a>
 				<a href="clasificaciones.html">CLASIFICACIONES</a>
 				<a href="login.html">SALIR</a>
+				<button id="boton-jugar">Jugar</button>
 				<button id="mejoras-usuario">Mejoras Usuario</button> 
 				<button id="volverlogin">Volver</button>  
 				<button id="vistaRankings">Rankings</button>
@@ -106,24 +107,8 @@
 		</div>
 		<div id="vista-principal-juego">
 			<main id="game-page">
-				<div class="div-superior">
-				</div>  
-				<div class="div-inferior" id="grid-container">              
-				</div>
-				<script>
-				function generateGridItems() {
-					let gridContainer = document.getElementById("grid-container");
-					let gridItems = "";
-
-					for (let i = 1; i <= 56; i++) {
-						gridItems += '<div class="grid-item">' + i + '</div>';
-					}
-
-					gridContainer.innerHTML = gridItems;
-				}
-
-				generateGridItems();
-				</script>
+				<div class="div-superior" id="sea-section"></div>
+				<div class="div-inferior" id="beach-section"></div>
 			</main>
 		</div>
 		<div id="vista-menu-mejoras">

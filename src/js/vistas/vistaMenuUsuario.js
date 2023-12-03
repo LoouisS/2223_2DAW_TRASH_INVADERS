@@ -15,6 +15,7 @@ export class VistaMenuUsuario extends Vista {
   constructor (controlador, contenedor) {
     super(controlador, contenedor)
 
+    const botonJugar = contenedor.querySelector('#boton-jugar')
     const botonMejoras = contenedor.querySelector('#mejoras-usuario')
     const volverLogin = contenedor.querySelector('#volverlogin')
     const vistaRankings = contenedor.querySelector('#vistaRankings')
@@ -44,6 +45,16 @@ export class VistaMenuUsuario extends Vista {
          */
     vistaRankings.onclick = () => {
       this.controlador.irAVista('vistaRankings')
+    }
+
+    /**
+         * Evento click del botón "Jugar".
+         * Redirige a la vista de juego.
+         * @event
+         */
+
+    botonJugar.onclick = () => {
+      this.controlador.irAVista('vistaJuego')
     }
   }
 }
