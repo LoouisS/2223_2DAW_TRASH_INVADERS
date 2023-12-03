@@ -76,7 +76,8 @@ function estaCercaDeBasura() {
 
 async function moverIzquierda(velocidad) {
     while (direccionActual === 'ArrowLeft') {
-        posicionHorizontal = Math.max(0, posicionHorizontal - velocidad);
+        const limiteIzquierdo = 0;
+        posicionHorizontal = Math.max(limiteIzquierdo, posicionHorizontal - velocidad);
         if (recogiendoBasura) {
             garbageImage.style.left = posicionHorizontal + 'px';
         }
@@ -88,7 +89,7 @@ async function moverIzquierda(velocidad) {
 
 async function moverDerecha(velocidad) {
     while (direccionActual === 'ArrowRight') {
-        const limiteDerecho = beachSection.offsetWidth - personaje.offsetWidth;
+        const limiteDerecho = window.innerWidth - personaje.offsetWidth;
         posicionHorizontal = Math.min(limiteDerecho, posicionHorizontal + velocidad);
         if (recogiendoBasura) {
             garbageImage.style.left = posicionHorizontal + 'px';
@@ -100,8 +101,8 @@ async function moverDerecha(velocidad) {
 }
 
 async function moverArriba(velocidad) {
-    while (direccionActual === 'ArrowUp') {
-        const limiteSuperior = window.innerHeight / 2 - 30;
+    const limiteSuperior = 0;
+    while (direccionActual === 'ArrowUp' && posicionVertical > limiteSuperior) {
         posicionVertical = Math.max(limiteSuperior, posicionVertical - velocidad);
         if (recogiendoBasura) {
             garbageImage.style.top = posicionVertical + 'px';
@@ -113,8 +114,8 @@ async function moverArriba(velocidad) {
 }
 
 async function moverAbajo(velocidad) {
-    while (direccionActual === 'ArrowDown') {
-        const limiteInferior = window.innerHeight - personaje.offsetHeight + 30;
+    const limiteInferior = window.innerHeight / 2 ;
+    while (direccionActual === 'ArrowDown' && posicionVertical < limiteInferior) {
         posicionVertical = Math.min(limiteInferior, posicionVertical + velocidad);
         if (recogiendoBasura) {
             garbageImage.style.top = posicionVertical + 'px';
@@ -152,11 +153,13 @@ function detectarColision(contenedor) {
 
 function resetearBasura() {
     recogiendoBasura = false;
+
+    // Asegurarse de que la basura aparezca solo en la mitad superior del navegador
     const limiteHorizontal = window.innerWidth - garbageImage.offsetWidth;
-    const limiteVertical = window.innerHeight - garbageImage.offsetHeight;
+    const limiteVerticalSuperior = window.innerHeight / 2 - garbageImage.offsetHeight;
 
     const nuevaPosicionHorizontal = Math.random() * limiteHorizontal;
-    const nuevaPosicionVertical = Math.random() * limiteVertical;
+    const nuevaPosicionVertical = Math.random() * limiteVerticalSuperior;
 
     garbageImage.style.left = nuevaPosicionHorizontal + 'px';
     garbageImage.style.top = nuevaPosicionVertical + 'px';

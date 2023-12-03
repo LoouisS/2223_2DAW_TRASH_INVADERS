@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coordenadas del Cursor</title>
+    <style>
+        body::before {
+        background-image: url('https://img.itch.zone/aW1nLzEzODc4MDkzLmdpZg==/original/q%2BT3RV.gif');
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        } 
+        #coordenadas {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div id="coordenadas"></div>
+
+<script>
+    // Obtener el elemento donde mostrar las coordenadas
+    var coordenadasElemento = document.getElementById('coordenadas');
+
+    // Función para actualizar las coordenadas en el elemento
+    function actualizarCoordenadas(evento) {
+        var coordenadaX = evento.clientX;
+        var coordenadaY = evento.clientY;
+
+        // Mostrar las coordenadas en el elemento
+        coordenadasElemento.textContent = 'X: ' + coordenadaX + ', Y: ' + coordenadaY;
+    }
+
+    // Agregar un event listener al documento para el evento de movimiento del mouse
+    document.addEventListener('mousemove', actualizarCoordenadas);
+</script>
+
+</body>
+</html>
