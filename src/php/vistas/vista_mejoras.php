@@ -41,17 +41,41 @@
                             echo "<tr><td colspan='6'>No hay Mejoras</td></tr>";
                         } else {
                             foreach ($mejoras as $mejora) {
-                                echo "<tr>";
-                                echo "<td><a href='index.php?controlador=Imagenes&action=mostrarImagen&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></td>";
+                                echo "<tr>";                           
+                                // Verifica si hay una imagen asociada con la mejora
+                                if (!empty($mejora['imagen'])) {
+                                    // Muestra la imagen en lugar del enlace
+                                    echo "<td><img src='data:image/jpeg;base64," . $mejora['imagen'] . "' alt='Imagen de la mejora' class='redimension'></td>";
+                                } else {
+                                    // Muestra el enlace para seleccionar imagen
+                                    echo "<td><a href='index.php?controlador=Imagenes&action=mostrarImagen&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></td>";
+                                }                              
                                 echo "<td>" . $mejora['descripcion'] . "</td>";
                                 echo "<td>" . $mejora['multiplicador'] . "</td>";
-                                echo "<td>" . $mejora['duracionMejora'] . "</td>";
+                                echo "<td>" . $mejora['duracion_mejora'] . "</td>";
                                 echo "<td>" . $mejora['porcentaje_aparicion'] . "</td>";
 
                                 // Puedes acceder al idMejora aquí
                                 echo "<td><a href='index.php?controlador=ControladorMejora&action=confirmarBorrado&idMejora=" . $mejora['idMejora'] . "'>Eliminar</a></td>";
                                 echo "</tr>";
                                 
+                                if (isset($_SESSION['selectedImage'])) {
+                                    $selectedImage = $_SESSION['selectedImage'];
+                                    $idUsuario = $_GET['idUsuario'] ?? ''; // Asegúrate de obtenerlo correctamente desde la URL
+                                
+                                    echo "<div>";
+                                    echo "<h2>Imagen Seleccionada</h2>";
+                                    echo "<img src='data:image/jpeg;base64," . $selectedImage['imagen'] . "' alt='" . $selectedImage['nombre'] . "' class='redimension'>";
+                                    // Actualiza el enlace con el ID del usuario
+                                    echo "<a href='index.php?controlador=Imagenes&action=mostrarImagen&idUsuario={$idUsuario}'>Volver</a>";
+                                    echo "</div>";
+                                
+                                    // Limpiar la imagen seleccionada de la sesión después de mostrarla
+                                    unset($_SESSION['selectedImage']);
+                                }
+                                
+
+
                             }
                         }
                     ?>

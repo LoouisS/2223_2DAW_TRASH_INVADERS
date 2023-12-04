@@ -16,7 +16,7 @@
                 <!-- Muestra la información de la mejora a borrar -->
                 <p>Descripción: <?php echo $mejora['descripcion']; ?></p>
                 <p>Multiplicador: <?php echo $mejora['multiplicador']; ?></p>
-                <p>Duración Mejora: <?php echo $mejora['duracionMejora']; ?></p>
+                <p>Duración Mejora: <?php echo $mejora['duracion_mejora']; ?></p>
             </div>
             
             <h1 class="eliminarconfir">¿Estás seguro de que deseas eliminar esta mejora?</h1>              

@@ -9,16 +9,24 @@
         <link rel="icon" type="image/png" href="src/img/logo.jpg">
     </head>
     <body>
-        <main id="login-page">
-            <div class="div-superior">
-                <div id="contenedor-imagen">
-                    <img src="src/img/logo.jpg" alt="logo-imagen"></a>
-                </div>
-            </div>           
-            <button ><a href="juego.html">JUGAR</a></button>
-            <button ><a href="index.php?controlador=ControladorMejora&action=mostrarMejoras">MEJORAS</a></a></button>
-            <button ><a href="clasificaciones.html">CLASIFICACIONES</a></button>
-            <button ><a href="index.php">SALIR</a></button>
-        </main>
-    </body>
+    <main id="login-page">
+        <div class="div-superior">
+            <div id="contenedor-imagen">
+                <img src="src/img/logo.jpg" alt="logo-imagen"></a>
+            </div>
+        </div>           
+        <?php
+        // Verifica si hay una sesión activa
+        if (isset($_SESSION['usuario'])) {
+            echo "<p>Bienvenido, " . $_SESSION['usuario'] . "!</p>";
+        } else {
+            echo "<p>Usuario no autenticado</p>";
+        }
+        ?>
+        <button ><a href="juego.html">JUGAR</a></button>
+        <button ><a href="index.php?controlador=ControladorMejora&action=mostrarMejoras">MEJORAS</a></a></button>
+        <button ><a href="clasificaciones.html">CLASIFICACIONES</a></button>
+        <button ><a href="index.php">SALIR</a></button>
+    </main>
+</body>
 </html>

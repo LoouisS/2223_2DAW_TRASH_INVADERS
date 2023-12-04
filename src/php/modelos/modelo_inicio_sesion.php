@@ -24,9 +24,11 @@ class ModeloInicioSesion {
         $stmt->close();
 
         if ($contrasenaAlmacenada && $contrasenaAlmacenada === $contrasena) {
+            // Almacenar el ID del usuario en la sesión
+            $_SESSION['idUsuario'] = $usuario;
             return true; // Credenciales válidas
         }
-
+    
         return false; // Credenciales inválidas
     }
 }

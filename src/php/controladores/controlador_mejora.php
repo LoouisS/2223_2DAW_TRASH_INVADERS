@@ -13,9 +13,22 @@ class ControladorMejora {
     }
 
     public function mostrarMejoras() {
-        $mejoras = $this->modelo->obtenerMejoras();
+        // Verificar si hay un usuario autenticado
+        if (!isset($_SESSION['idUsuario'])) {
+            // Redirigir a la página de inicio de sesión si no hay un usuario autenticado
+            header('Location: index.php?controlador=ControladorInicioSesion&action=mostrarFormularioInicioSesion');
+            exit();
+        }
+    
+        // Obtener el ID del usuario desde la sesión
+        $idUsuario = $_SESSION['idUsuario'];
+    
+        // Obtener las mejoras específicas de ese usuario
+        $mejoras = $this->modelo->obtenerMejoras($idUsuario);
+    
         require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
-    }   
+    }
+      
     
     public function agregarMejora() {
         // Obtener valores del formulario

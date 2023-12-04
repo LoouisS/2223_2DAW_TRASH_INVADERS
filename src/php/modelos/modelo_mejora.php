@@ -17,9 +17,9 @@ class ModeloMejora {
     }
 
     public function obtenerMejoras() {
-        $result = $this->conexion->prepare("SELECT idMejora, descripcion, multiplicador, duracionMejora, porcentaje_aparicion FROM mejora");
+        $result = $this->conexion->prepare("SELECT idMejora, descripcion, multiplicador, duracion_mejora, porcentaje_aparicion FROM mejora");
         $result->execute();
-        $result->bind_result($idMejora, $descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
+        $result->bind_result($idMejora, $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion);
     
         $resultados = [];
     
@@ -28,7 +28,7 @@ class ModeloMejora {
                 'idMejora' => $idMejora,
                 'descripcion' => $descripcion,
                 'multiplicador' => $multiplicador,
-                'duracionMejora' => $duracionMejora,
+                'duracion_mejora' => $duracion_mejora,
                 'porcentaje_aparicion' => $porcentaje_aparicion
             ];
         }
@@ -41,10 +41,10 @@ class ModeloMejora {
     
 
     public function obtenerMejorasPorId($idMejora) {
-        $result = $this->conexion->prepare("SELECT idMejora, descripcion, multiplicador, duracionMejora, porcentaje_aparicion FROM mejora WHERE idMejora = ?");
+        $result = $this->conexion->prepare("SELECT idMejora, descripcion, multiplicador, duracion_mejora, porcentaje_aparicion FROM mejora WHERE idMejora = ?");
         $result->bind_param("i", $idMejora);
         $result->execute();
-        $result->bind_result($idMejora, $descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
+        $result->bind_result($idMejora, $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion);
 
         // Verificamos si se obtuvo algún resultado
         if ($result->fetch()) {
@@ -54,7 +54,7 @@ class ModeloMejora {
                 'idMejora' => $idMejora,
                 'descripcion' => $descripcion,
                 'multiplicador' => $multiplicador,
-                'duracionMejora' => $duracionMejora,
+                'duracion_mejora' => $duracion_mejora,
                 'porcentaje_aparicion' => $porcentaje_aparicion
             ];
 
@@ -65,18 +65,18 @@ class ModeloMejora {
         }
     }
 
-    public function agregarMejora($descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion) {
+    public function agregarMejora($descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion) {
         // Insertar nueva mejora
-        $stmt = $this->conexion->prepare("INSERT INTO mejora (descripcion, multiplicador, duracionMejora,porcentaje_aparicion ) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("siii", $descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
+        $stmt = $this->conexion->prepare("INSERT INTO mejora (descripcion, multiplicador, duracion_mejora,porcentaje_aparicion ) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("siii", $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion);
 
         return $stmt->execute();
     }
 
-    public function actualizarMejora($idMejora, $descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion) {
+    public function actualizarMejora($idMejora, $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion) {
         // Actualizar mejora por ID
-        $stmt = $this->conexion->prepare("UPDATE mejora SET descripcion = ?, multiplicador = ?, duracionMejora = ?, porcentaje_aparicion = ? WHERE idMejora = ?");
-        $stmt->bind_param("siiii", $descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion, $idMejora);
+        $stmt = $this->conexion->prepare("UPDATE mejora SET descripcion = ?, multiplicador = ?, duracion_mejora = ?, porcentaje_aparicion = ? WHERE idMejora = ?");
+        $stmt->bind_param("siiii", $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion, $idMejora);
 
         return $stmt->execute();
     }

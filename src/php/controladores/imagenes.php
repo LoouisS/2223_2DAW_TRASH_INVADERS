@@ -18,6 +18,14 @@ class Imagenes {
     }
 
     public function seleccionarImagen() {
+        if (!isset($_SESSION['idUsuario'])) {
+            // Redirigir a la página de inicio de sesión si no hay un usuario autenticado
+            header('Location: index.php?controlador=ControladorInicioSesion&action=mostrarFormularioInicioSesion');
+            exit();
+        }
+    
+        // Obtener el ID del usuario desde la sesión
+        $idUsuario = $_SESSION['idUsuario'];
         // Verificar si se ha enviado un formulario para seleccionar una imagen
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['seleccionImagen'])) {
             $selectedImageId = $_POST['seleccionImagen'];
@@ -29,10 +37,11 @@ class Imagenes {
                 $_SESSION['selectedImage'] = $selectedImage;
             }
         }
-
+    
         // Redireccionar a la página de mostrar mejoras
         header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
     }
+    
 
     public function subirImagenes() {
         $this->modelo->agregarImagen($_FILES);
