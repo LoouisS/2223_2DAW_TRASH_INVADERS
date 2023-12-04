@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS mejora (
     idMejora tinyint UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     descripcion VARCHAR(120) NOT NULL,
     multiplicador TINYINT UNSIGNED NULL,
-    duracionMejora TINYINT UNSIGNED NULL,
-    prob_aparicion_mejoras BIT NOT NULL
+    duracion_mejora TINYINT UNSIGNED NULL,
+    porcentaje_aparicion TINYINT UNSIGNED NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 

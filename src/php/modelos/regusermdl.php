@@ -10,7 +10,7 @@
             require_once '/../config/config.php';
 
             // Establecer la conexión a la base de datos usando PDO
-            $this->conexion = new PDO('mysql:host=' . HOST . '; dbname=' . TRASHINVADERSBD, USUARIO, PSWBD);
+            //$this->conexion = new PDO('mysql:host=' . HOST . '; dbname=' . TRASHINVADERSBD, USUARIO, PSWBD);
         }
 
         //Método para verificar si un usuario ya existe en la base de datos

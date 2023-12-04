@@ -1,9 +1,24 @@
 <?php 
 
+
+session_start();
+
+
 ini_set('display_errors', 1);
 
-require_once '.\src\php\config\serverconfig.php';
-require_once '.\src\php\controladores\imagenes.php';
+require_once getcwd() . '/src/php/config/serverconfig.php';
+require_once getcwd() . '/src/php/controladores/imagenes.php';
+require_once getcwd() . '/src/php/modelos/modelo_mejora.php';
+require_once getcwd() . "/src/php/controladores/controlador_mejora.php";
+require_once getcwd() . '/src/php/controladores/usuario.php';
+require_once getcwd() . '/src/php/modelos/modelo_inicio_sesion.php';
+require_once getcwd() . '/src/php/controladores/sesion.php';
+require_once getcwd() . '/src/php/modelos/modelo_menu.php';
+require_once getcwd() . '/src/php/controladores/menu.php';
+require_once getcwd() . '/src/php/controladores/controlador_inicio_sesion.php';
+require_once getcwd() . '/src/php/controladores/credenciales_incorrectas.php';
+
+
 
 
 
@@ -22,11 +37,11 @@ $ruta_controlador = "src/php/controladores/" . strtolower($_GET["controlador"]) 
 
 // Si el controlador no existe, se usa el controlador por defecto
 if (!file_exists($ruta_controlador)) {
-    $ruta_controlador = "src/php/controladores/" . constant("default_controler") . ".php";
+    $ruta_controlador = "src/php/controladores/" . constant("DEFAULT_CONTROLLER") . ".php";
 }
 
 // Se carga el controlador
-require_once "/" .  $ruta_controlador;
+require_once getcwd() . "/" .  $ruta_controlador;
 
 $nombre_controlador = $_GET["controlador"];
 $controlador = new $nombre_controlador();
@@ -39,6 +54,5 @@ if (method_exists($controlador, $_GET["action"])) {
     $datos["datos"] = $controlador->{$_GET["action"]}();
 }
 
-require_once '/src/php/vistas/' . $controlador->vista . '.php';
 
 ?>
