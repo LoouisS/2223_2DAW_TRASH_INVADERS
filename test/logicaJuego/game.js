@@ -1,128 +1,136 @@
 // game.js
 
-const personaje = document.getElementById('personaje');
-const beachSection = document.getElementById('beach-section');
-const garbageImage = document.getElementById('garbage-image');
+const personaje = document.getElementById('personaje')
+const beachSection = document.getElementById('beach-section')
+const garbageImage = document.getElementById('garbage-image')
 
-const contenedorSuperiorIzquierda = document.getElementById('contenedor-superior-izquierda');
-const contenedorSuperiorDerecha = document.getElementById('contenedor-superior-derecha');
-const contenedorInferiorIzquierda = document.getElementById('contenedor-inferior-izquierda');
-const contenedorInferiorDerecha = document.getElementById('contenedor-inferior-derecha');
+const contenedorSuperiorIzquierda = document.getElementById('contenedor-superior-izquierda')
+const contenedorSuperiorDerecha = document.getElementById('contenedor-superior-derecha')
+const contenedorInferiorIzquierda = document.getElementById('contenedor-inferior-izquierda')
+const contenedorInferiorDerecha = document.getElementById('contenedor-inferior-derecha')
 
-let posicionHorizontal = window.innerWidth / 2;
-let posicionVertical = window.innerHeight / 2;
-let direccionActual = null;
-let recogiendoBasura = false;
-let puntos = 0;
+let posicionHorizontal = window.innerWidth / 2
+let posicionVertical = window.innerHeight / 2
+let direccionActual = null
+let recogiendoBasura = false
+let puntos = 0
 
-personaje.style.left = posicionHorizontal + 'px';
-personaje.style.top = posicionVertical + 'px';
+personaje.style.left = posicionHorizontal + 'px'
+personaje.style.top = posicionVertical + 'px'
+
+// Set the initial position of garbageImage at the lowest part of the screen
+garbageImage.style.left = posicionHorizontal + 'px'
+garbageImage.style.top = window.innerHeight - garbageImage.offsetHeight + 'px'
+
+
 
 document.addEventListener('keydown', async (e) => {
-    const velocidad = 2;
+    const velocidad = 2
 
     switch (e.key) {
         case 'ArrowLeft':
             if (direccionActual !== 'ArrowLeft') {
-                direccionActual = 'ArrowLeft';
-                await moverIzquierda(velocidad);
+                direccionActual = 'ArrowLeft'
+                await moverIzquierda(velocidad)
             }
-            break;
+            break
         case 'ArrowRight':
             if (direccionActual !== 'ArrowRight') {
-                direccionActual = 'ArrowRight';
-                await moverDerecha(velocidad);
+                direccionActual = 'ArrowRight'
+                await moverDerecha(velocidad)
             }
-            break;
+            break
         case 'ArrowUp':
+        
             if (direccionActual !== 'ArrowUp') {
-                direccionActual = 'ArrowUp';
-                await moverArriba(velocidad);
+                direccionActual = 'ArrowUp'
+                await moverArriba(velocidad)
             }
-            break;
+            break
         case 'ArrowDown':
             if (direccionActual !== 'ArrowDown') {
-                direccionActual = 'ArrowDown';
-                await moverAbajo(velocidad);
+                direccionActual = 'ArrowDown'
+                await moverAbajo(velocidad)
             }
-            break;
+            break
         case ' ':
             if (recogiendoBasura) {
-                recogiendoBasura = false;
-                garbageImage.style.left = posicionHorizontal + 'px';
-                garbageImage.style.top = posicionVertical + 'px';
-                puntos += 10;
-                console.log(`¡Has conseguido 10 puntos! Puntos totales: ${puntos}`);
+                recogiendoBasura = false
+                garbageImage.style.left = posicionHorizontal + 'px'
+                garbageImage.style.top = posicionVertical + 'px'
+                puntos += 10
+                console.log(`¡Has conseguido 10 puntos! Puntos totales: ${puntos}`)
             } else {
                 if (estaCercaDeBasura()) {
-                    recogiendoBasura = true;
+                    recogiendoBasura = true
                 }
             }
-            break;
+            break
     }
-});
+})
 
 function estaCercaDeBasura() {
-    const distanciaMinima = 30;
-    const distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.offsetLeft);
-    const distanciaVertical = Math.abs(posicionVertical - garbageImage.offsetTop);
+
+    const distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.offsetLeft)
+    const distanciaVertical = Math.abs(posicionVertical - garbageImage.offsetTop)
 
     // Verificar si el personaje está encima de la basura
-    const encimaDeBasuraHorizontal = distanciaHorizontal < personaje.offsetWidth / 2 + garbageImage.offsetWidth / 2;
-    const encimaDeBasuraVertical = distanciaVertical < personaje.offsetHeight / 2 + garbageImage.offsetHeight / 2;
+    const encimaDeBasuraHorizontal = distanciaHorizontal < personaje.offsetWidth / 2 + garbageImage.offsetWidth / 2
+    const encimaDeBasuraVertical = distanciaVertical < personaje.offsetHeight / 2 + garbageImage.offsetHeight / 2
 
-    return encimaDeBasuraHorizontal && encimaDeBasuraVertical;
+    return encimaDeBasuraHorizontal && encimaDeBasuraVertical
 }
 
 async function moverIzquierda(velocidad) {
     while (direccionActual === 'ArrowLeft') {
-        const limiteIzquierdo = 0;
-        posicionHorizontal = Math.max(limiteIzquierdo, posicionHorizontal - velocidad);
+        const limiteIzquierdo = 0
+        posicionHorizontal = Math.max(limiteIzquierdo, posicionHorizontal - velocidad)
         if (recogiendoBasura) {
-            garbageImage.style.left = posicionHorizontal + 'px';
+            garbageImage.style.left = posicionHorizontal + 'px'
         }
-        personaje.style.left = posicionHorizontal + 'px';
-        verificarColisionContenedor();
-        await sleep(10);
+        personaje.style.left = posicionHorizontal + 'px'
+        verificarColisionContenedor()
+        await sleep(10)
     }
 }
 
 async function moverDerecha(velocidad) {
+
     while (direccionActual === 'ArrowRight') {
-        const limiteDerecho = window.innerWidth - personaje.offsetWidth;
-        posicionHorizontal = Math.min(limiteDerecho, posicionHorizontal + velocidad);
+        const limiteDerecho = window.innerWidth - personaje.offsetWidth
+        posicionHorizontal = Math.min(limiteDerecho, posicionHorizontal + velocidad)
         if (recogiendoBasura) {
-            garbageImage.style.left = posicionHorizontal + 'px';
+            garbageImage.style.left = posicionHorizontal + 'px'
         }
-        personaje.style.left = posicionHorizontal + 'px';
-        verificarColisionContenedor();
-        await sleep(10);
+        personaje.style.left = posicionHorizontal + 'px'
+        verificarColisionContenedor()
+        await sleep(10)
     }
 }
 
 async function moverArriba(velocidad) {
-    const limiteSuperior = 0;
+    const limiteSuperior = 0
     while (direccionActual === 'ArrowUp' && posicionVertical > limiteSuperior) {
-        posicionVertical = Math.max(limiteSuperior, posicionVertical - velocidad);
+        posicionVertical = Math.max(limiteSuperior, posicionVertical - velocidad)
         if (recogiendoBasura) {
-            garbageImage.style.top = posicionVertical + 'px';
+            garbageImage.style.top = posicionVertical + 'px'
         }
-        personaje.style.top = posicionVertical + 'px';
-        verificarColisionContenedor();
-        await sleep(10);
+        personaje.style.top = posicionVertical + 'px'
+        verificarColisionContenedor()
+        await sleep(10)
     }
 }
 
 async function moverAbajo(velocidad) {
-    const limiteInferior = window.innerHeight / 2 ;
+    const limiteInferior = window.innerHeight / 2 
     while (direccionActual === 'ArrowDown' && posicionVertical < limiteInferior) {
-        posicionVertical = Math.min(limiteInferior, posicionVertical + velocidad);
+        posicionVertical = Math.min(limiteInferior, posicionVertical + velocidad)
         if (recogiendoBasura) {
-            garbageImage.style.top = posicionVertical + 'px';
+            garbageImage.style.top = posicionVertical + 'px'
         }
-        personaje.style.top = posicionVertical + 'px';
-        verificarColisionContenedor();
-        await sleep(10);
+        personaje.style.top = posicionVertical + 'px'
+        verificarColisionContenedor()
+        await sleep(10)
     }
 }
 
@@ -134,37 +142,59 @@ function verificarColisionContenedor() {
             detectarColision(contenedorInferiorIzquierda) ||
             detectarColision(contenedorInferiorDerecha)
         ) {
-            console.log("¡Has conseguido 10 puntos!");
-            resetearBasura();
+            console.log("¡Has conseguido 10 puntos!")
+            resetearBasura()
+            moverBasura()
         }
     }
 }
 
 function detectarColision(contenedor) {
-    const distanciaMinima = 30;
-    const distanciaHorizontal = Math.abs(posicionHorizontal - contenedor.offsetLeft);
-    const distanciaVertical = Math.abs(posicionVertical - contenedor.offsetTop);
+    const distanciaHorizontal = Math.abs(posicionHorizontal - contenedor.offsetLeft)
+    const distanciaVertical = Math.abs(posicionVertical - contenedor.offsetTop)
 
     return (
         distanciaHorizontal < personaje.offsetWidth / 2 + contenedor.offsetWidth / 2 &&
         distanciaVertical < personaje.offsetHeight / 2 + contenedor.offsetHeight / 2
-    );
+    )
 }
 
 function resetearBasura() {
     recogiendoBasura = false;
 
-    // Asegurarse de que la basura aparezca solo en la mitad superior del navegador
+    // Asegurarse de que la basura aparezca solo en la mitad inferior del navegador
     const limiteHorizontal = window.innerWidth - garbageImage.offsetWidth;
-    const limiteVerticalSuperior = window.innerHeight / 2 - garbageImage.offsetHeight;
+    const limiteVerticalInferior = window.innerHeight - garbageImage.offsetHeight;
 
     const nuevaPosicionHorizontal = Math.random() * limiteHorizontal;
-    const nuevaPosicionVertical = Math.random() * limiteVerticalSuperior;
+    // const nuevaPosicionVertical = Math.random() * (limiteVerticalInferior / 2) + (window.innerHeight / 2);
+    const nuevaPosicionVertical = limiteVerticalInferior;
 
     garbageImage.style.left = nuevaPosicionHorizontal + 'px';
     garbageImage.style.top = nuevaPosicionVertical + 'px';
 }
 
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms))
 }
+
+let moverBasuraInterval;
+
+function moverBasura() {
+    moverBasuraInterval = setInterval(() => {
+        if (!recogiendoBasura) {
+            const garbageImage = document.getElementById('garbage-image')
+            const currentPosition = parseInt(garbageImage.style.top)
+            const halfScreen = window.innerHeight / 2 + 30
+            if (currentPosition > halfScreen) {
+                garbageImage.style.top = (currentPosition - 5) + 'px'
+            } else {
+                clearInterval(moverBasuraInterval)
+            }
+        }
+    }, 100);
+}
+
+moverBasura();
+
+
