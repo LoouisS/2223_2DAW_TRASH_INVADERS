@@ -34,12 +34,21 @@ CREATE TABLE IF NOT EXISTS mejora (
     descripcion VARCHAR(120) NOT NULL,
     multiplicador TINYINT UNSIGNED NULL,
     duracionMejora TINYINT UNSIGNED NULL,
-    activado BIT NOT NULL
+    prob_aparicion_mejoras BIT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+
+-- Inserta tres mejoras en la tabla mejoras
+
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Multiplicador puntos', 2, 10);
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Te mueves mas rapido', 3, 10);
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('La basura viene mas despacio', 4, 10);
+
 
 -- Creacion de la tabla administrador
 CREATE TABLE IF NOT EXISTS administrador(
-    idAdmin char(3) NOT NULL
+    idAdmin char(3) NOT NULL,
+    contrasenia varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE IF NOT EXISTS parametros(
@@ -70,3 +79,22 @@ ALTER TABLE usuario_imagen_mejora ADD CONSTRAINT unique_usuario_imagen UNIQUE (i
 ALTER TABLE imagen ADD CONSTRAINT unique_hash UNIQUE (hash);
 
 COMMIT;
+
+
+CREATE TABLE rankins (
+    idRanking int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    idUsuario VARCHAR(255) NOT NULL,
+    puntuacion int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('AAA', 100);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('BBB', 200);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('CCC', 300);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('DDD', 400);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('EEE', 500);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('FFF', 600);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('GGG', 700);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('HHH', 800);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('III', 900);
+INSERT INTO rankins (idUsuario, puntuacion) VALUES ('JJJ', 1000);
+

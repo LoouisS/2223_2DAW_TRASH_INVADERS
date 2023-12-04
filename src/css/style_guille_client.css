@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+body, html {
+    font-family: 'Bubblegum Sans', sans-serif;
+    font-size: 22px;
+}
+
+
+a {
+    box-sizing: content-box;
+    width: 25%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
+    font-size: 2rem;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button {
+    width: 150px; 
+    height: 55px; 
+    font-size: 22px; 
+    margin: 0;
+}
+
+input {
+    margin: 5px;
+}
+
+#imagen-previsualizacion img {
+    width: 100px;
+    height: 100px;
+}
+
+select {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 50px;
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 22px;
+    padding: 0 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffd590;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  th, td {
+    opacity: 0;
+    transform: translateX(-50px);
+    text-align: center;
+    vertical-align: middle;
+    animation: aparecerElemento 0.5s forwards; 
+  }
+
+  th {
+    background-color: #ffd590;
+    color: #333;
+  }
+
+  tr:hover {
+    background-color: rgb(203, 169, 110);
+    color: white;
+  }
+
+
+  @keyframes aparecerElemento {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+table button {
+  /* Resetea sus estilos */
+  all: unset;
+  cursor: pointer;
+}
+
+#vista-registro form {
+  animation: aparecerFormulario 0.5s forwards; 
+}
+
+@keyframes aparecerFormulario {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Estilos específicos para el formulario de registro */
+#vista-registro form {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+#vista-registro form div {
+  animation: aparecerElemento 0.5s forwards;
+}
+
+@keyframes aparecerElemento {
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+#vista-registro form label, #vista-registro form input, #vista-registro form small {
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: aparecerElemento 0.5s forwards;
+}
+
+#beach-section {
+  position: relative;
+}

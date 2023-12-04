@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body::before {
+  background-image: url('ezgif.com-gif-maker.gif');
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+} 
+
+
+#vista-principal-juego {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%);
+}
+
+#garbage-image {
+  width: 25px;
+  height: 25px;
+}
+
+.contenedor {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+
+}
+
+#contenedor-superior-izquierda {
+  top: 5%;
+  left: 10%;
+}
+
+#contenedor-superior-derecha {
+  top: 5%;
+  left: 90%;
+}
+
+#contenedor-inferior-izquierda {
+  bottom: 50%;
+  left: 10%;
+}
+
+#contenedor-inferior-derecha {
+  bottom: 50%;
+  left: 90%;
+}

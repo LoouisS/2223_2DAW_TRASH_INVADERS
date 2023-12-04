@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: vistas/vistaRankings.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: vistas/vistaRankings.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Vista } from './template/vista.js'
+import { Rest } from '../services/rest.js'
+
+/**
+ * Clase que representa la vista de los rankings.
+ * @class
+ * @extends Vista
+ */
+export class VistaRankings extends Vista {
+  /**
+     * Crea una instancia de VistaRankings.
+     * @constructor
+     * @param {Controlador} controlador - El controlador de la aplicación.
+     * @param {HTMLElement} contenedor - El elemento contenedor de la vista.
+     */
+  constructor (controlador, contenedor) {
+    super(controlador, contenedor)
+    this.inicializar()
+  }
+
+  /**
+     * Inicializa la vista de los rankings.
+     * @async
+     */
+  async inicializar () {
+    try {
+      const rankings = await Rest.obtenerPuntuaciones()
+      this.agregarTablaRankings(rankings)
+    } catch (error) {
+      console.error('Error al obtener puntuaciones:', error)
+    }
+
+    const botonEnviarPuntuacion = this.contenedor.querySelector('#submit-puntuacion')
+    botonEnviarPuntuacion.onclick = () => this.enviarPuntuacion()
+
+    const botonesEliminar = this.contenedor.querySelectorAll('.eliminar-btn')
+    botonesEliminar.forEach(boton => {
+      boton.addEventListener('mouseover', () => {
+        boton.style.transition = 'transform 0.8s ease'
+        boton.style.transform = 'rotate(90deg)'
+      })
+
+      boton.addEventListener('mouseout', () => {
+        boton.style.transition = 'transform 0.8s ease'
+        boton.style.transform = ''
+      })
+
+      boton.addEventListener('click', () => console.log(boton.getAttribute('data-id-ranking')))
+    })
+  }
+
+  /**
+     * Envía la puntuación al servidor.
+     * @async
+     */
+  async enviarPuntuacion () {
+    const idUsuario = this.contenedor.querySelector('#username').value
+    const puntuacion = this.contenedor.querySelector('#number').value
+
+    try {
+      await Rest.agregarPuntuacion(idUsuario, puntuacion)
+      console.log('Puntuación agregada')
+
+      // Eliminar la tabla existente antes de agregar la nueva
+      const tablaExistente = this.contenedor.querySelector('table')
+      if (tablaExistente) {
+        tablaExistente.remove()
+      }
+
+      // Obtener nuevamente las puntuaciones y agregar la nueva tabla
+      const rankings = await Rest.obtenerPuntuaciones()
+      this.agregarTablaRankings(rankings)
+    } catch (error) {
+      console.error('Error al agregar puntuación:', error)
+    }
+  }
+
+  /**
+     * Agrega la tabla de rankings al contenedor.
+     * @param {Array} rankings - Los rankings a mostrar en la tabla.
+     */
+  agregarTablaRankings (rankings) {
+    const tabla = document.createElement('table')
+    const encabezado = tabla.createTHead()
+    const filaEncabezado = encabezado.insertRow()
+    this.crearCelda(filaEncabezado, 'ID Ranking')
+    this.crearCelda(filaEncabezado, 'ID Usuario')
+    this.crearCelda(filaEncabezado, 'Puntuación')
+    this.crearCelda(filaEncabezado, '')
+
+    const cuerpoTabla = tabla.createTBody()
+    rankings.forEach(ranking => {
+      const fila = cuerpoTabla.insertRow()
+      this.crearCelda(fila, ranking.idRanking)
+      this.crearCelda(fila, ranking.idUsuario)
+      this.crearCelda(fila, ranking.puntuacion)
+
+      // Crear botón con icono de X
+      const botonEliminar = document.createElement('button')
+      botonEliminar.innerHTML = '&amp;#10006;'
+      botonEliminar.className = 'eliminar-btn'
+      botonEliminar.setAttribute('data-id-ranking', ranking.idRanking)
+      botonEliminar.onclick = () => this.eliminarPuntuacion(ranking.idRanking)
+
+      // Agregar celda para el botón
+      const celdaBoton = fila.insertCell()
+      celdaBoton.appendChild(botonEliminar)
+    })
+
+    const mainElement = this.contenedor.querySelector('#register-page')
+    mainElement.appendChild(tabla)
+  }
+
+  /**
+     * Crea una celda en una fila de la tabla.
+     * @param {HTMLTableRowElement} fila - La fila en la que se creará la celda.
+     * @param {string} contenido - El contenido de la celda.
+     * @returns {HTMLTableCellElement} La celda creada.
+     */
+  crearCelda (fila, contenido) {
+    const celda = fila.insertCell()
+    celda.textContent = contenido
+    return celda
+  }
+
+  /**
+     * Elimina una puntuación de la tabla y del servidor.
+     * @async
+     * @param {number} idRanking - El ID de la puntuación a eliminar.
+     */
+  async eliminarPuntuacion (idRanking) {
+    try {
+      await Rest.borrarPuntuacion(idRanking)
+      console.log('Puntuación eliminada')
+
+      // Eliminar la tabla existente antes de agregar la nueva
+      const tablaExistente = this.contenedor.querySelector('table')
+      if (tablaExistente) {
+        tablaExistente.remove()
+      }
+
+      // Obtener nuevamente las puntuaciones y agregar la nueva tabla
+      const rankings = await Rest.obtenerPuntuaciones()
+      this.agregarTablaRankings(rankings)
+    } catch (error) {
+      console.error('Error al eliminar puntuación:', error)
+    }
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Modelo.html">Modelo</a></li><li><a href="Rest.html">Rest</a></li><li><a href="TrashInvaders.html">TrashInvaders</a></li><li><a href="Vista.html">Vista</a></li><li><a href="VistaAgregarMejora.html">VistaAgregarMejora</a></li><li><a href="VistaLogin.html">VistaLogin</a></li><li><a href="VistaMenuMejoras.html">VistaMenuMejoras</a></li><li><a href="VistaMenuUsuario.html">VistaMenuUsuario</a></li><li><a href="VistaPrincipal.html">VistaPrincipal</a></li><li><a href="VistaRankings.html">VistaRankings</a></li><li><a href="VistaRegistro.html">VistaRegistro</a></li></ul><h3>Events</h3><ul><li><a href="-_anonymous_-botonMejoras.html#.event:onclick">onclick</a></li><li><a href="-_anonymous_-vistaRankings.html#.event:onclick">onclick</a></li><li><a href="-_anonymous_-volverLogin.html#.event:onclick">onclick</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Dec 01 2023 22:30:24 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

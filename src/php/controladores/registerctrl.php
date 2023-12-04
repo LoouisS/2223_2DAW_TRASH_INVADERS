@@ -1,6 +1,6 @@
 <?php
     //Incluir los archivos necesarios
-    require_once getcwd() . '/../config/config.php'; 
+    require_once '/../config/config.php'; 
     require_once getcwd() .'/../modelos/regusermdl.php'; 
 
     //Verificar si la solicitud es de tipo POST

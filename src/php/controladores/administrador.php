@@ -10,7 +10,7 @@ class Administrador {
     }
 
     public function mostrarAdmin() {
-        require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
+        require_once '/src/php/vistas/' . $this->vista . '.php';
     }
 }
 ?>
