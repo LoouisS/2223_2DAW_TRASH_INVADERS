@@ -54,31 +54,86 @@ document.addEventListener('keydown', async (e) => {
             }
             break
         case ' ':
-            if (recogiendoBasura) {
-                recogiendoBasura = false
-                garbageImage.style.left = posicionHorizontal + 'px'
-                garbageImage.style.top = posicionVertical + 'px'
-                puntos += 10
-                console.log(`¡Has conseguido 10 puntos! Puntos totales: ${puntos}`)
-            } else {
-                if (estaCercaDeBasura()) {
-                    recogiendoBasura = true
-                }
+            const basuraCercana = estaCercaDeBasura();
+            if (recogiendoBasura && basuraCercana !== null) {
+                recogiendoBasura = false;
+                puntos += 10;
+                console.log(`¡Has conseguido 10 puntos! Puntos totales: ${puntos}`);
+                await moverConjunto(personaje, basuraCercana, velocidad);
+                basuraCercana.style.left = basuraCercana.originalLeft + 'px'; // Deja la basura en su posición actual
+                basuraCercana.style.top = basuraCercana.originalTop + 'px';
+            } else if (basuraCercana !== null && !recogiendoBasura) {
+                recogiendoBasura = true;
+                basuraCercana.originalLeft = basuraCercana.offsetLeft; // Guarda la posición original de la basura
+                basuraCercana.originalTop = basuraCercana.offsetTop;
             }
-            break
+            break;
     }
 })
 
-function estaCercaDeBasura() {
+async function moverConjunto(personaje, basura, velocidad) {
+    while (direccionActual !== null) {
+        const limiteIzquierdo = 0;
+        const limiteDerecho = window.innerWidth - personaje.offsetWidth;
+        const limiteSuperior = 0;
+        const limiteInferior = window.innerHeight - personaje.offsetHeight;
 
-    const distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.offsetLeft)
-    const distanciaVertical = Math.abs(posicionVertical - garbageImage.offsetTop)
+        let nuevaPosicionHorizontal = posicionHorizontal;
 
-    const encimaDeBasuraHorizontal = distanciaHorizontal < personaje.offsetWidth / 2 + garbageImage.offsetWidth / 2
-    const encimaDeBasuraVertical = distanciaVertical < personaje.offsetHeight / 2 + garbageImage.offsetHeight / 2
+        if (direccionActual === 'ArrowLeft') {
+            nuevaPosicionHorizontal = Math.max(limiteIzquierdo, nuevaPosicionHorizontal - velocidad);
+        } else if (direccionActual === 'ArrowRight') {
+            nuevaPosicionHorizontal = Math.min(limiteDerecho, nuevaPosicionHorizontal + velocidad);
+        }
 
-    return encimaDeBasuraHorizontal && encimaDeBasuraVertical
+        let nuevaPosicionVertical = posicionVertical;
+
+        if (direccionActual === 'ArrowUp') {
+            nuevaPosicionVertical = Math.max(limiteSuperior, nuevaPosicionVertical - velocidad);
+        } else if (direccionActual === 'ArrowDown') {
+            nuevaPosicionVertical = Math.min(limiteInferior, nuevaPosicionVertical + velocidad);
+        }
+
+        // Actualizar las posiciones tanto horizontal como vertical
+        personaje.style.left = nuevaPosicionHorizontal + 'px';
+        personaje.style.top = nuevaPosicionVertical + 'px';
+
+        if (recogiendoBasura) {
+            basura.style.left = nuevaPosicionHorizontal + 'px';
+            basura.style.top = nuevaPosicionVertical + 'px';
+        }
+
+        verificarColisionContenedor();
+        await sleep(10);
+    }
 }
+
+
+function estaCercaDeBasura() {
+    let basuraCercana = null;
+    let distanciaMinima = Number.MAX_SAFE_INTEGER;
+
+    for (let i = 0; i < garbageImages.length; i++) {
+        const garbageImage = garbageImages[i];
+        const distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.offsetLeft);
+        const distanciaVertical = Math.abs(posicionVertical - garbageImage.offsetTop);
+
+        const encimaDeBasuraHorizontal = distanciaHorizontal < personaje.offsetWidth / 2 + garbageImage.offsetWidth / 2;
+        const encimaDeBasuraVertical = distanciaVertical < personaje.offsetHeight / 2 + garbageImage.offsetHeight / 2;
+
+        if (encimaDeBasuraHorizontal && encimaDeBasuraVertical) {
+            const distanciaTotal = Math.sqrt(distanciaHorizontal ** 2 + distanciaVertical ** 2);
+            if (distanciaTotal < distanciaMinima) {
+                distanciaMinima = distanciaTotal;
+                basuraCercana = garbageImage;
+            }
+        }
+    }
+
+    return basuraCercana; // Devuelve la basura más cercana
+}
+
+
 
 async function moverIzquierda(velocidad) {
     while (direccionActual === 'ArrowLeft') {
