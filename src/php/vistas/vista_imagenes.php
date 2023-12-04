@@ -84,7 +84,9 @@
         ?>
 
 
-        <button id="subir" ><a href="index.php">Volver</a></button>
+        <button id="subir" ><a href="index.php?controlador=ControladorMejora&action=mostrarMejoras">VOLVER</a></button>
     </main>
 </body>
 </html>
+
+

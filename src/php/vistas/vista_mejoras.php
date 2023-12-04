@@ -102,7 +102,8 @@
                 <button type="submit">Agregar Mejora</button>
             </form>
 
-            <button id="volvermenu"><a href="index.php">Volver</a></button>
+            <button id="volvermenu"><a href="index.php?controlador=Menu&action=mostrarMenu">VOLVER</a></button>
         </main>
     </body>
 </html>
+
