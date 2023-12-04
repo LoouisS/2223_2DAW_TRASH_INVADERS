@@ -105,19 +105,25 @@ a {
 
 /* Estilos para etiquetas de texto */
 label {
+    display: inline-block;
+    text-align: left;
     width: 350px;
     background-color: #e3eaed; 
+    height: 50px;
     border-radius: 10px;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 5px;
-    padding-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 50px; 
 }
 
 /* Estilos para campos de entrada de texto */
 input {
+    display: inline-block;
     width: 300px;
-    /* height: 50px; */
+    height: 50px;
     border-radius: 10px;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1.2rem;
     padding: 0;
@@ -189,6 +195,7 @@ img {
 
 /* Estilos para encabezados h1 */
 h1  {
+    background-color: white;
     padding: 20px;
     text-align: center;
 }
@@ -459,9 +466,7 @@ p {
     }
 
     h1 {
-        font-size: 2.2rem;
-        text-align: center;
-        line-height: 2px;
+        font-size: 1.3rem;
     }
 
     label {
@@ -472,6 +477,5 @@ p {
     input {
         width: 12rem;
         height: 4.2rem;
-        margin-top: 1rem;
     }
 }
