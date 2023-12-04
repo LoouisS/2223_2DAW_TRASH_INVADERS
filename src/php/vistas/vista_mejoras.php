@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="David, Antonio y Guillermo" />
         <title>Mejoras</title>
-        <link rel="stylesheet" href="src/css/new_style.css">
+        <link rel="stylesheet" href="src/css/style_servidor.css">
         <link rel="icon" type="image/png" href="src/img/logo.jpg">
     </head>
     <body>

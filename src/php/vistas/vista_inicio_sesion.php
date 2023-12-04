@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="src/css/new_style.css">
+        <link rel="stylesheet" href="src/css/style_servidor.css">
         <meta name="author" content="David, Antonio y Guillermo" />
         <title>Inicio de Sesion</title>
         <link rel="icon" type="image/png" href="src/img/logo.jpg">

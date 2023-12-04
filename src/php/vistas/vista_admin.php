@@ -2,13 +2,13 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="David, Antonio y Guillermo" />
         <title>Opciones de Administrador</title>
-        <link rel="stylesheet" href="src/css/new_style.css">
+        <link rel="stylesheet" href="src/css/style_servidor.css">
     </head>
     <body>
-        <main class="register-page">
+        <main id="register-page">
             <div class="div-superior">
                 <label><h1>Administrador</h1></label>
             </div>
@@ -18,7 +18,7 @@
                     <button id="mejoras"><a href="index.php?controlador=Imagenes&action=mostrarImagen">Banco de Imagenes</a></button>
                 </div> 
             </div>
-            <button class="volvermenu"><a href="login.html">MENU</a></button>
+            <button id="volvermenu"><a href="login.html">MENU</a></button>
         </main>
     </body>
 </html>

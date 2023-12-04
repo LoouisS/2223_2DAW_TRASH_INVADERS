@@ -1,6 +1,6 @@
 <?php
 
-require_once '/src/php/config/config.php';
+require_once getcwd() . '/src/php/config/config.php';
 
 class ModeloImagenes {
     private $conexion;

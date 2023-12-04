@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Credenciales Incorrectas</title>
-        <link rel="stylesheet" href="src/css/new_style.css">
+        <link rel="stylesheet" href="src/css/style_servidor.css">
     </head>
     <body id="register-page">
         <main id="login-page">

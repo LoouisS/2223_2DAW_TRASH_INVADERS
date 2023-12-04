@@ -1,7 +1,7 @@
 <!-- Antonio Manuel Figueroa Pinilla -->
 <!-- Modelo de gestión para la base de datos  trashinvadersdb -->
 <?php
-    require_once '/config/config.php';
+    require_once getcwd() . '/config/config.php';
 
     class TrashInvaderDB {
 

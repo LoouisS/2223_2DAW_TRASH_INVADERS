@@ -2,10 +2,10 @@
 <html>
     <head>
         <title>Confirmación de Borrado</title>
-        <link rel="stylesheet" href="src/css/new_style.css">
+        <link rel="stylesheet" href="src/css/style_servidor.css">
     </head>
-    <body class="register-page">
-        <main class="login-page">
+    <body id="register-page">
+        <main id="login-page">
             <div class="div-superior">
                 <h1>Confirmación de Borrado</h1>
             </div>
