@@ -30,7 +30,7 @@ img {
   transform: translateX(-50%);
 }
 
-#garbage-image {
+.garbage-image {
   width: 25px;
   height: 25px;
 }

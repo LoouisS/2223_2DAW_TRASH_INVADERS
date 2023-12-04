@@ -2,7 +2,8 @@
 
 const personaje = document.getElementById('personaje')
 const beachSection = document.getElementById('beach-section')
-const garbageImage = document.getElementById('garbage-image')
+const garbageImage = document.getElementsByClassName('garbage-image')[0]
+console.log(garbageImage)
 
 const contenedorSuperiorIzquierda = document.getElementById('contenedor-superior-izquierda')
 const contenedorSuperiorDerecha = document.getElementById('contenedor-superior-derecha')
@@ -21,7 +22,6 @@ personaje.style.top = posicionVertical + 'px'
 // Set the initial position of garbageImage at the lowest part of the screen
 garbageImage.style.left = posicionHorizontal + 'px'
 garbageImage.style.top = window.innerHeight - garbageImage.offsetHeight + 'px'
-
 
 
 document.addEventListener('keydown', async (e) => {
@@ -74,7 +74,6 @@ function estaCercaDeBasura() {
     const distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.offsetLeft)
     const distanciaVertical = Math.abs(posicionVertical - garbageImage.offsetTop)
 
-    // Verificar si el personaje está encima de la basura
     const encimaDeBasuraHorizontal = distanciaHorizontal < personaje.offsetWidth / 2 + garbageImage.offsetWidth / 2
     const encimaDeBasuraVertical = distanciaVertical < personaje.offsetHeight / 2 + garbageImage.offsetHeight / 2
 
@@ -162,34 +161,41 @@ function detectarColision(contenedor) {
 function resetearBasura() {
     recogiendoBasura = false;
 
-    // Asegurarse de que la basura aparezca solo en la mitad inferior del navegador
-    const limiteHorizontal = window.innerWidth - garbageImage.offsetWidth;
-    const limiteVerticalInferior = window.innerHeight - garbageImage.offsetHeight;
+    // Asegurarse de que la basura aparezca solo entre el 15% a la izquierda y el 15% a la derecha
+    const margenHorizontal = window.innerWidth * 0.15;
+    const limiteHorizontalIzquierdo = margenHorizontal;
+    const limiteHorizontalDerecho = window.innerWidth - garbageImage.offsetWidth - margenHorizontal;
 
-    const nuevaPosicionHorizontal = Math.random() * limiteHorizontal;
-    // const nuevaPosicionVertical = Math.random() * (limiteVerticalInferior / 2) + (window.innerHeight / 2);
+    const nuevaPosicionHorizontal = Math.random() * (limiteHorizontalDerecho - limiteHorizontalIzquierdo) + limiteHorizontalIzquierdo;
+    
+    // Asegurarse de que la basura aparezca solo en la mitad inferior del navegador
+    const limiteVerticalInferior = window.innerHeight - garbageImage.offsetHeight;
     const nuevaPosicionVertical = limiteVerticalInferior;
 
     garbageImage.style.left = nuevaPosicionHorizontal + 'px';
     garbageImage.style.top = nuevaPosicionVertical + 'px';
 }
 
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+
 let moverBasuraInterval;
+let garbageImages = []; // Array to store all garbage image elements
 
 function moverBasura() {
     moverBasuraInterval = setInterval(() => {
-        if (!recogiendoBasura) {
-            const garbageImage = document.getElementById('garbage-image')
-            const currentPosition = parseInt(garbageImage.style.top)
-            const halfScreen = window.innerHeight / 2 + 30
-            if (currentPosition > halfScreen) {
-                garbageImage.style.top = (currentPosition - 5) + 'px'
-            } else {
-                clearInterval(moverBasuraInterval)
+        for (const garbageImage of garbageImages) {
+            if (!recogiendoBasura) {
+                const currentPosition = parseInt(garbageImage.style.top);
+                const halfScreen = window.innerHeight / 2 + 30;
+                if (currentPosition > halfScreen) {
+                    garbageImage.style.top = (currentPosition - 5) + 'px';
+                } else {
+                    clearInterval(moverBasuraInterval);
+                }
             }
         }
     }, 100);
@@ -197,4 +203,34 @@ function moverBasura() {
 
 moverBasura();
 
+setInterval(crearBasura, 5000);
+
+function crearBasura() {
+    const nuevaBasura = crearImagenBasura();
+    garbageImages.push(nuevaBasura); // Add the new garbage image to the array
+    moverBasura();
+}
+
+function crearImagenBasura() {
+    const imagenBasura = document.createElement('img');
+    imagenBasura.src = 'garbage.png';
+    imagenBasura.classList.add('garbage-image');
+
+    // Set the initial position of the new garbage image
+    const margenHorizontal = window.innerWidth * 0.15;
+    const limiteHorizontalIzquierdo = margenHorizontal;
+    const limiteHorizontalDerecho = window.innerWidth - imagenBasura.offsetWidth - margenHorizontal;
+    const nuevaPosicionHorizontal = Math.random() * (limiteHorizontalDerecho - limiteHorizontalIzquierdo) + limiteHorizontalIzquierdo;
+
+    const limiteVerticalInferior = window.innerHeight - imagenBasura.offsetHeight;
+    const nuevaPosicionVertical = limiteVerticalInferior;
+
+    imagenBasura.style.left = nuevaPosicionHorizontal + 'px';
+    imagenBasura.style.top = nuevaPosicionVertical + 'px';
+
+    const vistaPrincipalJuego = document.getElementById('vista-principal-juego');
+    vistaPrincipalJuego.appendChild(imagenBasura);
+
+    return imagenBasura;
+}
 
