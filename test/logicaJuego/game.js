@@ -116,7 +116,6 @@ function estaCercaDeBasura() {
         let distanciaHorizontal, distanciaVertical;
 
         if (recogiendoBasura) {
-
             distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.style.left.replace('px', ''));
             distanciaVertical = Math.abs(posicionVertical - garbageImage.style.top.replace('px', ''));
         } else {
