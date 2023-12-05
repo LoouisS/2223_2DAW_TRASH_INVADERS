@@ -41,7 +41,6 @@ document.addEventListener('keydown', async (e) => {
             }
             break
         case 'ArrowUp':
-        
             if (direccionActual !== 'ArrowUp') {
                 direccionActual = 'ArrowUp'
                 await moverArriba(velocidad)
@@ -108,15 +107,22 @@ async function moverConjunto(personaje, basura, velocidad) {
     }
 }
 
-
 function estaCercaDeBasura() {
     let basuraCercana = null;
     let distanciaMinima = Number.MAX_SAFE_INTEGER;
-
+    console.log(garbageImages);
     for (let i = 0; i < garbageImages.length; i++) {
         const garbageImage = garbageImages[i];
-        const distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.offsetLeft);
-        const distanciaVertical = Math.abs(posicionVertical - garbageImage.offsetTop);
+        let distanciaHorizontal, distanciaVertical;
+
+        if (recogiendoBasura) {
+
+            distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.style.left.replace('px', ''));
+            distanciaVertical = Math.abs(posicionVertical - garbageImage.style.top.replace('px', ''));
+        } else {
+            distanciaHorizontal = Math.abs(posicionHorizontal - garbageImage.offsetLeft);
+            distanciaVertical = Math.abs(posicionVertical - garbageImage.offsetTop);
+        }
 
         const encimaDeBasuraHorizontal = distanciaHorizontal < personaje.offsetWidth / 2 + garbageImage.offsetWidth / 2;
         const encimaDeBasuraVertical = distanciaVertical < personaje.offsetHeight / 2 + garbageImage.offsetHeight / 2;
@@ -129,11 +135,9 @@ function estaCercaDeBasura() {
             }
         }
     }
-
+    console.log(basuraCercana)
     return basuraCercana; // Devuelve la basura más cercana
 }
-
-
 
 async function moverIzquierda(velocidad) {
     while (direccionActual === 'ArrowLeft') {
@@ -190,18 +194,35 @@ async function moverAbajo(velocidad) {
 
 function verificarColisionContenedor() {
     if (recogiendoBasura) {
-        if (
-            detectarColision(contenedorSuperiorIzquierda) ||
-            detectarColision(contenedorSuperiorDerecha) ||
-            detectarColision(contenedorInferiorIzquierda) ||
-            detectarColision(contenedorInferiorDerecha)
-        ) {
-            console.log("¡Has conseguido 10 puntos!")
-            resetearBasura()
-            moverBasura()
+        const contenedores = [contenedorSuperiorIzquierda, contenedorSuperiorDerecha, contenedorInferiorIzquierda, contenedorInferiorDerecha];
+
+        for (const garbageImage of garbageImages) {
+            for (const contenedor of contenedores) {
+                if (detectarColision(contenedor, garbageImage)) {
+                    console.log("¡Has conseguido 10 puntos!");
+                    resetearBasura(garbageImage);
+                    eliminarBasura(garbageImage);
+                    moverBasura();
+                    puntos += 10;
+                    console.log(`Puntos totales: ${puntos}`);
+                }
+            }
         }
     }
 }
+
+function eliminarBasura(garbageImage) {
+    // Remueve la basura del DOM
+    garbageImage.remove();
+
+    // Elimina la basura del array de imágenes de basura
+    const index = garbageImages.indexOf(garbageImage);
+    if (index !== -1) {
+        garbageImages.splice(index, 1);
+    }
+}
+
+
 
 function detectarColision(contenedor) {
     const distanciaHorizontal = Math.abs(posicionHorizontal - contenedor.offsetLeft)
@@ -242,12 +263,18 @@ let garbageImages = []; // Array to store all garbage image elements
 
 function moverBasura() {
     moverBasuraInterval = setInterval(() => {
-        for (const garbageImage of garbageImages) {
+        for (let i = 0; i < garbageImages.length; i++) {
+            const garbageImage = garbageImages[i];
+            console.log(garbageImage)
             if (!recogiendoBasura) {
                 const currentPosition = parseInt(garbageImage.style.top);
                 const halfScreen = window.innerHeight / 2 + 30;
                 if (currentPosition > halfScreen) {
-                    garbageImage.style.top = (currentPosition - 5) + 'px';
+                    const newPosition = (currentPosition - 5) + 'px';
+                    garbageImage.style.top = newPosition;
+
+                    // Update the garbageImage's position in the garbageImages array
+                    garbageImages[i].style.top = newPosition;
                 } else {
                     clearInterval(moverBasuraInterval);
                 }
@@ -255,6 +282,9 @@ function moverBasura() {
         }
     }, 100);
 }
+
+
+
 
 moverBasura();
 
@@ -285,6 +315,7 @@ function crearImagenBasura() {
 
     const vistaPrincipalJuego = document.getElementById('vista-principal-juego');
     vistaPrincipalJuego.appendChild(imagenBasura);
+    
 
     return imagenBasura;
 }
