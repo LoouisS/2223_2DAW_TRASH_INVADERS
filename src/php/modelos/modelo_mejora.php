@@ -45,11 +45,11 @@ class ModeloMejora {
         $result->bind_param("i", $idMejora);
         $result->execute();
         $result->bind_result($idMejora, $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion);
-
+    
         // Verificamos si se obtuvo algún resultado
         if ($result->fetch()) {
             $result->close();
-
+    
             $resultados = [
                 'idMejora' => $idMejora,
                 'descripcion' => $descripcion,
@@ -57,13 +57,14 @@ class ModeloMejora {
                 'duracion_mejora' => $duracion_mejora,
                 'porcentaje_aparicion' => $porcentaje_aparicion
             ];
-
+    
             return $resultados;
         } else {
             // Manejar el caso en el que no se encontraron resultados
             return null;
         }
     }
+    
 
     public function agregarMejora($descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion) {
         // Insertar nueva mejora
@@ -80,6 +81,8 @@ class ModeloMejora {
 
         return $stmt->execute();
     }
+
+    
 
     public function eliminarMejora($idMejora) {
         // Eliminar mejora por ID

@@ -19,14 +19,33 @@ class ControladorMejora {
             header('Location: index.php?controlador=ControladorInicioSesion&action=mostrarFormularioInicioSesion');
             exit();
         }
-    
+
         // Obtener el ID del usuario desde la sesión
         $idUsuario = $_SESSION['idUsuario'];
-    
+
         // Obtener las mejoras específicas de ese usuario
         $mejoras = $this->modelo->obtenerMejoras($idUsuario);
-    
+
         require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
+    }
+
+    // Nuevo método para manejar la selección de imagen
+    public function seleccionarImagen() {
+        // Verificar si se ha enviado un formulario para seleccionar una imagen
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['seleccionImagen'])) {
+            $selectedImageId = $_POST['seleccionImagen'];
+            // Obtener la información de la imagen seleccionada (esto puede depender de cómo esté implementado tu modelo)
+            $selectedImage = $this->modelo->obtenerMejorasPorId($selectedImageId);
+            if ($selectedImage) {
+                // Puedes hacer algo con la imagen seleccionada aquí si es necesario
+                // Por ejemplo, podrías almacenar la información de la imagen en la sesión para mostrarla después de redireccionar
+                $_SESSION['selectedImage'] = $selectedImage;
+            }
+        }
+
+        // Redireccionar a la página de mostrar mejoras
+        header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
+        exit();
     }
       
     
@@ -44,28 +63,6 @@ class ControladorMejora {
         header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
         exit();
     }
-    
-
-
-/*
-    public function agregarMejora($datosMejora) {
-        $descripcion = $datosMejora['descripcion'] ?? '';
-        $multiplicador = $datosMejora['multiplicador'] ?? 0;
-        $duracionMejora = $datosMejora['duracionMejora'] ?? 0;
-        $activado = $datosMejora['activado'] ?? 0;
-    
-        $exito = $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $activado);
-    
-        if ($exito) {
-            // Redireccionar después de realizar la acción
-            header('Location: index.php?controlador=mejora&action=ver');
-            exit();
-        } else {
-            // Manejar el caso de error (puedes redirigir o mostrar un mensaje de error)
-            echo "Error al agregar la mejora.";
-        }
-    }
-*/  
 
     public function actualizarMejora($datosMejora) {
         $idMejora = $datosMejora['idMejora'] ?? 0;

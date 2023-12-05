@@ -16,6 +16,7 @@ class Imagenes {
         $imagenes = $this->modelo->mostrarImagen();
         require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
     }
+   
 
     public function seleccionarImagen() {
         if (!isset($_SESSION['idUsuario'])) {
