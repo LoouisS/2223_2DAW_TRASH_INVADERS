@@ -44,7 +44,7 @@
             - Telefono 9 digitos en total
 
 #### Eventos
-- [x] Se han susado 5 eventos diferente
+- [x] Se han usado 5 eventos diferente
     - He añadido onclick a botones del menu para la navegacion
     - He añadido blur para la validacion de la regex de los multiplicadores
     - He añadido change para cuando se modifica la opcion del select se modifique la previsualizacion

@@ -6,24 +6,28 @@
 		<meta name="author" content="David, Antonio y Guillermo">
 		<link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
 		<link rel="stylesheet" href="../src/css/reset.css">
-		<link rel="stylesheet" href="../src/css/new_style.css">
+		<link rel="stylesheet" href="../src/css/style_servidor.css">
 		<link rel="stylesheet" href="../src/css/style_guille_client.css">
 		<title>Trash Invaders</title>
 	</head>
 	<body>	  
-		<div id="vista-principal">
+		<div id="vista-principal"> <!--Terminada ✅-->
 			<main id="landing-page">
 				<div class="div-superior">
-					<div id="contenedor-imagen">
-						<img src="../src/img/logo.jpg" alt="logo-imagen">
+					<div id="contenido">
+						<div id="contenedor-imagen">
+							<img src="../src/img/logo.jpg" alt="logo-imagen">
+						</div>
+						<div id="contenedor-boton-registro">
+							<button id="boton-registro" class="slide">Registro</button>
+						</div>
+						<div id="contenedor-boton-login">
+							<button id="boton-login" class="slide">Iniciar sesion</button>
+						</div>
 					</div>
-					<div id="contenedor-boton-registro">
-						<a id="boton-registro">Registro</a>
-					</div>
-					</div>
-					<div class="div-inferior">
-						<a id="boton-login">Iniciar sesion</a>
-					</div>
+				</div>
+				<div class="div-inferior">
+				</div>
 			</main>
         </div>
 		<div id="vista-registro">
@@ -106,10 +110,14 @@
 			</main>
 		</div>
 		<div id="vista-principal-juego">
-			<main id="game-page">
-				<div class="div-superior" id="sea-section"></div>
-				<div class="div-inferior" id="beach-section"></div>
-			</main>
+			<p id="contador">0</p>
+			<div id="contenedor-personaje">
+				<img src="img/character.gif" alt="main-character" id="personaje">
+			</div>
+			<img src="img/contenedor-amarillo.png" alt="Contenedor Amarillo" class="contenedor basura-plastico" id="contenedor-superior-izquierda">
+			<img src="img/contenedor-azul.png" alt="Contenedor Azul" class="contenedor basura-papel" id="contenedor-superior-derecha">
+			<img src="img/contenedor-marron.png" alt="Contenedor Marron" class="contenedor basura-organica" id="contenedor-inferior-izquierda">
+			<img src="img/contenedor-verde.png" alt="Contenedor Verde" class="contenedor basura-vidrio" id="contenedor-inferior-derecha">
 		</div>
 		<div id="vista-menu-mejoras">
 			<main id="register-page">
@@ -298,8 +306,6 @@
 				</div>
 			</main>	
 		</div>
-
-
 		<script type="module" src="./js/controller.js"></script>
 	</body>
 </html>

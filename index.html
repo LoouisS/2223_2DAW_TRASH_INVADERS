@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+		<meta name="author" content="David, Antonio y Guillermo">
+		<link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
+		<link rel="stylesheet" href="../src/css/reset.css">
+		<link rel="stylesheet" href="./src/css/style.css">
+		<title>Trash Invaders</title>
+	</head>
+    <body>
+        <div class="vistas" id="vista-principal" style="display: block;">
+            <div id="contenido-vista-principal">
+                <div id="contenedor-imagen">
+                    <img src="./src/img/logo.jpg" alt="logo-imagen">
+                </div>
+                <div id="contenedor-boton-registro">
+                    <button id="boton-registro" class="slide">Registro</button>
+                </div>
+                <div id="contenedor-boton-login">
+                    <button id="boton-login" class="slide">Iniciar sesion</button>
+                </div>
+            </div>
+        </div>
+        <div id="vista-registro">
+			<main id="register-page">
+				<div class="div-superior">
+					<a href="index.html"><h1>REGISTRAR USUARIO</h1></a>
+				</div>
+				<div class="div-inferior">
+					<form id="registro-form">
+						<div>
+							<label for="nombre">Nombre</label>
+							<input type="text" id="nombre" name="nombre">
+						</div>
+						<br>
+						<div>
+							<label for="correo">Correo Electrónico</label>
+							<input type="email" id="correo" name="correo">
+						</div>
+						<br>
+						<div>
+							<label for="contraseña">Contraseña</label>
+							<input type="password" id="contraseña" name="contraseña">
+							<br>
+							<small id="contraseña-info">La contraseña debe tener al menos 8 caracteres, incluir letras mayúsculas, minúsculas, números y caracteres especiales.</small>
+						</div>
+						<br>
+						<div>
+							<label for="telefono">Teléfono</label>
+							<input type="tel" id="telefono" name="telefono">
+						</div>
+						<br>
+						<div>
+							<label for="fechaNacimiento">Fecha de Nacimiento</label>
+							<input type="date" id="fechaNacimiento" name="fechaNacimiento">
+						</div>
+						<br>
+						<input type="submit" value="REGISTRARSE">
+					</form>
+				</div>				
+			</main>
+		</div>
+    </body>
+</html>

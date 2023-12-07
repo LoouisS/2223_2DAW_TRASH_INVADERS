@@ -1,213 +1,86 @@
-/* Implementado */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Reglas generales */
+
 body {
     margin: 0;
     padding: 0;
+    font-size: 16px;
+    font-family: 'Bubblegum Sans', sans-serif;
 }
 
-/* Pagina del login */
+#contenedor-imagen {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px; /* Espaciado opcional entre la imagen y los botones */
+}
 
-/* Implementado */
-.login-page {
+#contenedor-imagen img {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-/* Implementado */
-#div1, #div2 {
-    width: 100%;
-    float: left;
-    height: 50%;
-}
-/* Implementado */
-#div1 {
-    background-color: #2b91eb;
-    position: relative; 
-}
-/* Implementado */
-.contenedor-imagen {
-    width: 15%;
-    height: auto;
-    margin: 30px auto;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 100px;
-}
-
-.login-page input[type="text"] {
-    display: block;
-    width: 60%;
-    height: 100px;
-    position: absolute; 
-    bottom: 0; 
-    left: 0; 
-    right: 0; 
-    margin: auto; 
-    font-size: 3.1rem;
-    text-align: center;
-}
-
-input[type="text"]::placeholder {
-    text-align: center;
-}
-
-#div2 {
-    background-color: #ebbe85;
+#contenedor-boton-registro,
+#contenedor-boton-login {
+    margin: 10px 0; 
 }
 
 button {
-    box-sizing: content-box;
-    display: block;
-    margin: 35px auto;
-    font-size: 3.1rem;
-    background-color: white;
+    color: #000000;
+    border: 2px solid rgb(3, 3, 3);
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 1px;
     cursor: pointer;
-    border: none;
+    box-shadow: inset 0 0 0 0 #3796bc;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
 }
 
-#boton-inicio-sesion {
-    width: 35%;
-    height: 20%;
-}
-
-#boton-salir {
-    width: 25%;
-    height: 20%;
-}
-
-/* Pagina del admin */
-
-#admin-page {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-#admin-page > div {
-    width: 100%;
-    float: left;
-}
-
-#admin-page > #div1 {
-    height: 30%;
-}
-
-#admin-page > #div2 {
-    height: 70%;
-}
-
-#admin-page > #div1 > h1 {
-    width: 50%;
-    text-align: center;
-    font-size: 4rem;
-    margin: 50px auto;
-    background-color: white;
-}
-
-form {
-    width: 100%;
-    height: auto;
-    text-align: center;
-}
-
-.form-admin-parameters {
-    width: 100%;
-    margin-top: 20px;
-    margin-right: 20px;
-}
-
-.form-admin-parameters > * {
-    font-size: 1.7rem;
-}
-
-.form-admin-parameters label, input[type='text'] {
-    background-color: white;
-    height: 10px;
-    text-align: center;
-    display: inline-block;  
-    height: auto;
-}
-
-.form-admin-parameters input[type='text'] {
-    width: 5%;
-    border: none;
-    padding: 0;
-}
-
-label {
-    width: 30%;
-}
-
-input[type='submit'] {
-    background-color: #ffffff; 
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-}
-
-input[type='submit']:hover {
-    background-color: #000000; 
+button:hover {
+    box-shadow: inset 400px 0 0 0 #3796bc;
     color: white;
-}
+  }
 
-a {
-     text-decoration: none;
-}
-
-/* Pagina del juego principal */
-
-#game-page {
+.vistas {
+    position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
-#game-page > #div1 {
-    height: 40%;
-}
-
-#game-page > #div2 {
-    height: 60%;
-}
-
-
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    gap: 10px;
-}
-
-.item {
-    background-color: #ccc;
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-}
-
-#imagenVista3{
-    width : 150px;
-    height : 110px;
-
-}
-
-#mensaje-error {
+.vistas::before {
+    content: "";
     position: absolute;
-    background-color: #bdcce0; /* Color de fondo */
-    border: 2px solid #000000; /* Borde del mensaje */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 10px; /* Espaciado interno */
-    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/ezgif.com-gif-maker.gif');
+    background-size: cover;
+    background-position: center;
+    filter: blur(1.8px); /* Ajusta el valor de desenfoque según sea necesario */
+    z-index: -1;
 }
 
+/* Reglas especificas */
 
-
-
+#contenido-vista-principal {
+    background: rgba(195, 167, 131, 0.44);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.7px);
+    -webkit-backdrop-filter: blur(7.7px);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5% auto;
+}

@@ -13,8 +13,6 @@ body {
     float: left;
 }
 
-
-
 /* Estilos para la sección superior */
 .div-superior {
     background-color: #2b91eb;
@@ -379,5 +377,12 @@ p {
     width: 50%;
     color: white;
     background-color: #4f6c9d;
+}
+
+/* Animaciones */
+
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
 }
 

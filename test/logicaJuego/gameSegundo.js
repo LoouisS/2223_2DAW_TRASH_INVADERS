@@ -99,7 +99,6 @@ function generarBasura() {
     moverBasura(basura);
 }
 
-// Agrega esta línea para generar basura cada cinco segundos
 setInterval(generarBasura, 5000);
 
 function moverBasura(basura) {
@@ -114,6 +113,3 @@ function moverBasura(basura) {
         requestAnimationFrame(() => moverBasura(basura));
     }
 }
-
-
-setInterval(verificarColision, 100);
