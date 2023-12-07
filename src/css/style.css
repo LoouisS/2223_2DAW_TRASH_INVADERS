@@ -7,12 +7,14 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    font-family: 'Bubblegum Sans', sans-serif;
+    /* font-family: 'Bubblegum Sans', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+
 }
 
 #contenedor-imagen {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 20px; /* Espaciado opcional entre la imagen y los botones */
 }
 
@@ -31,22 +33,23 @@ body {
 button {
     color: #000000;
     border: 2px solid rgb(3, 3, 3);
-    border-radius: 0px;
+    border-radius: 10px;
     padding: 18px 36px;
     display: inline-block;
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: 1px;
     cursor: pointer;
-    box-shadow: inset 0 0 0 0 #3796bc;
+    box-shadow: inset 0 0 0 0 #353c60;
     -webkit-transition: ease-out 0.4s;
     -moz-transition: ease-out 0.4s;
     transition: ease-out 0.4s;
+    width: 200px;
 }
 
 button:hover {
-    box-shadow: inset 400px 0 0 0 #3796bc;
+    box-shadow: inset 400px 0 0 0 #353c60;
     color: white;
-  }
+}
 
 .vistas {
     position: relative;
@@ -69,10 +72,8 @@ button:hover {
     z-index: -1;
 }
 
-/* Reglas especificas */
-
-#contenido-vista-principal {
-    background: rgba(195, 167, 131, 0.44);
+.contenido-vistas {
+    background: rgba(63, 90, 120, 0.44);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7.7px);
@@ -84,3 +85,370 @@ button:hover {
     align-items: center;
     margin: 5% auto;
 }
+
+/* Reglas especificas */
+
+#boton-registro #boton-login {
+    width: 150px;
+}
+
+/* Estilos formulario login */
+
+body > #vista-login {
+    font-family: "Roboto", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+.box {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 5% auto;
+    
+}
+
+.border-line {
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+
+.box form {
+    position: absolute;
+    inset: 4px;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    
+    background: rgba(63, 90, 120, 0.44);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.7px);
+    -webkit-backdrop-filter: blur(7.7px);
+}
+
+.box form h2 {
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+.box form .input-box {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.box form .input-box input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    color: #AEDEFC;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+.box form .input-box span {
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    pointer-events: none;
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    transition: 0.5s;
+}
+
+.box form .input-box input:valid~span,
+.box form .input-box input:focus~span {
+    color: white;
+    font-size: 0.75rem;
+    transform: translateY(-34px);
+}
+
+.box form .input-box i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #192655;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.box form .input-box input:valid ~ i,
+.box form .input-box input:focus ~ i {
+    height: 44px;
+}
+
+.box form input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    color: #AEDEFC;
+    background: #192655;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    width: 120px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.box form input[type="submit"]:hover,
+.box form input[type="submit"]:active {
+    opacity: 0.8;
+}
+
+#go-back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    background: #192655;
+    color: #AEDEFC;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: 0.5s;
+    padding: 0;
+}
+
+/* Seccion menu usuario */
+
+
+#vista-menu-usuario > .contenido-vistas {
+    height: 80%;
+    margin: 3% auto;
+    width: 20%;
+}
+
+/* Vista del juego */
+
+#vista-principal-juego::before {
+    filter: none;
+}
+
+#personaje {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  img {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .contenedor {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+  }
+  
+  #contenedor-superior-izquierda {
+    top: 5%;
+    left: 10%;
+  }
+  
+  #contenedor-superior-derecha {
+    top: 5%;
+    left: 90%;
+  }
+  
+  #contenedor-inferior-izquierda {
+    bottom: 50%;
+    left: 10%;
+  }
+  
+  #contenedor-inferior-derecha {
+    bottom: 50%;
+    left: 90%;
+  }
+  
+  #contenedor-personaje {
+    width: 125px;
+    height: 125px;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+/* Clasificaciones */
+
+#contenido-ranking {
+    width: 40rem;
+    height: 43rem;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 5px 15px 8px #e4e7fb;
+    box-shadow: 0px 5px 15px 8px #e4e7fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5rem;
+    margin: 2% auto;
+}
+  
+#header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 2rem;
+}
+  
+h1 {
+    font-family: "Rubik", sans-serif;
+    font-size: 1.7rem;
+    color: #141a39;
+    text-transform: uppercase;
+}
+  
+  #leaderboard {
+    width: 100%;
+    position: relative;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    color: #141a39;
+    cursor: default;
+  }
+  
+  tr {
+    transition: all 0.2s ease-in-out;
+    border-radius: 0.2rem;
+  }
+  
+  tr:not(:first-child):hover {
+    background-color: #fff;
+    transform: scale(1.1);
+    -webkit-box-shadow: 0px 5px 15px 8px #e4e7fb;
+    box-shadow: 0px 5px 15px 8px #e4e7fb;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:nth-child(1) {
+    color: #fff;
+  }
+  
+  td {
+    height: 5rem;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    position: relative;
+  }
+  
+  .number {
+    width: 1rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .name {
+    text-align: left;
+    font-size: 1.2rem;
+  }
+  
+  .points {
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .points:first-child {
+    width: 10rem;
+  }
+  
+.gold-medal {
+height: 3rem;
+margin-left: 1.5rem;
+}
+  
+  .primero {
+    width: 42rem;
+    height: 5.5rem;
+    top: -0.5rem;
+    background-color: #5c5be5;
+    position: absolute;
+    left: -1rem;
+    -webkit-box-shadow: 0px 15px 11px -6px #7a7a7d;
+    box-shadow: 0px 15px 11px -6px #7a7a7d;
+  }
+  
+  .primero::before {
+    content: "";
+    height: 1.5rem;
+    width: 1.5rem;
+    bottom: -0.8rem;
+    left: 0.35rem;
+    transform: rotate(45deg);
+    background-color: #5c5be5;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .primero::after {
+    content: "";
+    height: 1.5rem;
+    width: 1.5rem;
+    bottom: -0.8rem;
+    right: 0.35rem;
+    transform: rotate(45deg);
+    background-color: #5c5be5;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  #buttons {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }

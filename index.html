@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, user-scalable=no" />
 		<meta name="author" content="David, Antonio y Guillermo">
 		<link href='https://fonts.googleapis.com/css?family=Bubblegum Sans' rel='stylesheet'>
-		<link rel="stylesheet" href="../src/css/reset.css">
+		<link rel="stylesheet" href="./src/css/reset.css">
 		<link rel="stylesheet" href="./src/css/style.css">
 		<title>Trash Invaders</title>
 	</head>
     <body>
-        <div class="vistas" id="vista-principal" style="display: block;">
-            <div id="contenido-vista-principal">
+        <div class="vistas" id="vista-principal" style="display: none;">
+            <div class="contenido-vistas" id="contenido-vista-principal">
                 <div id="contenedor-imagen">
                     <img src="./src/img/logo.jpg" alt="logo-imagen">
                 </div>
@@ -23,44 +23,111 @@
                 </div>
             </div>
         </div>
-        <div id="vista-registro">
-			<main id="register-page">
-				<div class="div-superior">
-					<a href="index.html"><h1>REGISTRAR USUARIO</h1></a>
+        <div class="vistas" id="vista-login" style="display: none;">
+			<div class="box">
+				<span class="border-line"></span>
+				<form>
+					<h2>Iniciar sesion</h2>
+					<div class="input-box">
+						<input type="text" required="required">
+						<span>Usuario</span>
+						<i></i>
+					</div>
+					<div class="input-box">
+						<input type="password" required="required">
+						<span>Password</span>
+						<i></i>
+					</div>
+					<input type="submit" value="Login">
+					<button id="go-back-button">X
+					</button>
+				</form>
+			</div>		
+		</div>
+		<div class="vistas" id="vista-registro" style="display: none;">
+			<div class="box">
+				<span class="border-line"></span>
+				<form>
+					<h2>Registrarse</h2>
+					<div class="input-box">
+						<input type="text" required="required">
+						<span>Usuario</span>
+						<i></i>
+					</div>
+					<div class="input-box">
+						<input type="password" required="required">
+						<span>Password</span>
+						<i></i>
+					</div>
+					<input type="submit" value="Registrar">
+					<button id="go-back-button">X
+					</button>
+				</form>
+			</div>		
+		</div>
+		<div class="vistas" id="vista-menu-usuario" style="display: none;">
+			<div class="contenido-vistas">
+				<div id="contenedor-imagen">
+					<img src="./src/img/logo.jpg" alt="logo-imagen"></a>
+				</div>      
+				<button id="boton-jugar">Jugar</button>
+				<button id="mejoras-usuario">Mejoras</button> 
+				<button id="volverlogin">Volver</button>  
+				<button id="vistaRankings">Rankings</button>
+				<button id="cerrarSesion">Log out</button>
+			</div>
+		</div>
+		<div class="vistas" id="vista-principal-juego" style="display: none;">
+			<p id="contador">0</p>
+			<div id="contenedor-personaje">
+				<img src="./src/img/character.gif" alt="main-character" id="personaje">
+			</div>
+			<img src="./src/img/contenedor-verde.png" alt="Contenedor Amarillo" class="contenedor basura-plastico" id="contenedor-superior-izquierda">
+			<img src="./src/img/contenedor-azul.png" alt="Contenedor Azul" class="contenedor basura-papel" id="contenedor-superior-derecha">
+			<img src="./src/img/contenedor-marron.png" alt="Contenedor Marron" class="contenedor basura-organica" id="contenedor-inferior-izquierda">
+			<img src="./src/img/contenedor-verde.png" alt="Contenedor Verde" class="contenedor basura-vidrio" id="contenedor-inferior-derecha">
+		</div>
+		<div class="vistas" id="vista-clasificaciones">
+			<main id="contenido-ranking">
+				<div id="header">
+				  <h1>Ranking</h1>
 				</div>
-				<div class="div-inferior">
-					<form id="registro-form">
-						<div>
-							<label for="nombre">Nombre</label>
-							<input type="text" id="nombre" name="nombre">
-						</div>
-						<br>
-						<div>
-							<label for="correo">Correo Electrónico</label>
-							<input type="email" id="correo" name="correo">
-						</div>
-						<br>
-						<div>
-							<label for="contraseña">Contraseña</label>
-							<input type="password" id="contraseña" name="contraseña">
-							<br>
-							<small id="contraseña-info">La contraseña debe tener al menos 8 caracteres, incluir letras mayúsculas, minúsculas, números y caracteres especiales.</small>
-						</div>
-						<br>
-						<div>
-							<label for="telefono">Teléfono</label>
-							<input type="tel" id="telefono" name="telefono">
-						</div>
-						<br>
-						<div>
-							<label for="fechaNacimiento">Fecha de Nacimiento</label>
-							<input type="date" id="fechaNacimiento" name="fechaNacimiento">
-						</div>
-						<br>
-						<input type="submit" value="REGISTRARSE">
-					</form>
-				</div>				
-			</main>
+				<div id="leaderboard">
+				  <div class="primero"></div>
+				  <table>
+					<tr>
+					  <td class="number">1</td>
+					  <td class="name">Lee Taeyong</td>
+					  <td class="points">
+						258.244 <img class="gold-medal" src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true" alt="gold medal"/>
+					  </td>
+					</tr>
+					<tr>
+					  <td class="number">2</td>
+					  <td class="name">Mark Lee</td>
+					  <td class="points">258.242</td>
+					</tr>
+					<tr>
+					  <td class="number">3</td>
+					  <td class="name">Xiao Dejun</td>
+					  <td class="points">258.223</td>
+					</tr>
+					<tr>
+					  <td class="number">4</td>
+					  <td class="name">Qian Kun</td>
+					  <td class="points">258.212</td>
+					</tr>
+					<tr>
+					  <td class="number">5</td>
+					  <td class="name">Johnny Suh</td>
+					  <td class="points">258.208</td>
+					</tr>
+				  </table>
+				  <div id="buttons">
+					<button class="exit">Salir</button>
+				  </div>
+				</div>
+			  </main>
 		</div>
     </body>
 </html>
