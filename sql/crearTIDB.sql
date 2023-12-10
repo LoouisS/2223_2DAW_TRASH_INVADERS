@@ -37,14 +37,6 @@ CREATE TABLE IF NOT EXISTS mejora (
     porcentaje_aparicion TINYINT UNSIGNED NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-
--- Inserta tres mejoras en la tabla mejoras
-
-INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Multiplicador puntos', 2, 10);
-INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Te mueves mas rapido', 3, 10);
-INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('La basura viene mas despacio', 4, 10);
-
-
 -- Creacion de la tabla administrador
 CREATE TABLE IF NOT EXISTS administrador(
     idAdmin char(3) NOT NULL,
@@ -65,6 +57,12 @@ CREATE TABLE IF NOT EXISTS usuario_imagen_mejora(
     idMejora tinyint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+CREATE TABLE rankins (
+    idRanking int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    idUsuario VARCHAR(255) NOT NULL,
+    puntuacion int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
 -- CONSTRAINTS A INCLUIR
 
 ALTER TABLE partida ADD CONSTRAINT FK_partida_usuario FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario);
@@ -80,13 +78,6 @@ ALTER TABLE imagen ADD CONSTRAINT unique_hash UNIQUE (hash);
 
 COMMIT;
 
-
-CREATE TABLE rankins (
-    idRanking int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    idUsuario VARCHAR(255) NOT NULL,
-    puntuacion int UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
 INSERT INTO rankins (idUsuario, puntuacion) VALUES ('AAA', 100);
 INSERT INTO rankins (idUsuario, puntuacion) VALUES ('BBB', 200);
 INSERT INTO rankins (idUsuario, puntuacion) VALUES ('CCC', 300);
@@ -98,3 +89,8 @@ INSERT INTO rankins (idUsuario, puntuacion) VALUES ('HHH', 800);
 INSERT INTO rankins (idUsuario, puntuacion) VALUES ('III', 900);
 INSERT INTO rankins (idUsuario, puntuacion) VALUES ('JJJ', 1000);
 
+-- Inserta tres mejoras en la tabla mejoras
+
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Multiplicador puntos', 2, 10);
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Te mueves mas rapido', 3, 10);
+INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('La basura viene mas despacio', 4, 10);
