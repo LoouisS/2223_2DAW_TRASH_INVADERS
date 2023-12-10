@@ -25,8 +25,6 @@ export class VistaPrincipal extends Vista {
          */
     const botonRegistro = contenedor.querySelector('#boton-registro')
 
-    const botonJugar = contenedor.querySelector('#boton-jugar')
-
     botonLogin.onclick = () => {
       this.controlador.irAVista('vistaLogin')
     }

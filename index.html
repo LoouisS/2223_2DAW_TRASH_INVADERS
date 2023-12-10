@@ -10,7 +10,7 @@
 		<title>Trash Invaders</title>
 	</head>
     <body>
-        <div class="vistas" id="vista-principal" style="display: none;">
+        <div class="vistas" id="vista-principal">a
             <div class="contenido-vistas" id="contenido-vista-principal">
                 <div id="contenedor-imagen">
                     <img src="./src/img/logo.jpg" alt="logo-imagen">
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="vistas" id="vista-login" style="display: none;">
+        <div class="vistas" id="vista-login">
 			<div class="box">
 				<span class="border-line"></span>
 				<form>
@@ -38,19 +38,19 @@
 						<span>Password</span>
 						<i></i>
 					</div>
-					<input type="submit" value="Login">
+					<input type="submit" value="Login" id="login-button">
 					<button id="go-back-button">X
 					</button>
 				</form>
 			</div>		
 		</div>
-		<div class="vistas" id="vista-registro" style="display: none;">
+		<div class="vistas" id="vista-registro">
 			<div class="box">
 				<span class="border-line"></span>
 				<form>
 					<h2>Registrarse</h2>
 					<div class="input-box">
-						<input type="text" required="required">
+						<input type="text" required="required" id="register-name-user">
 						<span>Usuario</span>
 						<i></i>
 					</div>
@@ -59,25 +59,25 @@
 						<span>Password</span>
 						<i></i>
 					</div>
-					<input type="submit" value="Registrar">
+					<input type="submit" value="Registrar" id="register-button">
 					<button id="go-back-button">X
 					</button>
 				</form>
 			</div>		
 		</div>
-		<div class="vistas" id="vista-menu-usuario" style="display: none;">
+		<div class="vistas" id="vista-menu-usuario" >
 			<div class="contenido-vistas">
 				<div id="contenedor-imagen">
 					<img src="./src/img/logo.jpg" alt="logo-imagen"></a>
 				</div>      
 				<button id="boton-jugar">Jugar</button>
 				<button id="mejoras-usuario">Mejoras</button> 
-				<button id="volverlogin">Volver</button>  
-				<button id="vistaRankings">Rankings</button>
-				<button id="cerrarSesion">Log out</button>
+				<button id="vista-rankings">Rankings</button>
+				<button id="logout-button">Log out</button>
 			</div>
 		</div>
-		<div class="vistas" id="vista-principal-juego" style="display: none;">
+		<div class="vistas" id="vista-principal-juego">
+			<button id="cerrar-juego">X</button>
 			<p id="contador">0</p>
 			<div id="contenedor-personaje">
 				<img src="./src/img/character.gif" alt="main-character" id="personaje">
@@ -87,7 +87,7 @@
 			<img src="./src/img/contenedor-marron.png" alt="Contenedor Marron" class="contenedor basura-organica" id="contenedor-inferior-izquierda">
 			<img src="./src/img/contenedor-verde.png" alt="Contenedor Verde" class="contenedor basura-vidrio" id="contenedor-inferior-derecha">
 		</div>
-		<div class="vistas" id="vista-clasificaciones" style="display: none;">
+		<div class="vistas" id="vista-clasificaciones">
 			<main id="contenido-ranking">
 				<div id="header">
 				  <h1>Ranking</h1>
@@ -97,34 +97,34 @@
 				  <table>
 					<tr>
 					  <td class="number">1</td>
-					  <td class="name">Lee Taeyong</td>
+					  <td class="name">AAA</td>
 					  <td class="points">
-						258.244 <img class="gold-medal" src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true" alt="gold medal"/>
+						333 <img class="gold-medal" src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/4-leaderboard/assets/gold-medal.png?raw=true" alt="gold medal"/>
 					  </td>
 					</tr>
 					<tr>
 					  <td class="number">2</td>
-					  <td class="name">Mark Lee</td>
-					  <td class="points">258.242</td>
+					  <td class="name">bbb</td>
+					  <td class="points">222</td>
 					</tr>
 					<tr>
 					  <td class="number">3</td>
-					  <td class="name">Xiao Dejun</td>
-					  <td class="points">258.223</td>
+					  <td class="name">ccc</td>
+					  <td class="points">111</td>
 					</tr>
 					<tr>
 					  <td class="number">4</td>
-					  <td class="name">Qian Kun</td>
-					  <td class="points">258.212</td>
+					  <td class="name">ddd</td>
+					  <td class="points">111</td>
 					</tr>
 					<tr>
 					  <td class="number">5</td>
-					  <td class="name">Johnny Suh</td>
-					  <td class="points">258.208</td>
+					  <td class="name">eee</td>
+					  <td class="points">111</td>
 					</tr>
 				  </table>
 				  <div id="buttons">
-					<button class="exit">Salir</button>
+					<button class="exit" id="button-volver">Volver</button>
 				  </div>
 				</div>
 			</main>
@@ -137,5 +137,6 @@
 				<button id="btn-volver">Volver</button>
 			</div>
 		</div>
+		<script type="module" src="./src/js/controller.js"></script>
     </body>
 </html>
