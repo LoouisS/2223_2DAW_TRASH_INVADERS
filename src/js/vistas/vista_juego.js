@@ -94,7 +94,7 @@ export class VistaJuego extends Vista {
         this.personaje.style.top = this.posicionVertical + "px"
 
         document.addEventListener('keydown', async(e) => {
-            const velocidad = 10
+            const velocidad = 5
             switch(e.key) {
                 case 'ArrowLeft':
                     if (this.direccionActual !== 'ArrowLeft') {
@@ -123,7 +123,7 @@ export class VistaJuego extends Vista {
                 }
         })  
 
-        setInterval(() => {this.generarBasura(this.seleccionarBasuraAleatoria())}, 2000)
+        setInterval(() => {this.generarBasura(this.seleccionarBasuraAleatoria())}, 100)
         setInterval(this.comprobarColisionPersonaje, 100)
         setInterval(() => {
             if (parseInt(document.getElementById("contador").innerHTML) === 1000) {
@@ -190,6 +190,7 @@ export class VistaJuego extends Vista {
         basura.src = this.basuras[tipoBasura].img
         
         basura.id = "garbage " + this.contadorBasuras
+
     
         basura.classList.add(this.basuras[tipoBasura].clase)
         basura.style.position = "absolute"

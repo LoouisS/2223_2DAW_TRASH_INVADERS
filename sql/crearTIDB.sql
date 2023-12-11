@@ -10,7 +10,7 @@ USE trashinvaders;
 CREATE TABLE IF NOT EXISTS usuario (
     idUsuario smallint UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nickname char(3) NOT NULL,
-    contrasenia varchar(255) NOT NULL
+    contrasenia varchar(255) NOT NULL -- Esto tiene que estar hasheado
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Creacion de la tabla partida
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS partida (
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Creacion de la tabla imagenes
-CREATE TABLE IF NOT EXISTS imagen(
+CREATE TABLE IF NOT EXISTS imagen (
     idImagen int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(120) NOT NULL,
     imagen MEDIUMBLOB NOT NULL,
@@ -31,22 +31,22 @@ CREATE TABLE IF NOT EXISTS imagen(
 -- Creacion de la tabla mejora
 CREATE TABLE IF NOT EXISTS mejora (
     idMejora tinyint UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    descripcion VARCHAR(120) NOT NULL,
+    descripcion VARCHAR(120) NOT NULL, -- Descripcion de la mejora que va a estar limitado en cliente
     multiplicador TINYINT UNSIGNED NULL,
     duracion_mejora TINYINT UNSIGNED NULL,
     porcentaje_aparicion TINYINT UNSIGNED NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Creacion de la tabla administrador
-CREATE TABLE IF NOT EXISTS administrador(
+CREATE TABLE IF NOT EXISTS administrador (
     idAdmin char(3) NOT NULL,
     contrasenia varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-CREATE TABLE IF NOT EXISTS parametros(
+CREATE TABLE IF NOT EXISTS parametros (
     velocidad_basura tinyint unsigned NOT NULL,
     generacion_basura tinyint unsigned NOT NULL,
-    tiempo_espera tinyint unsigned NOT NULL,
+    bolsa_limite_orila tinyint unsigned NOT NULL,
     prob_aparicion_mejora tinyint unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS usuario_imagen_mejora(
     idMejora tinyint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-CREATE TABLE rankins (
+CREATE TABLE rankings (
     idRanking int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     idUsuario VARCHAR(255) NOT NULL,
     puntuacion int UNSIGNED NOT NULL
@@ -78,19 +78,24 @@ ALTER TABLE imagen ADD CONSTRAINT unique_hash UNIQUE (hash);
 
 COMMIT;
 
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('AAA', 100);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('BBB', 200);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('CCC', 300);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('DDD', 400);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('EEE', 500);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('FFF', 600);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('GGG', 700);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('HHH', 800);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('III', 900);
-INSERT INTO rankins (idUsuario, puntuacion) VALUES ('JJJ', 1000);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('AAA', 100);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('BBB', 200);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('CCC', 300);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('DDD', 400);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('EEE', 500);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('FFF', 600);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('GGG', 700);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('HHH', 800);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('III', 900);
+INSERT INTO rankings (idUsuario, puntuacion) VALUES ('JJJ', 1000);
 
 -- Inserta tres mejoras en la tabla mejoras
 
 INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Multiplicador puntos', 2, 10);
 INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('Te mueves mas rapido', 3, 10);
 INSERT INTO mejora (descripcion, multiplicador, duracionMejora) VALUES ('La basura viene mas despacio', 4, 10);
+
+-- Inserta los datos del admin
+INSERT INTO administrador (idAdmin, contrasenia) VALUES ('AAA', 'AAA');
+
+--

@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "trashinvaders"; 
+$servername = "18.2daw.esvirgua.com";
+$username = "user2daw_18";
+$password = "B8ML(10P{v11";
+$dbname = "user2daw_BD2-18"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -27,7 +27,7 @@ if(isset($_FILES['imagenes'])){
         $allowedExtensions = array("jpg", "jpeg", "png");
         if (!in_array($extension, $allowedExtensions)) {
             echo "Error: El archivo $nombre tiene una extensión no permitida. <br>";
-            continue; // Skip to the next file
+            continue; 
         }
 
         // Check if the hash already exists in the database
