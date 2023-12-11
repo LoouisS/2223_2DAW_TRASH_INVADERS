@@ -12,24 +12,7 @@ class ControladorMejora {
         $this->modelo = new ModeloMejora();
     }
 
-    public function mostrarMejoras() {
-        // Verificar si hay un usuario autenticado
-        if (!isset($_SESSION['idUsuario'])) {
-            // Redirigir a la página de inicio de sesión si no hay un usuario autenticado
-            header('Location: index.php?controlador=ControladorInicioSesion&action=mostrarFormularioInicioSesion');
-            exit();
-        }
-
-        // Obtener el ID del usuario desde la sesión
-        $idUsuario = $_SESSION['idUsuario'];
-
-        // Obtener las mejoras específicas de ese usuario
-        $mejoras = $this->modelo->obtenerMejoras($idUsuario);
-
-        require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
-    }
-
-    // Nuevo método para manejar la selección de imagen
+        // Nuevo método para manejar la selección de imagen
     public function seleccionarImagen() {
         // Verificar si se ha enviado un formulario para seleccionar una imagen
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['seleccionImagen'])) {
@@ -47,6 +30,33 @@ class ControladorMejora {
         header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
         exit();
     }
+
+    public function mostrarMejoras() {
+        // Verificar si hay un usuario autenticado
+        if (!isset($_SESSION['idUsuario'])) {
+            // Redirigir a la página de inicio de sesión si no hay un usuario autenticado
+            header('Location: index.php?controlador=ControladorInicioSesion&action=mostrarFormularioInicioSesion');
+            exit();
+        }
+    
+        // Obtener el ID del usuario desde la sesión
+        $idUsuario = $_SESSION['idUsuario'];
+    
+        // Obtener las mejoras específicas de ese usuario
+        $mejoras = $this->modelo->obtenerMejorasPorUsuario($idUsuario);
+    
+        // Para cada mejora, obtener la imagen asociada (si existe)
+        foreach ($mejoras as &$mejora) {
+            $imagen = $this->modelo->obtenerImagenPorMejoraUsuario($mejora['idMejora'], $idUsuario);
+            if ($imagen) {
+                $mejora['imagen'] = $imagen['imagen'];
+            }
+        }
+    
+        require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
+    }
+
+
       
     
     public function agregarMejora() {

@@ -16,21 +16,22 @@ class ModeloInicioSesion {
 
     public function verificarCredenciales($usuario, $contrasena) {
         // Consulta preparada para obtener la contraseña almacenada en la base de datos
-        $stmt = $this->conexion->prepare("SELECT contrasenia FROM usuario WHERE nickname = ?");
+        $stmt = $this->conexion->prepare("SELECT idUsuario, contrasenia FROM usuario WHERE nickname = ?");
         $stmt->bind_param("s", $usuario);
         $stmt->execute();
-        $stmt->bind_result($contrasenaAlmacenada);
+        $stmt->bind_result($idUsuario, $contrasenaAlmacenada);
         $stmt->fetch();
         $stmt->close();
-
+    
         if ($contrasenaAlmacenada && $contrasenaAlmacenada === $contrasena) {
             // Almacenar el ID del usuario en la sesión
-            $_SESSION['idUsuario'] = $usuario;
+            $_SESSION['idUsuario'] = $idUsuario;
             return true; // Credenciales válidas
         }
     
         return false; // Credenciales inválidas
     }
+    
 }
 ?>
 

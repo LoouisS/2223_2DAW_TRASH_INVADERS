@@ -19,9 +19,9 @@ class ModeloImagenes {
         $stmt = $this->conexion->prepare("SELECT idImagen, nombre, imagen FROM imagen");
         $stmt->execute();
         $stmt->bind_result($idImagen, $nombre, $imagen);
-
-        $fetchedImages = [];
-
+    
+        $fetchedImages = []; // Cambiado a un array
+    
         while ($stmt->fetch()) {
             $fetchedImages[] = [
                 'idImagen' => $idImagen,
@@ -29,12 +29,13 @@ class ModeloImagenes {
                 'imagen' => base64_encode($imagen)
             ];
         }
-
+    
         $stmt->close();
         $this->conexion->close();
-
+    
         return $fetchedImages;
     }
+    
 
     public function mostrarImagenPorId($idImagen) {
         $stmt = $this->conexion->prepare("SELECT idImagen, nombre, imagen FROM imagen WHERE idImagen = ?");

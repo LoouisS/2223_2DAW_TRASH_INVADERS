@@ -39,20 +39,9 @@ $descripciones = array(
                             echo "<tr><td colspan='6'>No hay Mejoras</td></tr>";
                         } else {
                             foreach ($mejoras as $mejora) {
-                                echo "<tr>";                           
+                                echo "<tr>";
                                 // Verifica si hay una imagen asociada con la mejora
-                                if (!empty($mejora['imagen'])) {
-                                    // Muestra la imagen en lugar del enlace
-                                    echo "<td><img src='data:image/jpeg;base64," . $mejora['imagen'] . "' alt='Imagen de la mejora' class='redimension'></td>";
-                                } else {
-                                // Obtener el idUsuario de la sesión
-                                $idUsuario = $_SESSION['idUsuario'] ?? '';
-
-                                // Muestra el enlace para seleccionar imagen
-                                echo "<td><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></td>";
-
-
-                                }                              
+                          
                                 echo "<td>" . $mejora['descripcion'] . "</td>";
                                 echo "<td>" . $mejora['multiplicador'] . "</td>";
                                 echo "<td>" . $mejora['duracion_mejora'] . "</td>";
@@ -62,6 +51,7 @@ $descripciones = array(
                                 echo "<td><a href='index.php?controlador=ControladorMejora&action=confirmarBorrado&idMejora=" . $mejora['idMejora'] . "'>Eliminar</a></td>";
                                 echo "</tr>";
                             }
+                            
                         }
 
                         if (isset($_SESSION['selectedImage'])) {
