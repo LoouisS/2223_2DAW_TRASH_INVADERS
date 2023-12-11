@@ -18,9 +18,7 @@ require_once getcwd() . '/src/php/controladores/menu.php';
 require_once getcwd() . '/src/php/controladores/controlador_inicio_sesion.php';
 require_once getcwd() . '/src/php/controladores/credenciales_incorrectas.php';
 require_once getcwd() . '/src/php/controladores/controlador_imagenes_usuario.php';
-
-
-
+require_once getcwd() . '/src/php/controladores/controlador_parametros_juego.php';
 
 
 // Si no hay controlador en la URL, se usa el controlador por defecto

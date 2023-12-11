@@ -1,7 +1,7 @@
 <?php
 
-    define('DEFAULT_CONTROLLER', 'Usuario');
-    define('DEFAULT_ACTION', 'mostrarInicio');
+    define('DEFAULT_CONTROLLER', 'ParametrosJuego');
+    define('DEFAULT_ACTION', 'obtenerParametrosJuego');
     
     /**
      *define('DEFAULT_CONTROLLER', 'Administrador');

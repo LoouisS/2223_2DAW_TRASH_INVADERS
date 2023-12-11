@@ -56,6 +56,8 @@ class TrashInvaders {
     // Si la vista actual es la vista del juego, inicia la lógica del juego
     if (vista === 'vistaJuego') { 
       this.vistaPrincipalJuego.iniciarJuego();
+    } else if (vista === 'vistaConfiguracionParametros') {
+      this.vistaConfiguracionParametros.introducirValoresParametrosJuego();
     }
   }
 

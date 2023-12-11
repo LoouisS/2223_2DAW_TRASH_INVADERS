@@ -1,57 +1,42 @@
 import { Vista } from './template/vista.js'
+import { Rest } from '../services/rest.js'
 
 export class vistaParametrosJuego extends Vista {
-    velocidadBasura = 2;
-    velocidadPersonaje = 5;
-    cantidadBasura = 10;
 
     constructor (controlador, contenedor) {
         super(controlador, contenedor);
 
-        const velocidadBasura = document.querySelector('#velocidad-basura');
-        const velocidadPersonaje = document.querySelector('#velocidad-personaje');
-        const cantidadBasura = document.querySelector('#cantidad-basura');
+        this.obtenerParametrosJuego();
 
-        let velocidadBasuraValue;
-        let velocidadPersonajeValue;
-        let cantidadBasuraValue;
+        this.inputVelocidadBasura = document.querySelector('#velocidad-basura');
+        this.inputVelocidadPersonaje = document.querySelector('#velocidad-personaje');
+        this.inputCantidadBasura = document.querySelector('#cantidad-basura');
 
-        velocidadBasura.onblur = () => {
-            velocidadBasuraValue = velocidadBasura.value;
-            console.log(this.getVelocidadBasura());
-        }
+        const validateInput = (input, maxValue) => {
+            input.addEventListener('blur', () => {
+                const value = input.value.trim();
+                if (!/^\d+$/.test(value) || value < 0 || value > maxValue) {
+                    input.value = '';
+                }
+            });
+        };
 
-        velocidadPersonaje.onblur = () => {
-            velocidadPersonajeValue = velocidadPersonaje.value;
-            console.log(this.getVelocidadPersonaje());
-        }
-
-        cantidadBasura.onblur = () => {
-            cantidadBasuraValue = cantidadBasura.value;
-        }
+        validateInput(this.inputVelocidadBasura, 10);
+        validateInput(this.inputVelocidadPersonaje, 10);
+        validateInput(this.inputCantidadBasura, 100);
     }
 
-    getVelocidadBasura() {
-        return this.velocidadBasura;
+    async obtenerParametrosJuego () {
+        const parametrosJuego = await Rest.obtenerParametrosJuego()
+        this.velocidadBasura = parametrosJuego[0].velocidad_basura
+        this.velocidadPersonaje = parametrosJuego[0].generacion_basura
+        this.cantidadBasura = parametrosJuego[0].bolsa_limite_orila
     }
 
-    getVelocidadPersonaje() {
-        return this.velocidadPersonaje;
-    }
-
-    getCantidadBasura() {
-        return this.cantidadBasura;
-    }
-    setVelocidadBasura(velocidad) {
-        this.velocidadBasura = velocidad;
-    }
-
-    setVelocidadPersonaje(velocidad) {
-        this.velocidadPersonaje = velocidad;
-    }
-
-    setCantidadBasura(cantidad) {
-        this.cantidadBasura = cantidad;
+    introducirValoresParametrosJuego () {
+        this.inputVelocidadBasura.value = this.velocidadBasura;
+        this.inputVelocidadPersonaje.value = this.velocidadPersonaje;
+        this.inputCantidadBasura.value = this.cantidadBasura;
     }
 
 }

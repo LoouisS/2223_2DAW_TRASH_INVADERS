@@ -1,23 +1,26 @@
 import { Vista } from './template/vista.js'
+import { Rest } from '../services/rest.js'
 
 export class VistaJuego extends Vista {
 
     constructor(controlador, contenedor) {
         super(controlador, contenedor)
+        this.obtenerParametrosJuego()
 
+        
         this.direccionActual = null
         this.posicionHorizontal = null
         this.posicionVertical = null
         this.personaje = document.getElementById("contenedor-personaje")
-
+        
         const botonVolver = contenedor.querySelector('#cerrar-juego')
-
+        
         botonVolver.onclick = () => {
             this.controlador.irAVista('vistaMenu')
         }
-
+        
         // Logica de la basura
-
+        
         this.contadorBasuras = 0
         
         this.basuras = {
@@ -42,17 +45,17 @@ export class VistaJuego extends Vista {
                 clase: "basura-vidrio"
             }
         }
-
+        
         this.comprobarColisionPersonaje = this.comprobarColisionPersonaje.bind(this)
         this.comprobarColisionContenedor = this.comprobarColisionContenedor.bind(this)
-
+        
         // Objeto para mapear la basura generada
         this.basuraGenerada = {}
-
+        
         // Velocidad de la basura
-
+        
         this.velocidad = 1
-
+        
         // Contenedores
         
         this.contenedores = {
@@ -74,47 +77,46 @@ export class VistaJuego extends Vista {
             }
         }        
     }
-
-
+    
     iniciarJuego() {
         this.posicionHorizontal = window.innerWidth / 2
         this.posicionVertical = window.innerHeight / 2
-
+        
+        
         this.personaje.style.position = "absolute"
         this.personaje.style.left = this.posicionHorizontal + "px"
         this.personaje.style.top = this.posicionVertical + "px"
-
+        
         document.addEventListener('keydown', async(e) => {
-            const velocidad = 0.1
             switch(e.key) {
                 case 'ArrowLeft':
                     if (this.direccionActual !== 'ArrowLeft') {
                         this.direccionActual = 'ArrowLeft'
-                        await this.moverIzquierda(velocidad)
+                        await this.moverIzquierda(this.velocidadPersonaje)
                     }
                     break
                 case 'ArrowRight':
                     if (this.direccionActual !== 'ArrowRight') {
                         this.direccionActual = 'ArrowRight'
-                        await this.moverDerecha(velocidad)
+                        await this.moverDerecha(this.velocidadPersonaje)
                     }
                     break
                 case 'ArrowUp':
                     if (this.direccionActual !== 'ArrowUp') {
                         this.direccionActual = 'ArrowUp'
-                        await this.moverArriba(velocidad)
+                        await this.moverArriba(this.velocidadPersonaje)
                     }
                     break
                 case 'ArrowDown':
                     if (this.direccionActual !== 'ArrowDown') {
                         this.direccionActual = 'ArrowDown'
-                        await this.moverAbajo(velocidad)
+                        await this.moverAbajo(this.velocidadPersonaje)
                     }
                     break
                 }
         })  
 
-        setInterval(() => {this.generarBasura(this.seleccionarBasuraAleatoria())}, 20)
+        setInterval(() => {this.generarBasura(this.seleccionarBasuraAleatoria())}, this.velocidadBasura * 1000)
         setInterval(this.comprobarColisionPersonaje, 100)
         setInterval(() => {
             if (parseInt(document.getElementById("contador").innerHTML) === 1000) {
@@ -255,6 +257,16 @@ export class VistaJuego extends Vista {
     
     }
 
-
+    
+    async obtenerParametrosJuego() {
+        try {
+            const data = await Rest.obtenerParametrosJuego();
+            this.velocidadPersonaje = data[0].velocidad_basura;
+            this.velocidadBasura = data[0].generacion_basura;
+            this.cantidadBasura = data[0].cantidad_basura;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
 
 }
