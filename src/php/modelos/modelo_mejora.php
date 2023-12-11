@@ -135,7 +135,7 @@ class ModeloMejora {
             $result->close();
     
             return [
-                'imagen' => $imagen
+                'imagen' => base64_encode($imagen)
             ];
         } else {
             // No se encontraron resultados

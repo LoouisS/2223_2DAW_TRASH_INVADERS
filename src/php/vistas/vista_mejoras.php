@@ -1,11 +1,10 @@
 <?php
-
-$descripciones = array(
-    'Correr mas rapido',
-    'Mas puntos',
-    'Recogida automatica',
-    // Agrega más descripciones según sea necesario
-);
+    $descripciones = array(
+        'Correr mas rapido',
+        'Mas puntos',
+        'Recogida automatica',
+        // Agrega más descripciones según sea necesario
+    );
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,10 +37,17 @@ $descripciones = array(
                         if (!is_iterable($mejoras) || count($mejoras) === 0) {
                             echo "<tr><td colspan='6'>No hay Mejoras</td></tr>";
                         } else {
+
+
                             foreach ($mejoras as $mejora) {
                                 echo "<tr>";
                                 // Verifica si hay una imagen asociada con la mejora
-                          
+                                if (!empty($mejora['imagen'])) {
+                                    // Muestra la imagen en lugar del enlace
+                                    echo "<td><img src='data:image/jpeg;base64," . $mejora['imagen'] . "' class='redimension'></td>";
+                                } else {
+                                    echo "<td><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></td>";
+                                }                              
                                 echo "<td>" . $mejora['descripcion'] . "</td>";
                                 echo "<td>" . $mejora['multiplicador'] . "</td>";
                                 echo "<td>" . $mejora['duracion_mejora'] . "</td>";
