@@ -483,3 +483,43 @@ margin-left: 1.5rem;
   background-color: #8c5840;
   color: white;
 }
+
+/* Media query para pantallas más pequeñas y pantallas en posición vertical */
+@media screen and (max-width: 920px){
+  #mensaje {
+      /* Cubre toda la pantalla del dispositivo */
+      position: fixed;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      
+      /* Borde alrededor del mensaje */
+      border: 5px solid rgb(5, 245, 185);
+
+      /* Con esto ajustamos la posición del texto */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      /* Un color de fondo */
+      background-color: rgb(74, 173, 177);
+
+      /* Lo superponemos */
+      z-index: 1000;
+  }
+
+  /* El texto que vamos a mostrar */
+  #mensaje::before {
+      content: "La resolución de tu dispositivo no es la adecuada para esta web. Juegue en navegadores de ordenador o tabletas en posición horizontal.";
+      font-size: 1.5rem; /* Ajustamos el tamaño del texto */
+      text-align: center; /* Centramos el texto */
+      color: white; /* Cambiamos el color del texto */
+  }
+
+  /* Ocultar todo el contenido */
+  .ocultar {
+      display: none;
+  }
+}

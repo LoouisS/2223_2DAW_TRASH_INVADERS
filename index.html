@@ -10,7 +10,7 @@
 		<title>Trash Invaders</title>
 	</head>
     <body>
-        <div class="vistas" id="vista-principal">a
+        <div class="vistas ocultar" id="vista-principal">a
             <div class="contenido-vistas" id="contenido-vista-principal">
                 <div id="contenedor-imagen">
                     <img src="./src/img/logo.jpg" alt="logo-imagen">
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-        <div class="vistas" id="vista-login">
+        <div  class="vistas ocultar" id="vista-login">
 			<div class="box">
 				<span class="border-line"></span>
 				<form>
@@ -44,7 +44,7 @@
 				</form>
 			</div>		
 		</div>
-		<div class="vistas" id="vista-registro">
+		<div   class="vistas ocultar" id="vista-registro">
 			<div class="box">
 				<span class="border-line"></span>
 				<form>
@@ -65,7 +65,7 @@
 				</form>
 			</div>		
 		</div>
-		<div class="vistas" id="vista-menu-usuario" >
+		<div   class="vistas ocultar" id="vista-menu-usuario" >
 			<div class="contenido-vistas">
 				<div id="contenedor-imagen">
 					<img src="./src/img/logo.jpg" alt="logo-imagen"></a>
@@ -76,7 +76,7 @@
 				<button id="logout-button">Log out</button>
 			</div>
 		</div>
-		<div class="vistas" id="vista-principal-juego">
+		<div   class="vistas ocultar" id="vista-principal-juego">
 			<button id="cerrar-juego">X</button>
 			<p id="contador">0</p>
 			<div id="contenedor-personaje">
@@ -87,7 +87,7 @@
 			<img src="./src/img/contenedor-marron.png" alt="Contenedor Marron" class="contenedor basura-organica" id="contenedor-inferior-izquierda">
 			<img src="./src/img/contenedor-verde.png" alt="Contenedor Verde" class="contenedor basura-vidrio" id="contenedor-inferior-derecha">
 		</div>
-		<div class="vistas" id="vista-clasificaciones">
+		<div   class="vistas ocultar" id="vista-clasificaciones">
 			<main id="contenido-ranking">
 				<div id="header">
 				  <h1>Ranking</h1>
@@ -129,7 +129,7 @@
 				</div>
 			</main>
 		</div>
-		<div class="vistas" id="vista-opciones-administrador">
+		<div   class="vistas ocultar" id="vista-opciones-administrador">
 			<div class="contenido-vistas">
 				<h1 id="header-administracion">Panel Administracion</h1>
 				<button id="btn-configuracion-parametros">Parametros Juego</button>
@@ -137,6 +137,7 @@
 				<button id="btn-volver">Volver</button>
 			</div>
 		</div>
+		<div id="mensaje"></div>
 		<script type="module" src="./src/js/controller.js"></script>
     </body>
 </html>
