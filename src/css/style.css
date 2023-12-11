@@ -250,7 +250,7 @@ body > #vista-login {
 #vista-menu-usuario > .contenido-vistas {
     height: 80%;
     margin: 3% auto;
-    width: 20%;
+    width: 30%;
 }
 
 /* Vista del juego */
@@ -483,3 +483,22 @@ margin-left: 1.5rem;
   background-color: #8c5840;
   color: white;
 }
+
+/* Pagina de las opciones */
+
+#header-administracion {
+  width: 100%;
+  text-align: center;
+}
+
+#opciones-administrador {
+  width: 40%;
+}
+
+/* Vista parametros juego */
+
+#header-parametros-juego {
+  color: white;
+}
+
+/*  */

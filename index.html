@@ -10,7 +10,7 @@
 		<title>Trash Invaders</title>
 	</head>
     <body>
-        <div class="vistas" id="vista-principal">a
+        <div class="vistas" id="vista-principal">
             <div class="contenido-vistas" id="contenido-vista-principal">
                 <div id="contenedor-imagen">
                     <img src="./src/img/logo.jpg" alt="logo-imagen">
@@ -73,6 +73,7 @@
 				<button id="boton-jugar">Jugar</button>
 				<button id="mejoras-usuario">Mejoras</button> 
 				<button id="vista-rankings">Rankings</button>
+				<button id="vista-opciones">Opciones</button> <!-- Esto tiene que ser solamente visible al admin -->
 				<button id="logout-button">Log out</button>
 			</div>
 		</div>
@@ -130,13 +131,40 @@
 			</main>
 		</div>
 		<div class="vistas" id="vista-opciones-administrador">
-			<div class="contenido-vistas">
+			<div class="contenido-vistas" id="opciones-administrador">
 				<h1 id="header-administracion">Panel Administracion</h1>
 				<button id="btn-configuracion-parametros">Parametros Juego</button>
 				<button id="btn-configuracion-pool">Banco de Imagenes</button>
 				<button id="btn-volver">Volver</button>
 			</div>
 		</div>
+		<div class="vistas" id="vista-parametros-juego">
+			<div class="box">
+				<form action="POST">
+					<h2 id="header-parametros-juego">Parametros Juego</h2>
+					<div class="input-box">
+						<input type="text" required="required" id="velocidad-basura">
+						<span>Velocidad Basura</span>
+						<i></i>
+					</div>
+					<div class="input-box">
+						<input type="text" required="required" id="velocidad-personaje">
+						<span>Velocidad Personaje</span>
+						<i></i>
+					</div>
+					<div class="input-box">
+						<input type="text" required="required" id="cantidad-basura">
+						<span>Cantidad Basura</span>
+						<i></i>
+					</div>
+					<input type="submit" value="Guardar" id="guardar-parametros-juego">
+					<button id="go-back-button">X
+					</button>
+				</form>
+			</div>
+		</div>
+		<!-- <div class="vistas" id="vista-pool-imagenes">
+		</div> -->
 		<script type="module" src="./src/js/controller.js"></script>
     </body>
 </html>

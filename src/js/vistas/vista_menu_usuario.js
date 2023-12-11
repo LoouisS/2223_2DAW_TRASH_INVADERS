@@ -8,6 +8,7 @@ export class VistaMenuUsuario extends Vista {
     const botonMejoras = contenedor.querySelector('#mejoras-usuario')
     const vistaRankings = contenedor.querySelector('#vista-rankings')
     const botonLogout = contenedor.querySelector('#logout-button')
+    const botonOpciones = contenedor.querySelector('#vista-opciones')
     
     botonJugar.onclick = () => {
       this.controlador.irAVista('vistaJuego')
@@ -19,6 +20,10 @@ export class VistaMenuUsuario extends Vista {
 
     vistaRankings.onclick = () => {
       this.controlador.irAVista('vistaClasificaciones')
+    }
+
+    botonOpciones.onclick = () => {
+      this.controlador.irAVista('vistaOpcionesAdmin')
     }
 
     botonLogout.onclick = () => {

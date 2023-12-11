@@ -54,36 +54,27 @@ export class VistaJuego extends Vista {
         this.velocidad = 1
 
         // Contenedores
-
         
         this.contenedores = {
             organica: {
-                img: "img/organic-container.png",
                 clase: "basura-organica",
                 id: "contenedor-inferior-izquierda"
             },
             papel: {
-                img: "img/paper-container.png",
                 clase: "basura-papel",
                 id: "contenedor-superior-derecha"
             },
             plastico: {
-                img: "img/plastic-container.png",
                 clase: "basura-plastico",
                 id: "contenedor-superior-izquierda"
             },
             vidrio: {
-                img: "img/glass-container.png",
                 clase: "basura-vidrio",
                 id: "contenedor-inferior-derecha"
             }
-        }
-
-        
+        }        
     }
 
-    modificarVelocidadBasura(velocidad) {
-    }
 
     iniciarJuego() {
         this.posicionHorizontal = window.innerWidth / 2
@@ -94,7 +85,7 @@ export class VistaJuego extends Vista {
         this.personaje.style.top = this.posicionVertical + "px"
 
         document.addEventListener('keydown', async(e) => {
-            const velocidad = 5
+            const velocidad = 0.1
             switch(e.key) {
                 case 'ArrowLeft':
                     if (this.direccionActual !== 'ArrowLeft') {
@@ -123,7 +114,7 @@ export class VistaJuego extends Vista {
                 }
         })  
 
-        setInterval(() => {this.generarBasura(this.seleccionarBasuraAleatoria())}, 100)
+        setInterval(() => {this.generarBasura(this.seleccionarBasuraAleatoria())}, 20)
         setInterval(this.comprobarColisionPersonaje, 100)
         setInterval(() => {
             if (parseInt(document.getElementById("contador").innerHTML) === 1000) {
