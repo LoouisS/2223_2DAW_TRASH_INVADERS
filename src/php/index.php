@@ -17,6 +17,7 @@ require_once getcwd() . '/src/php/modelos/modelo_menu.php';
 require_once getcwd() . '/src/php/controladores/menu.php';
 require_once getcwd() . '/src/php/controladores/controlador_inicio_sesion.php';
 require_once getcwd() . '/src/php/controladores/credenciales_incorrectas.php';
+require_once getcwd() . '/src/php/controladores/controlador_imagenes_usuario.php';
 
 
 

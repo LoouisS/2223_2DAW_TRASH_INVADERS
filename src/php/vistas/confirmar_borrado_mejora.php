@@ -17,6 +17,7 @@
                 <p>Descripción: <?php echo $mejora['descripcion']; ?></p>
                 <p>Multiplicador: <?php echo $mejora['multiplicador']; ?></p>
                 <p>Duración Mejora: <?php echo $mejora['duracion_mejora']; ?></p>
+                <p>Porcentaje Aparicion: <?php echo $mejora['porcentaje_aparicion']; ?></p>
             </div>
             
             <h1 class="eliminarconfir">¿Estás seguro de que deseas eliminar esta mejora?</h1>              

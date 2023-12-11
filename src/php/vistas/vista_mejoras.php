@@ -1,11 +1,11 @@
 <?php
-    // Array de descripciones
-    $descripciones = array(
-        'Correr mas rapido',
-        'Mas puntos',
-        'Recogida automatica',
-        // Agrega más descripciones según sea necesario
-    );
+
+$descripciones = array(
+    'Correr mas rapido',
+    'Mas puntos',
+    'Recogida automatica',
+    // Agrega más descripciones según sea necesario
+);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,23 +33,15 @@
                         <th>Eliminar</th>          
                     </tr>
                 </thead>
-
-
                 <tbody>
                     <?php
                         if (!is_iterable($mejoras) || count($mejoras) === 0) {
                             echo "<tr><td colspan='6'>No hay Mejoras</td></tr>";
                         } else {
                             foreach ($mejoras as $mejora) {
-                                echo "<tr>";                           
+                                echo "<tr>";
                                 // Verifica si hay una imagen asociada con la mejora
-                                if (!empty($mejora['imagen'])) {
-                                    // Muestra la imagen en lugar del enlace
-                                    echo "<td><img src='data:image/jpeg;base64," . $mejora['imagen'] . "' alt='Imagen de la mejora' class='redimension'></td>";
-                                } else {
-                                    // Muestra el enlace para seleccionar imagen
-                                    echo "<td><a href='index.php?controlador=Imagenes&action=mostrarImagen&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></td>";
-                                }                              
+                          
                                 echo "<td>" . $mejora['descripcion'] . "</td>";
                                 echo "<td>" . $mejora['multiplicador'] . "</td>";
                                 echo "<td>" . $mejora['duracion_mejora'] . "</td>";
@@ -58,25 +50,19 @@
                                 // Puedes acceder al idMejora aquí
                                 echo "<td><a href='index.php?controlador=ControladorMejora&action=confirmarBorrado&idMejora=" . $mejora['idMejora'] . "'>Eliminar</a></td>";
                                 echo "</tr>";
-                                
-                                if (isset($_SESSION['selectedImage'])) {
-                                    $selectedImage = $_SESSION['selectedImage'];
-                                    $idUsuario = $_GET['idUsuario'] ?? ''; // Asegúrate de obtenerlo correctamente desde la URL
-                                
-                                    echo "<div>";
-                                    echo "<h2>Imagen Seleccionada</h2>";
-                                    echo "<img src='data:image/jpeg;base64," . $selectedImage['imagen'] . "' alt='" . $selectedImage['nombre'] . "' class='redimension'>";
-                                    // Actualiza el enlace con el ID del usuario
-                                    echo "<a href='index.php?controlador=Imagenes&action=mostrarImagen&idUsuario={$idUsuario}'>Volver</a>";
-                                    echo "</div>";
-                                
-                                    // Limpiar la imagen seleccionada de la sesión después de mostrarla
-                                    unset($_SESSION['selectedImage']);
-                                }
-                                
-
-
                             }
+                            
+                        }
+
+                        if (isset($_SESSION['selectedImage'])) {
+                            $selectedImage = $_SESSION['selectedImage'];
+                            echo "<tr>";
+                            echo "<td><img src='data:image/jpeg;base64," . $selectedImage['imagen'] . "' alt='" . $selectedImage['nombre'] . "' class='redimension'></td>";
+                            echo "<td colspan='5'><h2>Imagen Seleccionada</h2></td>";
+                            echo "</tr>";
+
+                            // Limpiar la imagen seleccionada de la sesión después de mostrarla
+                            unset($_SESSION['selectedImage']);
                         }
                     ?>
                 </tbody>
@@ -102,7 +88,7 @@
                 <button type="submit">Agregar Mejora</button>
             </form>
 
-            <button id="volvermenu"><a href="index.php">Volver</a></button>
+            <button id="volvermenu"><a href="index.php?controlador=Menu&action=mostrarMenu">VOLVER</a></button>
         </main>
     </body>
 </html>
