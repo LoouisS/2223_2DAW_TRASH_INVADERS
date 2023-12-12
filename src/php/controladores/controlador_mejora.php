@@ -61,13 +61,25 @@ class ControladorMejora {
         $duracionMejora = $_POST['duracionMejora'] ?? 0;
         $porcentaje_aparicion = $_POST['porcentaje_aparicion'] ?? 0;
     
+        // Obtener la información de la imagen seleccionada, si existe
+        $selectedImage = $_SESSION['selectedImage'] ?? null;
+    
         // Llamar al método del modelo para agregar la mejora
-        $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
+        $idMejora = $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
+    
+        // Verificar si hay una imagen seleccionada
+        if ($selectedImage && $idMejora) {
+            // Insertar la información en la tabla "usuario_mejora_imagen"
+            $this->modelo->agregarImagenMejoraUsuario($idMejora, $selectedImage);
+            // Limpiar la imagen seleccionada de la sesión después de procesarla
+            unset($_SESSION['selectedImage']);
+        }
     
         // Redirigir a la página de mostrarMejoras
         header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
         exit();
     }
+    
 
     public function confirmarBorrado() {
         // Obtener la mejora por su ID

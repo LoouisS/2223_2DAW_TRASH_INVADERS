@@ -38,6 +38,22 @@ class ModeloMejora {
     
         return $resultados;
     }
+
+    public function agregarImagenMejoraUsuario($idMejora, $selectedImage) {
+        if ($selectedImage) {
+            // Obtener la información de la imagen
+            $idImagen = $selectedImage['idImagen'] ?? null;
+    
+            if ($idImagen) {
+                // Insertar información en la tabla "usuario_mejora_imagen"
+                $stmt = $this->conexion->prepare("INSERT INTO usuario_imagen_mejora (idUsuario, idMejora, idImagen) VALUES (?, ?, ?)");
+                $stmt->bind_param("iii", $_SESSION['idUsuario'], $idMejora, $idImagen);
+                $stmt->execute();
+                $stmt->close();
+            }
+        }
+    }
+    
     
 
     public function obtenerMejorasPorId($idMejora) {

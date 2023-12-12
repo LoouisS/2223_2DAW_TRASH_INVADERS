@@ -73,9 +73,9 @@
                             echo "<td><img src='data:image/jpeg;base64," . $selectedImage['imagen'] . "' alt='" . $selectedImage['nombre'] . "' class='redimension'></td>";
                             echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Cambiar Imagen</a></div>";
                         }  
-                    } else {
-                        // Muestra el enlace para seleccionar la imagen
-                        echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></div>";
+                    }else{
+                            // Muestra el enlace para seleccionar la imagen
+                            echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></div>";
                     } 
                 ?>
                 <label>Descripción:</label>
