@@ -40,21 +40,34 @@ class ModeloMejora {
     }
 
     public function agregarImagenMejoraUsuario($idMejora, $selectedImage) {
-        if ($selectedImage) {
-            // Obtener la información de la imagen
-            $idImagen = $selectedImage['idImagen'] ?? null;
+        if ($selectedImage && $idMejora) {
+            // Verificar si el idMejora existe en la tabla mejora
+            $stmt_check_mejora = $this->conexion->prepare("SELECT idMejora FROM mejora WHERE idMejora = ?");
+            $stmt_check_mejora->bind_param("i", $idMejora);
+            $stmt_check_mejora->execute();
+            $stmt_check_mejora->store_result();
     
-            if ($idImagen) {
-                // Insertar información en la tabla "usuario_mejora_imagen"
-                $stmt = $this->conexion->prepare("INSERT INTO usuario_imagen_mejora (idUsuario, idMejora, idImagen) VALUES (?, ?, ?)");
-                $stmt->bind_param("iii", $_SESSION['idUsuario'], $idMejora, $idImagen);
-                $stmt->execute();
-                $stmt->close();
+            if ($stmt_check_mejora->num_rows > 0) {
+                // El idMejora existe, continuar con la inserción en usuario_imagen_mejora
+                $stmt_check_mejora->close();
+    
+                // Obtener la información de la imagen
+                $idImagen = $selectedImage['idImagen'] ?? null;
+    
+                if ($idImagen) {
+                    // Insertar información en la tabla "usuario_imagen_mejora"
+                    $stmt = $this->conexion->prepare("INSERT INTO usuario_imagen_mejora (idUsuario, idMejora, idImagen) VALUES (?, ?, ?)");
+                    $stmt->bind_param("iii", $_SESSION['idUsuario'], $idMejora, $idImagen);
+                    $stmt->execute();
+                    $stmt->close();
+                }
+            } else {
+                // El idMejora no existe en la tabla mejora, manejar el error según tus necesidades
+                $stmt_check_mejora->close();
+                echo "Error: El idMejora no existe en la tabla mejora.";
             }
         }
     }
-    
-    
 
     public function obtenerMejorasPorId($idMejora) {
         $result = $this->conexion->prepare("SELECT idMejora, descripcion, multiplicador, duracion_mejora, porcentaje_aparicion FROM mejora WHERE idMejora = ?");

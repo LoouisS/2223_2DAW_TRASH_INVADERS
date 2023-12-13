@@ -51,7 +51,6 @@
                                 echo "<td>" . $mejora['duracion_mejora'] . "</td>";
                                 echo "<td>" . $mejora['porcentaje_aparicion'] . "</td>";
 
-                                // Puedes acceder al idMejora aquí
                                 echo "<td><a href='index.php?controlador=ControladorMejora&action=confirmarBorrado&idMejora=" . $mejora['idMejora'] . "'>Eliminar</a></td>";
                                 echo "</tr>";
                             }                           
@@ -60,24 +59,22 @@
                 </tbody>
             </table>
             <!-- Formulario para agregar mejora -->
-            <form action="index.php?controlador=ControladorMejora&action=agregarMejora" method="post">
+            <form action="index.php?controlador=ControladorMejora&action=agregarDobleMejora" method="post">
                 <!-- Modifica el formulario para usar un campo desplegable -->
                 <label>Imagen</label>
                 <?php
-                    if (!empty($mejora['imagen'])) {
-                        // Muestra la imagen y el enlace para ir al banco de imágenes
-                        if (isset($_SESSION['selectedImage'])) {
-                            $selectedImage = $_SESSION['selectedImage'];
-                            //Probando
-                            $idUsuario = $_GET['idUsuario'] ?? '';
-                            echo "<td><img src='data:image/jpeg;base64," . $selectedImage['imagen'] . "' alt='" . $selectedImage['nombre'] . "' class='redimension'></td>";
-                            echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Cambiar Imagen</a></div>";
-                        }  
-                    }else{
-                            // Muestra el enlace para seleccionar la imagen
-                            echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></div>";
-                    } 
+                    ini_set('display_errors', 0);
+                    if (isset($_SESSION['selectedImage'])) {
+                        $selectedImage = $_SESSION['selectedImage'];
+                        $idUsuario = $_GET['idUsuario'] ?? '';
+                        echo "<td><img src='data:image/jpeg;base64," . $selectedImage['imagen'] . "' alt='" . $selectedImage['nombre'] . "' class='redimension'></td>";
+                        echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Cambiar Imagen</a></div>";
+                    } else {
+                        // Muestra el enlace para seleccionar la imagen
+                        echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></div>";
+                    }
                 ?>
+                
                 <label>Descripción:</label>
                 <select name="descripcion" required id="descripcion" >
                     <?php
