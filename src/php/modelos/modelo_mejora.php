@@ -46,6 +46,7 @@ class ModeloMejora {
             $stmt_check_mejora->bind_param("i", $idMejora);
             $stmt_check_mejora->execute();
             $stmt_check_mejora->store_result();
+            
     
             if ($stmt_check_mejora->num_rows > 0) {
                 // El idMejora existe, continuar con la inserción en usuario_imagen_mejora
