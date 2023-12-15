@@ -2,7 +2,7 @@
 
 require_once getcwd() . '/src/php/modelos/modelo_imagenes.php';
 
-class Imagenes {
+class ImagenesController {
     
     public $vista;
     public $modelo;

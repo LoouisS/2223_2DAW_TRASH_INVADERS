@@ -6,7 +6,6 @@ require_once getcwd() . '/src/php/config/serverconfig.php';
 require_once getcwd() . '/src/php/controladores/imagenes.php';
 
 
-
 // Si no hay controlador en la URL, se usa el controlador por defecto
 if (!isset($_GET["controlador"])) {
     $_GET["controlador"] = constant("DEFAULT_CONTROLLER");
@@ -28,9 +27,8 @@ if (!file_exists($ruta_controlador)) {
 // Se carga el controlador
 require_once getcwd() . "/" .  $ruta_controlador;
 
-$nombre_controlador = $_GET["controlador"];
+$nombre_controlador = $_GET["controlador"] . "Controller";
 $controlador = new $nombre_controlador();
-
 
 // Datos para las vistas
 

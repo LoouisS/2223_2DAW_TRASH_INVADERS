@@ -67,12 +67,9 @@ class ModeloImagenes {
                     header("Location: index.php?controlador=Imagenes&action=mostrarImagen&errorArchivoVacio=archivoVacio");
                     exit();
                 }
-
                 $extension = strtolower(pathinfo($imagenes['name'][$i], PATHINFO_EXTENSION));
- 
-        
+
                 if (!in_array($extension, $allowedExtensions)) {
-                    // Cambiar esto por una vista
                     header("Location: index.php?controlador=Imagenes&action=mostrarImagen&error=extensionIncorrecta&extension" . $extension);
                     exit();
                 }
@@ -81,23 +78,18 @@ class ModeloImagenes {
             for($i = 0; $i < count($imagenes['name']); $i++) {
                 
                 $nombre = basename($imagenes['name'][$i]);
-
                 $imagenData = file_get_contents($imagenes['tmp_name'][$i]);
                 $hash = hash('sha256', $imagenData);
         
         
                 $count = $this->checkHash($hash);
                 if ($count > 0) {
-                    // Cambiar esto por una vista
-                    // echo "Error: El archivo $nombre ya existe en la base de datos. <br>";
                     continue; 
                 }
         
                 // Insertar los datos en la base de datos
                 $stmt->send_long_data(1, $imagenData);
                 if ($stmt->execute() === FALSE) {
-                    // Cambiar esto por una vista
-                    // echo "Error: " . $stmt->error;
                     continue;
                 }
             }
