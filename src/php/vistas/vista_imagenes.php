@@ -55,6 +55,7 @@
                         foreach ($imagenes as $imagen) {
                             echo "<tr>";
                             echo "<td>" . pathinfo($imagen['nombre'], PATHINFO_FILENAME) . "</td>";
+
                             echo "<td><img src='data:image/jpeg;base64," . $imagen['imagen'] . "' alt='" . $imagen['nombre'] . "'></td>";
                             echo "<td><a href='index.php?controlador=Imagenes&action=confirmarBorrado&idImagen=" . $imagen['idImagen'] . "'>Eliminar</a></td>";
                             echo "</tr>";

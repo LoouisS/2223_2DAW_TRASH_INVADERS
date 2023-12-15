@@ -20,15 +20,13 @@ class ControladorMejora {
             // Obtener la información de la imagen seleccionada (esto puede depender de cómo esté implementado tu modelo)
             $selectedImage = $this->modelo->obtenerMejorasPorId($selectedImageId);
             if ($selectedImage) {
-                // Puedes hacer algo con la imagen seleccionada aquí si es necesario
-                // Por ejemplo, podrías almacenar la información de la imagen en la sesión para mostrarla después de redireccionar
                 $_SESSION['selectedImage'] = $selectedImage;
             }
         }
 
-        // Redireccionar a la página de mostrar mejoras
         header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
         exit();
+
     }
 
     public function mostrarMejoras() {
@@ -54,10 +52,7 @@ class ControladorMejora {
         }
     
         require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
-    }
-
-
-      
+    }  
     
     public function agregarMejora() {
         // Obtener valores del formulario
@@ -66,29 +61,52 @@ class ControladorMejora {
         $duracionMejora = $_POST['duracionMejora'] ?? 0;
         $porcentaje_aparicion = $_POST['porcentaje_aparicion'] ?? 0;
     
+        // Obtener la información de la imagen seleccionada, si existe
+        $selectedImage = $_SESSION['selectedImage'] ?? null;
+    
         // Llamar al método del modelo para agregar la mejora
-        $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
+        $idMejora = $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
+    
+        // Verificar si hay una imagen seleccionada
+        if ($selectedImage && $idMejora) {
+            // Insertar la información en la tabla "usuario_mejora_imagen"
+            $this->modelo->agregarImagenMejoraUsuario($idMejora, $selectedImage);
+            // Limpiar la imagen seleccionada de la sesión después de procesarla
+            unset($_SESSION['selectedImage']);
+        }
     
         // Redirigir a la página de mostrarMejoras
         header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
         exit();
     }
 
-    public function actualizarMejora($datosMejora) {
-        $idMejora = $datosMejora['idMejora'] ?? 0;
-        $descripcion = $datosMejora['descripcion'] ?? '';
-        $multiplicador = $datosMejora['multiplicador'] ?? 0;
-        $duracionMejora = $datosMejora['duracionMejora'] ?? 0;
-        $porcentaje_aparicion = $datosMejora['porcentaje_aparicion'] ?? 0;
-
-        $exito = $this->modelo->actualizarMejora($idMejora, $descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
-
-        if ($exito) {
-            // Redireccionar o mostrar un mensaje de éxito
-        } else {
-            // Redireccionar o mostrar un mensaje de error
+    public function agregarDobleMejora() {
+        // Obtener valores del formulario
+        $descripcion = $_POST['descripcion'] ?? '';
+        $multiplicador = $_POST['multiplicador'] ?? 0;
+        $duracionMejora = $_POST['duracionMejora'] ?? 0;
+        $porcentaje_aparicion = $_POST['porcentaje_aparicion'] ?? 0;
+    
+        // Obtener la información de la imagen seleccionada, si existe
+        $selectedImage = $_SESSION['selectedImage'] ?? null;
+    
+        // Llamar al método del modelo para agregar la mejora
+        $idMejora = $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
+    
+        // Verificar si hay una imagen seleccionada y un ID de mejora
+        if ($selectedImage && $idMejora) {
+            // Insertar la información en la tabla "usuario_imagen_mejora"
+            $this->modelo->agregarImagenMejoraUsuario($idMejora, $selectedImage);
+            // Limpiar la imagen seleccionada de la sesión después de procesarla
+            unset($_SESSION['selectedImage']);
         }
+    
+        // Redirigir a la página de mostrarMejoras
+        header('Location: index.php?controlador=ControladorMejora&action=mostrarMejoras');
+        exit();
     }
+    
+    
 
     public function confirmarBorrado() {
         // Obtener la mejora por su ID
