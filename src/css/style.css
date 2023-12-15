@@ -102,12 +102,8 @@ button:hover {
 @media screen and (max-width: 768px) {
   .contenido-vistas {
     width: fit-content;
+    height: auto;
     padding: 0 20px;
-  }
-  
-  #vista-menu-usuario > .contenido-vistas {
-    width: fit-content;
-    padding: 0 40px;
   }
 
 }
@@ -115,6 +111,15 @@ button:hover {
 @media screen and (max-width: 480px) {
   .contenido-vistas, #vista-menu-usuario > .contenido-vistas {
     width: fit-content;
+    height: auto;
+    padding: 0 20px;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  #vista-menu-usuario {
+    width: 100%;
     padding: 0 20px;
   }
 }
@@ -286,6 +291,30 @@ Los pseudo-elementos ::before y ::after permiten agregar contenido antes y despu
     height: 80%;
     margin: 3% auto;
     width: 30%;
+}
+
+@media screen and (max-width: 768px) {
+  #vista-menu-usuario > .contenido-vistas img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: width 0.5s, height 0.5s;
+  }
+
+  #vista-menu-usuario > .contenido-vistas {
+    width: fit-content;
+    height: fit-content;
+    padding: 0px 20px 10px 20px;
+    transition: width 0.5s, height 0.5s, padding 0.5s;
+  }
+
+  #vista-menu-usuario > .contenido-vistas > #contenedor-imagen {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    transition: width 0.5s, height 0.5s, margin-bottom 0.5s;
+  }
 }
 
 /* Vista del juego */
