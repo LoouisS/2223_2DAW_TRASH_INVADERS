@@ -53,11 +53,15 @@ class TrashInvaders {
     this.ocultarVistas();
     this.views[vista].style.display = 'block';
 
-    // Si la vista actual es la vista del juego, inicia la lógica del juego
-    if (vista === 'vistaJuego') { 
-      this.vistaPrincipalJuego.iniciarJuego();
-    } else if (vista === 'vistaConfiguracionParametros') {
-      this.vistaConfiguracionParametros.introducirValoresParametrosJuego();
+    switch (vista) {
+      case 'vistaJuego':
+        this.vistaPrincipalJuego.iniciarJuego();
+        break;
+      case 'vistaConfiguracionParametros':
+        this.vistaConfiguracionParametros.introducirValoresParametrosJuego();
+        break;
+      default:
+        break;
     }
   }
 
