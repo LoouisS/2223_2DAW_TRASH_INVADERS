@@ -66,4 +66,13 @@ export class Rest {
         return data
       })
   }
+
+  static async comprobarLogin() {
+    const url = 'src/js/php_guille_cliente/index.php?controlador=Usuarios&action=comprobarLogin'
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        return data
+      })
+  }
 }

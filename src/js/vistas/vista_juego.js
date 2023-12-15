@@ -87,6 +87,8 @@ export class VistaJuego extends Vista {
         this.personaje.style.left = this.posicionHorizontal + "px"
         this.personaje.style.top = this.posicionVertical + "px"
         
+        
+
         document.addEventListener('keydown', async(e) => {
             switch(e.key) {
                 case 'ArrowLeft':

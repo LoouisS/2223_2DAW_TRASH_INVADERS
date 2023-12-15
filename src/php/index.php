@@ -6,19 +6,19 @@ session_start();
 
 ini_set('display_errors', 1);
 
-require_once getcwd() . '/src/php/config/serverconfig.php';
-require_once getcwd() . '/src/php/controladores/imagenes.php';
-require_once getcwd() . '/src/php/modelos/modelo_mejora.php';
-require_once getcwd() . "/src/php/controladores/controlador_mejora.php";
-require_once getcwd() . '/src/php/controladores/usuario.php';
-require_once getcwd() . '/src/php/modelos/modelo_inicio_sesion.php';
-require_once getcwd() . '/src/php/controladores/sesion.php';
-require_once getcwd() . '/src/php/modelos/modelo_menu.php';
-require_once getcwd() . '/src/php/controladores/menu.php';
-require_once getcwd() . '/src/php/controladores/controlador_inicio_sesion.php';
-require_once getcwd() . '/src/php/controladores/credenciales_incorrectas.php';
-require_once getcwd() . '/src/php/controladores/controlador_imagenes_usuario.php';
-require_once getcwd() . '/src/php/controladores/controlador_parametros_juego.php';
+require_once getcwd() . '/config/serverconfig.php';
+require_once getcwd() . '/controladores/imagenes.php';
+require_once getcwd() . '/modelos/modelo_mejora.php';
+require_once getcwd() . "/controladores/controlador_mejora.php";
+require_once getcwd() . '/controladores/usuario.php';
+require_once getcwd() . '/modelos/modelo_inicio_sesion.php';
+require_once getcwd() . '/controladores/sesion.php';
+require_once getcwd() . '/modelos/modelo_menu.php';
+require_once getcwd() . '/controladores/menu.php';
+require_once getcwd() . '/controladores/controlador_inicio_sesion.php';
+require_once getcwd() . '/controladores/credenciales_incorrectas.php';
+require_once getcwd() . '/controladores/controlador_imagenes_usuario.php';
+require_once getcwd() . '/controladores/controlador_parametros_juego.php';
 
 
 // Si no hay controlador en la URL, se usa el controlador por defecto

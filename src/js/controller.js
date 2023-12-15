@@ -70,6 +70,8 @@ class TrashInvaders {
       view.style.display = 'none'
     }
   }
+
+
 }
 
 window.onload = () => {
