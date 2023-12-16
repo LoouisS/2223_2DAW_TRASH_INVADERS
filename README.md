@@ -14,6 +14,10 @@ Vistas:
     src/php/vistas/confirmacion_subida.php
     src/php/vistas/borrado_exitoso.php
 
+Cambios realizados al proyecto 
+
+- Se ha documentado todas las clases involucradas con mi tarea
+
 Cambios realizados sobre el controlador
 
 - Se han incluido todas las comprobaciones en los metodos correspondientes
