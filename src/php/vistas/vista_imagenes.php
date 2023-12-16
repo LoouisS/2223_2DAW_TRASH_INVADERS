@@ -5,22 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="src/css/new_style.css">
         <title>Banco de Imagenes</title>
-        <style>
-            img {
-                width: 150px;
-                height: 150px;
-            }
-
-            table {
-                border-collapse: collapse;
-                margin: 0 auto;
-            }
-
-            a {
-                text-decoration: none;
-            }
-
-        </style>
     </head>
     <body>
         <main id="register-page">
@@ -48,10 +32,10 @@
                 </thead>
                 <tbody>
                     <?php
-                    if (!is_iterable($imagenes) || count($imagenes) === 0) {
+                    if (!is_iterable($datos["datos"]) || count($datos["datos"]) === 0) {
                         echo "<tr ><td colspan='3'>No hay imágenes</td></tr>";
                     } else {
-                        foreach ($imagenes as $imagen) {
+                        foreach ($datos["datos"] as $imagen) {
                             echo "<tr>";
                             echo "<td>" . pathinfo($imagen['nombre'], PATHINFO_FILENAME) . "</td>";
                             echo "<td><img src='data:image/jpeg;base64," . $imagen['imagen'] . "' alt='" . $imagen['nombre'] . "'></td>";

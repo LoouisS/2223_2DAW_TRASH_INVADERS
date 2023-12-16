@@ -363,3 +363,16 @@ p {
     background-color: #4f6c9d;
 }
 
+img {
+    width: 150px;
+    height: 150px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}

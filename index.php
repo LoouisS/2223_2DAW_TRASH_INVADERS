@@ -35,8 +35,15 @@ $controlador = new $nombre_controlador();
 $datos["datos"] = array();
 if (method_exists($controlador, $_GET["action"])) {
     $datos["datos"] = $controlador->{$_GET["action"]}();
+
 }
 
+
+
+// Formamos el contenido del html
+
+require_once getcwd() . '/src/php/vistas/templates/header.php';
 require_once getcwd() . '/src/php/vistas/' . $controlador->vista . '.php';
+require_once getcwd() . '/src/php/vistas/templates/footer.php';
 
 ?>

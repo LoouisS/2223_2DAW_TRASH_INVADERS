@@ -13,31 +13,56 @@ class ImagenesController {
     }
 
     public function mostrarImagen() {
+        $this->vista = 'vista_imagenes';
         $imagenes = $this->modelo->mostrarImagen();
-        require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
+        return $imagenes;
     }
 
     public function subirImagenes() {
+
         $this->modelo->agregarImagen($_FILES);
     }
 
     public function borrarImagen() {
-        $this->modelo->eliminarImagen((int)$$_GET['idImagen']);
+        $idImagen = (int)$_GET['idImagen'];
+        $this->modelo->eliminarImagen($idImagen);
     }
 
     public function confirmarBorrado() {
-        $imagen = $this->modelo->mostrarImagenPorId((int)$_GET['idImagen']);
         $this->vista = 'confirmar_borrado';
-        require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
+        $imagen = $this->modelo->mostrarImagenPorId((int)$_GET['idImagen']);
+        return $imagen;
     }
 
     public function ejecucionBorrado() {
-        $this->modelo->eliminarImagen($_GET['idImagen']);
+        $idImagen = $_GET['idImagen'];
+        $this->modelo->eliminarImagen($idImagen);
         header('Location: index.php?controlador=Imagenes&action=mostrarImagen&borrado=BorradoCorrecto');
     }
 
     public function confirmaSubida() {
+        $archivos = $_FILES;
+        
+        $allowedExtensions = ['jpg', 'jpeg', 'png'];
+        $maxSize = 5 * 1024 * 1024;
+
+        if (isset($archivos['imagenes'])) {
+            $imagenes = $archivos['imagenes'];
+            for ($i = 0; $i < count($imagenes['name']); $i++) {
+                if (empty($imagenes['tmp_name'][$i]) || file_get_contents($imagenes['tmp_name'][$i]) === '') {
+                    // Elimina el elemento vacío del array
+                    unset($imagenes['name'][$i]);
+                    unset($imagenes['type'][$i]);
+                    unset($imagenes['tmp_name'][$i]);
+                    unset($imagenes['error'][$i]);
+                    unset($imagenes['size'][$i]);
+                    continue;
+
+                }
+        }
+
         $this->modelo->agregarImagen($_FILES);
+
         $this->vista = 'confirmacion_subida';  
         header('Location: index.php?controlador=Imagenes&action=mostrarImagen&subidaCorrecta=Ok');
     }
@@ -45,7 +70,7 @@ class ImagenesController {
     public function extensionIncorrecta() {
         $imagenes = $this->modelo->mostrarImagen();
         $this->vista = 'extension_incorrecta';
-        require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
+        return $imagenes;
     }
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-class Administrador {
+class AdministradorController {
 
     public $vista;
     // Modelo no sera necesario
