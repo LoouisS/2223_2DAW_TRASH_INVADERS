@@ -1,6 +1,6 @@
 <?php
 
-require_once getcwd() .  '..\modelo\modelo_parametros_juego.php';
+require_once getcwd() .  '/modelo/modelo_parametros_juego.php';
 
 class ParametrosJuego {
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once '..\php_guille_cliente\controlador\parametros_juego.php';
+require_once getcwd() .  '/controlador/parametros_juego.php';
 
 if ($_GET['controlador'] === 'ParametrosJuego' && $_GET['action'] === 'obtenerParametrosJuego') {
     $controlador = new ParametrosJuego();
@@ -8,10 +8,5 @@ if ($_GET['controlador'] === 'ParametrosJuego' && $_GET['action'] === 'obtenerPa
     echo $parametros;
 }
 
-if ($_GET['controlador'] === 'Usuarios' && $_GET['action'] === 'comprobarLogin') {
-    echo "Estoy funcionando";
-}
-
-echo 'Hola mundo';
 
 ?>

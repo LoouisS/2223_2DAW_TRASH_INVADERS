@@ -25,11 +25,8 @@ export class VistaLogin extends Vista {
     
     // TODO Agregar la funcionalidad del login
     botonLogin.onclick = () => {
-      const email = contenedor.querySelector('#email-input').value
-      const password = contenedor.querySelector('#password-input').value
-      this.controlador.login(email, password)
-
-    } 
+      this.controlador.irAVista('vistaMenu')
+    }
 
   }
 }
