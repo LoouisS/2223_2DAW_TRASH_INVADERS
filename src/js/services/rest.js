@@ -75,4 +75,27 @@ export class Rest {
         return data
       })
   }
+
+  static altaUsuario(usuario, password) {
+    const url = 'src/js/php_guille_cliente/index.php?controlador=Registro&action=registrarUsuario'
+    const formData = new FormData()
+    formData.append('usuario', usuario)
+    formData.append('password', password)
+    return fetch(url, {
+      method: 'POST',
+      body: formData
+    })
+  }
+
+  static loginUsuario(usuario, password) {
+    const url = 'src/js/php_guille_cliente/index.php?controlador=Registro&action=comprobarUsuario'
+    const formData = new FormData()
+    formData.append('usuario', usuario)
+    formData.append('password', password)
+    return fetch(url, {
+      method: 'POST',
+      body: formData
+    })
+  }
+  
 }

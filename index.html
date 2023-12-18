@@ -26,43 +26,43 @@
         <div class="vistas" id="vista-login">
 			<div class="box">
 				<span class="border-line"></span>
-				<form>
+				<div id="contenedor">
 					<h2>Iniciar sesion</h2>
 					<div class="input-box">
-						<input type="text" required="required">
-						<span>Usuario</span>
+						<input type="text" required="required" id="usuario-login">
+					<span>Usuario</span>
 						<i></i>
 					</div>
 					<div class="input-box">
-						<input type="password" required="required">
+						<input type="password" required="required" id="password-login">
 						<span>Password</span>
 						<i></i>
 					</div>
-					<input type="submit" value="Login" id="login-button">
+					<button id="login-button">Log In</button>
 					<button id="go-back-button">X
 					</button>
-				</form>
+				</div>
 			</div>		
 		</div>
 		<div class="vistas" id="vista-registro">
 			<div class="box">
 				<span class="border-line"></span>
-				<form>
+				<div id="contenedor">
 					<h2>Registrarse</h2>
 					<div class="input-box">
-						<input type="text" required="required" id="register-name-user">
+						<input type="text" required="required" id="register-name-user" name="nombre_usuario">
 						<span>Usuario</span>
 						<i></i>
 					</div>
 					<div class="input-box">
-						<input type="password" required="required">
+						<input type="password" required="required" id="register-password-user" name="contrasena">
 						<span>Password</span>
 						<i></i>
 					</div>
-					<input type="submit" value="Registrar" id="register-button">
+					<button id="register-button">Registrar</button>
 					<button id="go-back-button">X
 					</button>
-				</form>
+				</div>
 			</div>		
 		</div>
 		<div class="vistas" id="vista-menu-usuario" >

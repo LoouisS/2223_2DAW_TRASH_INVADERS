@@ -167,7 +167,7 @@ Los pseudo-elementos ::before y ::after permiten agregar contenido antes y despu
     inset: 0;
 }
 
-.box form {
+.box #contenedor {
     position: absolute;
     inset: 4px;
     padding: 50px 40px;
@@ -183,20 +183,20 @@ Los pseudo-elementos ::before y ::after permiten agregar contenido antes y despu
     -webkit-backdrop-filter: blur(7.7px);
 }
 
-.box form h2 {
+.box #contenedor h2 {
     color: white;
     font-weight: 700;
     text-align: center;
     letter-spacing: 0.1rem;
 }
 
-.box form .input-box {
+.box #contenedor .input-box {
     position: relative;
     width: 300px;
     margin-top: 35px;
 }
 
-.box form .input-box input {
+.box #contenedor .input-box input {
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
@@ -212,7 +212,7 @@ Los pseudo-elementos ::before y ::after permiten agregar contenido antes y despu
     z-index: 10;
 }
 
-.box form .input-box span {
+.box #contenedor .input-box span {
     position: absolute;
     left: 0;
     padding: 20px 0px 10px;
@@ -223,14 +223,14 @@ Los pseudo-elementos ::before y ::after permiten agregar contenido antes y despu
     transition: 0.5s;
 }
 
-.box form .input-box input:valid~span,
-.box form .input-box input:focus~span {
+.box #contenedor .input-box input:valid~span,
+.box #contenedor .input-box input:focus~span {
     color: white;
     font-size: 0.75rem;
     transform: translateY(-34px);
 }
 
-.box form .input-box i {
+.box #contenedor .input-box i {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -243,12 +243,12 @@ Los pseudo-elementos ::before y ::after permiten agregar contenido antes y despu
     pointer-events: none;
 }
 
-.box form .input-box input:valid ~ i,
-.box form .input-box input:focus ~ i {
+.box #contenedor .input-box input:valid ~ i,
+.box #contenedor .input-box input:focus ~ i {
     height: 44px;
 }
 
-.box form input[type="submit"] {
+.box #contenedor input[type="submit"], #register-button, #login-button {
     border: none;
     outline: none;
     padding: 9px 25px;
@@ -262,8 +262,8 @@ Los pseudo-elementos ::before y ::after permiten agregar contenido antes y despu
     font-weight: 600;
 }
 
-.box form input[type="submit"]:hover,
-.box form input[type="submit"]:active {
+.box #contenedor input[type="submit"]:hover,
+.box #contenedor input[type="submit"]:active {
     opacity: 0.8;
 }
 

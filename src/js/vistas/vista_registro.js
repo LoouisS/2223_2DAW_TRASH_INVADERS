@@ -1,4 +1,5 @@
 import { Vista } from './template/vista.js'
+import { Rest } from '../services/rest.js'
 
 export class VistaRegistro extends Vista {
   constructor (controlador, contenedor) {
@@ -13,7 +14,13 @@ export class VistaRegistro extends Vista {
     const botonRegistro = contenedor.querySelector('#register-button')
 
     botonRegistro.onclick = () => {
-      this.controlador.irAVista('vistaLogin')
+      const inputNombre = document.getElementById('register-name-user')
+      const inputPassword = document.getElementById('register-password-user')
+
+      Rest.altaUsuario(inputNombre.value, inputPassword.value)
+
+      this.controlador.irAVista('vistaPrincipal')
+
     }
 
     const inputNombre = document.getElementById('register-name-user')
@@ -23,7 +30,6 @@ export class VistaRegistro extends Vista {
     inputNombre.onblur = () => {
       const nombre = inputNombre.value.trim()
       if (!regex.test(nombre)) {
-        //TODO Alertar al usuario sobre esto
         console.log('Error')
       } 
     }
