@@ -39,35 +39,14 @@ class ModeloMejora {
         return $resultados;
     }
 
-    public function agregarImagenMejoraUsuario($idMejora, $selectedImage) {
-        if ($selectedImage && $idMejora) {
-            // Verificar si el idMejora existe en la tabla mejora
-            $stmt_check_mejora = $this->conexion->prepare("SELECT idMejora FROM mejora WHERE idMejora = ?");
-            $stmt_check_mejora->bind_param("i", $idMejora);
-            $stmt_check_mejora->execute();
-            $stmt_check_mejora->store_result();
-            
-    
-            if ($stmt_check_mejora->num_rows > 0) {
-                // El idMejora existe, continuar con la inserción en usuario_imagen_mejora
-                $stmt_check_mejora->close();
-    
-                // Obtener la información de la imagen
-                $idImagen = $selectedImage['idImagen'] ?? null;
-    
-                if ($idImagen) {
-                    // Insertar información en la tabla "usuario_imagen_mejora"
-                    $stmt = $this->conexion->prepare("INSERT INTO usuario_imagen_mejora (idUsuario, idMejora, idImagen) VALUES (?, ?, ?)");
-                    $stmt->bind_param("iii", $_SESSION['idUsuario'], $idMejora, $idImagen);
-                    $stmt->execute();
-                    $stmt->close();
-                }
-            } else {
-                // El idMejora no existe en la tabla mejora, manejar el error según tus necesidades
-                $stmt_check_mejora->close();
-                echo "Error: El idMejora no existe en la tabla mejora.";
-            }
-        }
+    public function agregarImagenMejoraUsuario($idUsuario, $idImagen, $idMejora) {
+
+
+        $stmt = $this->conexion->prepare("INSERT INTO usuario_imagen_mejora (idUsuario, idMejora, idImagen) VALUES (?, ?, ?)");
+        $stmt->bind_param("iii", $idUsuario, $idMejora, $idImagen);
+        $stmt->execute();
+        $stmt->close();
+
     }
 
     public function obtenerMejorasPorId($idMejora) {
@@ -100,8 +79,12 @@ class ModeloMejora {
         // Insertar nueva mejora
         $stmt = $this->conexion->prepare("INSERT INTO mejora (descripcion, multiplicador, duracion_mejora,porcentaje_aparicion ) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("siii", $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion);
+        $stmt->execute();
+        $stmt->close();
 
-        return $stmt->execute();
+        // Retornar el ID de la mejora recién insertada
+        return $this->conexion->insert_id;
+
     }
 
     public function actualizarMejora($idMejora, $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion) {
@@ -128,12 +111,13 @@ class ModeloMejora {
 
 
     public function obtenerMejorasPorUsuario($idUsuario) {
-        $result = $this->conexion->prepare("SELECT m.idMejora, m.descripcion, m.multiplicador, m.duracion_mejora, m.porcentaje_aparicion FROM mejora m
+        $result = $this->conexion->prepare("SELECT m.idMejora, m.descripcion, m.multiplicador, m.duracion_mejora, m.porcentaje_aparicion, i.imagen FROM mejora m
                                             INNER JOIN usuario_imagen_mejora uim ON m.idMejora = uim.idMejora
+                                            INNER JOIN imagen i ON uim.idImagen = i.idImagen
                                             WHERE uim.idUsuario = ?");
         $result->bind_param("i", $idUsuario);
         $result->execute();
-        $result->bind_result($idMejora, $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion);
+        $result->bind_result($idMejora, $descripcion, $multiplicador, $duracion_mejora, $porcentaje_aparicion, $imagen);
     
         $resultados = [];
     
@@ -143,11 +127,13 @@ class ModeloMejora {
                 'descripcion' => $descripcion,
                 'multiplicador' => $multiplicador,
                 'duracion_mejora' => $duracion_mejora,
-                'porcentaje_aparicion' => $porcentaje_aparicion
+                'porcentaje_aparicion' => $porcentaje_aparicion,
+                'imagen' => base64_encode($imagen)
             ];
         }
     
         $result->close();
+        $this->conexion->close();
     
         return $resultados;
     }
@@ -155,8 +141,8 @@ class ModeloMejora {
     public function obtenerImagenPorMejoraUsuario($idMejora, $idUsuario) {
         $result = $this->conexion->prepare("SELECT i.imagen FROM imagen i
                                             INNER JOIN usuario_imagen_mejora uim ON i.idImagen = uim.idImagen
-                                            WHERE uim.idMejora = ? AND uim.idUsuario = ?");
-        $result->bind_param("ii", $idMejora, $idUsuario);
+                                            WHERE uim.idUsuario = ?");
+        $result->bind_param("i", $idUsuario);
         $result->execute();
         $result->bind_result($imagen);
     

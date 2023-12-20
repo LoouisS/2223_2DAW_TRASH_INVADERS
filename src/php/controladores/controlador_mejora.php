@@ -43,13 +43,13 @@ class ControladorMejora {
         // Obtener las mejoras específicas de ese usuario
         $mejoras = $this->modelo->obtenerMejorasPorUsuario($idUsuario);
     
-        // Para cada mejora, obtener la imagen asociada (si existe)
-        foreach ($mejoras as &$mejora) {
-            $imagen = $this->modelo->obtenerImagenPorMejoraUsuario($mejora['idMejora'], $idUsuario);
-            if ($imagen) {
-                $mejora['imagen'] = $imagen['imagen'];
-            }
-        }
+        // // Para cada mejora, obtener la imagen asociada (si existe)
+        // foreach ($mejoras as &$mejora) {
+        //     $imagen = $this->modelo->obtenerImagenPorMejoraUsuario($mejora['idMejora'], $idUsuario);
+        //     if ($imagen) {
+        //         $mejora['imagen'] = $imagen['imagen'];
+        //     }
+        // }
     
         require_once getcwd() . '/src/php/vistas/' . $this->vista . '.php';
     }  
@@ -81,22 +81,30 @@ class ControladorMejora {
     }
 
     public function agregarDobleMejora() {
+
         // Obtener valores del formulario
         $descripcion = $_POST['descripcion'] ?? '';
         $multiplicador = $_POST['multiplicador'] ?? 0;
         $duracionMejora = $_POST['duracionMejora'] ?? 0;
         $porcentaje_aparicion = $_POST['porcentaje_aparicion'] ?? 0;
+        $idImagen = $_POST['idImagen'];
     
         // Obtener la información de la imagen seleccionada, si existe
         $selectedImage = $_SESSION['selectedImage'] ?? null;
     
         // Llamar al método del modelo para agregar la mejora
         $idMejora = $this->modelo->agregarMejora($descripcion, $multiplicador, $duracionMejora, $porcentaje_aparicion);
-    
+
         // Verificar si hay una imagen seleccionada y un ID de mejora
         if ($selectedImage && $idMejora) {
+            // Muestra el id del usuario
+            $idUsuario = $_SESSION['idUsuario'];
+
+            // Muestra el id de la imagen
+            $idImagen = $_POST['idImagen'];
+
             // Insertar la información en la tabla "usuario_imagen_mejora"
-            $this->modelo->agregarImagenMejoraUsuario($idMejora, $selectedImage);
+            $this->modelo->agregarImagenMejoraUsuario($idUsuario, $idImagen, $idMejora);
             // Limpiar la imagen seleccionada de la sesión después de procesarla
             unset($_SESSION['selectedImage']);
         }

@@ -42,7 +42,7 @@
                                 // Verifica si hay una imagen asociada con la mejora
                                 if (!empty($mejora['imagen'])) {
                                     // Muestra la imagen en lugar del enlace
-                                    echo "<td><img src='data:image/jpeg;base64," . $mejora['imagen'] . "' class='redimension'></td>";
+                                    echo "<td><img src='data:image/jpeg;base64," . $mejora['imagen'] . "' class='redimension' id='" . $mejora['idMejora'] . "'></td>";
                                 } else {
                                     echo "<td><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></td>";
                                 }                              
@@ -60,27 +60,29 @@
             </table>
             <!-- Formulario para agregar mejora -->
             <form action="index.php?controlador=ControladorMejora&action=agregarDobleMejora" method="post">
+                
                 <!-- Modifica el formulario para usar un campo desplegable -->
                 <label>Imagen</label>
                 <?php
-                    ini_set('display_errors', 0);
-                    if (isset($_SESSION['selectedImage'])) {
-                        $selectedImage = $_SESSION['selectedImage'];
-                        $idUsuario = $_GET['idUsuario'] ?? '';
-                        echo "<td><img src='data:image/jpeg;base64," . $selectedImage['imagen'] . "' alt='" . $selectedImage['nombre'] . "' class='redimension'></td>";
-                        echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Cambiar Imagen</a></div>";
-                    } else {
-                        // Muestra el enlace para seleccionar la imagen
-                        echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></div>";
-                    }
+                ini_set('display_errors', 0);
+                if (isset($_SESSION['selectedImage'])) {
+                    $selectedImage = $_SESSION['selectedImage'];
+                    $idUsuario = $_GET['idUsuario'] ?? '';
+                    echo "<td><img src='data:image/jpeg;base64," . $selectedImage['imagen'] . "' alt='" . $selectedImage['nombre'] . "' class='redimension' id='" . $mejora['idMejora'] . "'></td>";
+                    echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Cambiar Imagen</a></div>";
+                    echo "<input type='hidden' name='idImagen' value='{$selectedImage['idImagen']}'>";
+                } else {
+                    // Muestra el enlace para seleccionar la imagen
+                    echo "<div><a href='index.php?controlador=ControladorImagenesUsuario&action=mostrarImagenUsuario&idUsuario={$idUsuario}&" . http_build_query(['idMejora' => $mejora['idMejora']]) . "'>Seleccionar Imagen</a></div>";
+                }
                 ?>
                 
                 <label>Descripción:</label>
                 <select name="descripcion" required id="descripcion" >
                     <?php
-                        foreach ($descripciones as $descripcion) {
-                            echo "<option value='{$descripcion}'>{$descripcion}</option>";
-                        }
+                    foreach ($descripciones as $descripcion) {
+                        echo "<option value='{$descripcion}'>{$descripcion}</option>";
+                    }
                     ?>
                 </select>
                 <label>Multiplicador:</label>
@@ -91,6 +93,7 @@
                 <input type="number" name="porcentaje_aparicion" required>
                 <button type="submit">Agregar Mejora</button>
             </form>
+
             <button id="volvermenu"><a href="index.php?controlador=Menu&action=mostrarMenu">VOLVER</a></button>
         </main>
     </body>
