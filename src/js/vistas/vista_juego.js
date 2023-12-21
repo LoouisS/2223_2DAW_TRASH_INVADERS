@@ -75,7 +75,9 @@ export class VistaJuego extends Vista {
                 clase: "basura-vidrio",
                 id: "contenedor-inferior-derecha"
             }
-        }        
+        }    
+        
+
     }
     
     iniciarJuego() {
@@ -126,6 +128,14 @@ export class VistaJuego extends Vista {
                 location.reload()
             }
         }, 100)
+
+        setInterval(() => {
+            // Check lenght of items in this.basuraGenerada. is a object type 
+            if (Object.keys(this.basuraGenerada).length > 20) {
+                alert("Has perdido")
+                location.reload()
+            }
+        }, 1000);
     }
 
     async moverIzquierda(velocidad) {
@@ -133,6 +143,7 @@ export class VistaJuego extends Vista {
             const limiteIzquierdo = 0
             this.posicionHorizontal = Math.max(limiteIzquierdo, this.posicionHorizontal - velocidad)
             this.personaje.style.left = this.posicionHorizontal + 'px'
+            this.personaje.style.transform = 'scaleX(1)'
             await this.sleep(10)
         }
     }
@@ -142,6 +153,7 @@ export class VistaJuego extends Vista {
             const limiteDerecho = (window.innerWidth - this.personaje.offsetWidth) + 75
             this.posicionHorizontal = Math.min(limiteDerecho, this.posicionHorizontal + velocidad)
             this.personaje.style.left = this.posicionHorizontal + 'px'
+            this.personaje.style.transform = 'scaleX(-1)'
             await this.sleep(10)
         }
     }
