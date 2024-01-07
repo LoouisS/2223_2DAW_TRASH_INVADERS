@@ -20,11 +20,33 @@ class ImagenesController {
     public $modelo;
 
     /**
+     * Variable that holds the confirmation status for deletion.
+     *
+     * @var bool $confirmacion_borrado
+     */
+    public $confirmacion_borrado;
+
+    /**
+     * Indicates whether the file is empty or not.
+     *
+     * @var bool
+     */
+    public $archivo_vacio;
+
+    /**
+     * Represents a public property that holds the file not allowed message.
+     *
+     * @var bool
+     */
+    public $file_not_allowed;
+
+    /**
      * ImagenesController constructor.
      */
     function __construct() {
         $this->vista = 'vista_imagenes'; // Set the default view name
         $this->modelo = new ModeloImagenes(); // Create a new instance of the image model
+    
     }
 
     /**
@@ -70,9 +92,12 @@ class ImagenesController {
     public function ejecucionBorrado() {
         $idImagen = $_GET['idImagen']; // Get the image ID from the request
         $this->modelo->eliminarImagen($idImagen); // Delete the image from the model
-        header('Location: index.php?controlador=Imagenes&action=mostrarImagen&borrado=BorradoCorrecto'); // Redirect to the image display page
+        $imagenes = $this->modelo->mostrarImagen(); // Get the images from the model
+        $this->vista = 'vista_imagenes'; // Set the view name
+        $this->confirmacion_borrado = true; // Set the confirmation message
+        return $imagenes; // Return the images
     }
-
+ 
     /**
      * Show confirmation for image upload
      */
@@ -82,19 +107,30 @@ class ImagenesController {
         // If no images were uploaded, echo an error message 
 
         if (empty($archivos['imagenes']['name'][0])) {
-                header('Location: index.php?controlador=Imagenes&action=mostrarImagen&errorArchivoVacio=ArchivoVacio'); // Redirect to the image display page
-                exit;
+                $this->archivo_vacio = true; // Set the error message
+                $imagenes = $this->modelo->mostrarImagen(); // Get the images from the model
+                $this->vista = 'vista_imagenes'; // Set the view name
+                return $imagenes; // Return the images
         } 
+
         
-
-        // If no images were uploaded, redirect to extensionIncorrecta
-
         if (isset($archivos['imagenes'])) { // Check if any images were uploaded
 
             $allowedExtensions = array("jpg", "jpeg", "png", "gif", "webp"); // Define the allowed file extensions
             $maxSize = 5 * 1024 * 1024; // Define the maximum file size (5MB)
             
             $imagenes = $archivos['imagenes']; // Get the uploaded images
+
+            // If the lenght of the array of images is 1, and any of the images is not allowed, echo an error message
+
+            foreach ($imagenes['name'] as $i => $name) {
+                if (!in_array(strtolower(pathinfo($name, PATHINFO_EXTENSION)), $allowedExtensions)) {
+                    $this->vista = 'vista_imagenes'; // Set the view name
+                    $this->file_not_allowed = true; // Set the error message
+                    $images = $this->modelo->mostrarImagen(); // Get the images from the model
+                    return $images; // Return the images
+                }
+            }
 
             // Filter files based on extensions and size
             $imagenesFiltradas = array_filter(range(0, count($imagenes['name']) - 1), function ($i) use ($imagenes, $allowedExtensions, $maxSize) {

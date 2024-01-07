@@ -4,15 +4,26 @@
             <h1>Banco de Imagenes</h1>
         </div>
         <?php 
-        if (isset($_GET['error'])) {
-            echo "<p>Extension Incorrecta. Solo se permiten archivos con extension JPG, PNG, JPEG.</p>";
-        } else if (isset($_GET['errorArchivoVacio'])) {
-            echo "<p> No seleccionaste ningun archivo</p>";
-        } elseif (isset($_GET['subidaCorrecta'])) {
-            echo "<p> Subida correcta de los archivos </p>";
-        } elseif (isset($_GET['borrado'])) {
+
+        if ($controlador->confirmacion_borrado) {
             echo "<p> Borrado correcto de la imagen </p>";
-        }
+            $controlador->confirmacion_borrado = false;
+        } else if ($controlador->archivo_vacio) {
+            echo "<p> No seleccionaste ningun archivo</p>";
+            $controlador->archivo_vacio = false;
+        } else if ($controlador->file_not_allowed) {
+            echo "<p>Extension Incorrecta. Solo se permiten archivos con extension JPG, PNG, JPEG.</p>";
+            $controlador->file_not_allowed = false;
+        } 
+        // if (isset($_GET['error'])) {
+        //     echo "<p>Extension Incorrecta. Solo se permiten archivos con extension JPG, PNG, JPEG.</p>";
+        // } else if (isset($_GET['errorArchivoVacio'])) {
+        //     echo "<p> No seleccionaste ningun archivo</p>";
+        // } elseif (isset($_GET['subidaCorrecta'])) {
+        //     echo "<p> Subida correcta de los archivos </p>";
+        // } elseif (isset($_GET['borrado'])) {
+        //     echo "<p> Borrado correcto de la imagen </p>";
+        // }
         ?>
         <table>
             <thead>

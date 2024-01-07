@@ -9,7 +9,6 @@
 ini_set('display_errors', 1);
 
 require_once getcwd() . '/src/php/config/serverconfig.php';
-require_once getcwd() . '/src/php/controladores/imagenes.php';
 
 // If no controller is specified in the URL, use the default controller
 if (!isset($_GET["controlador"])) {
